@@ -10,30 +10,89 @@
       </p>
     </div>
     <div class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-      <div class="bg-gray-800 p-8 rounded-lg">
-        <h3 class="text-xl font-semibold text-white">Performance</h3>
-        <p class="mt-4 text-gray-300">Get the best accuracy, speed, and cost-efficiency for your voice AI needs.</p>
+      <div class="bento-section">
+        <div class="bento-body">
+          <h3 class="text-xl font-semibold text-white">Performance</h3>
+          <p class="mt-4 text-gray-300">Get the best accuracy, speed, and cost-efficiency for your voice AI needs.</p>
+        </div>
       </div>
-      <div class="bg-gray-800 p-8 rounded-lg">
-        <h3 class="text-xl font-semibold text-white">Security</h3>
-        <p class="mt-4 text-gray-300">Deploy with confidence knowing your data is protected with enterprise-grade security.</p>
+      <div class="bento-section">
+        <div class="bento-body">
+          <h3 class="text-xl font-semibold text-white">Security</h3>
+          <p class="mt-4 text-gray-300">Deploy with confidence knowing your data is protected with enterprise-grade security.</p>
+        </div>
       </div>
-      <div class="bg-gray-800 p-8 rounded-lg">
-        <h3 class="text-xl font-semibold text-white">Reliability</h3>
-        <p class="mt-4 text-gray-300">Build on a platform trusted for its uptime, resilience, and 24/7 support.</p>
+      <div class="bento-section">
+        <div class="bento-body">
+          <h3 class="text-xl font-semibold text-white">Reliability</h3>
+          <p class="mt-4 text-gray-300">Build on a platform trusted for its uptime, resilience, and 24/7 support.</p>
+        </div>
       </div>
-      <div class="bg-gray-800 p-8 rounded-lg">
-        <h3 class="text-xl font-semibold text-white">Scale</h3>
-        <p class="mt-4 text-gray-300">Process millions of hours of audio without compromising on performance.</p>
+      <div class="bento-section">
+        <div class="bento-body">
+          <h3 class="text-xl font-semibold text-white">Scale</h3>
+          <p class="mt-4 text-gray-300">Process millions of hours of audio without compromising on performance.</p>
+        </div>
       </div>
-      <div class="bg-gray-800 p-8 rounded-lg">
-        <h3 class="text-xl font-semibold text-white">Flexibility</h3>
-        <p class="mt-4 text-gray-300">Customize models and deployment options to fit your unique requirements.</p>
+      <div class="bento-section">
+        <div class="bento-body">
+          <h3 class="text-xl font-semibold text-white">Flexibility</h3>
+          <p class="mt-4 text-gray-300">Customize models and deployment options to fit your unique requirements.</p>
+        </div>
       </div>
-      <div class="bg-gray-800 p-8 rounded-lg">
-        <h3 class="text-xl font-semibold text-white">Partners and Integrations</h3>
-        <p class="mt-4 text-gray-300">Leverage our ecosystem of partners to accelerate your voice AI initiatives.</p>
+      <div class="bento-section">
+        <div class="bento-body">
+          <h3 class="text-xl font-semibold text-white">Partners and Integrations</h3>
+          <p class="mt-4 text-gray-300">Leverage our ecosystem of partners to accelerate your voice AI initiatives.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  .bento-section {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .bento-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.15), transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .bento-section:hover {
+    transform: translateY(-8px);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.25), 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+  }
+
+  .bento-section:hover::before {
+    opacity: 1;
+  }
+
+  .bento-body {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+</style>

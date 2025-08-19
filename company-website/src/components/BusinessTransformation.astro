@@ -11,7 +11,7 @@
     </div>
     <div class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
       <!-- Contact Centers Card -->
-      <div class="bg-gray-800/50 border border-gray-700/50 p-8 rounded-lg backdrop-blur-sm hover:bg-gray-800/70 transition-all duration-300 group">
+      <div class="bento-card group">
         <div class="flex justify-center mb-8">
           <div class="relative">
             <!-- Animated outer ring -->
@@ -38,7 +38,7 @@
       </div>
 
       <!-- Speech Analytics Card -->
-      <div class="bg-gray-800/50 border border-gray-700/50 p-8 rounded-lg backdrop-blur-sm hover:bg-gray-800/70 transition-all duration-300 group">
+      <div class="bento-card group">
         <div class="flex justify-center mb-8">
           <div class="relative">
             <!-- Animated outer ring -->
@@ -65,7 +65,7 @@
       </div>
 
       <!-- Medical Transcripts Card -->
-      <div class="bg-gray-800/50 border border-gray-700/50 p-8 rounded-lg backdrop-blur-sm hover:bg-gray-800/70 transition-all duration-300 group">
+      <div class="bento-card group">
         <div class="flex justify-center mb-8">
           <div class="relative">
             <!-- Animated outer ring -->
@@ -95,6 +95,68 @@
 </section>
 
 <style>
+  .bento-card {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .bento-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.15), transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .bento-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.25), 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+  }
+
+  .bento-card:hover::before {
+    opacity: 1;
+  }
+
+  /* Icon animation styles */
+  .bento-card .w-24.h-24.rounded-full.border-2 {
+    transition: transform 0.3s ease;
+  }
+
+  .bento-card:hover .w-24.h-24.rounded-full.border-2 {
+    animation: spin-slow 8s linear infinite;
+  }
+
+  .bento-card .absolute.inset-2.w-20.h-20.rounded-full.border {
+    transition: opacity 0.3s ease;
+  }
+
+  .bento-card:hover .absolute.inset-2.w-20.h-20.rounded-full.border {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .bento-card .absolute.inset-0.w-24.h-24.rounded-full {
+    transition: opacity 0.3s ease;
+  }
+
+  .bento-card:hover .absolute.inset-0.w-24.h-24.rounded-full {
+    animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
   @keyframes spin-slow {
     from {
       transform: rotate(0deg);
