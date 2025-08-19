@@ -2,17 +2,9 @@
 // FAQ Component based on Deepgram's technical approach
 ---
 
-<section class="py-20 sm:py-32 bg-gray-900">
+<section class="pt-8 pb-20 sm:pt-12 sm:pb-32 bg-gray-900">
   <div class="container mx-auto px-6">
     <div class="max-w-4xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-6">
-          Frequently Asked Questions
-        </h2>
-        <p class="text-lg text-gray-300 max-w-2xl mx-auto">
-          Find answers to common questions about our AI solutions, services, and business approach.
-        </p>
-      </div>
 
       <div class="space-y-4">
         <!-- FAQ Item 1 -->
@@ -315,6 +307,38 @@
               Our stage-gate process is a step-by-step approach that ensures your solution is developed with minimal risk. We start with a Discovery Workshop, followed by a Proof of Concept, and then progress to building a Minimum Viable Product. At each stage, you have the opportunity to review progress and decide whether to proceed.
             </p>
           </div>
+        </div>
+      </div>
+
+      <!-- Email Signup Section -->
+      <div class="mt-16 max-w-2xl mx-auto">
+        <div class="bg-gray-800/50 border border-gray-700/50 rounded-lg backdrop-blur-sm p-8 text-center">
+          <h3 class="text-2xl font-bold text-white mb-4">
+            Have more questions?
+          </h3>
+          <p class="text-gray-300 mb-6">
+            We'd love to hear from you. Curious minds drive innovation, and every great transformation starts with asking the right questions.
+          </p>
+          <form class="space-y-4">
+            <div class="flex flex-col sm:flex-row gap-4">
+              <input 
+                type="email" 
+                placeholder="Enter your email address"
+                class="flex-1 px-4 py-3 bg-gray-900/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                required
+              >
+              <button 
+                type="submit"
+                class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+              >
+                Get Started
+              </button>
+            </div>
+          </form>
+          <p class="text-sm text-gray-400 mt-4">
+            By submitting this form, you are agreeing to our 
+            <a href="/privacy" class="text-blue-400 hover:text-blue-300 transition-colors duration-200">Privacy Policy</a>.
+          </p>
         </div>
       </div>
     </div>

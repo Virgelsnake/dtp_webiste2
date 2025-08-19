@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+
+# System files
+.DS_Store
+
+# Astro build output
+/company-website/dist/
+/company-website/.astro/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
