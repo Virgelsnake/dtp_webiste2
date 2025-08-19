@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import DeploymentOptions from '../components/DeploymentOptions.astro';
+import PlatformFeatures from '../components/PlatformFeatures.astro';
+import BusinessTransformation from '../components/BusinessTransformation.astro';
+import Resources from '../components/Resources.astro';
+import CallToAction from '../components/CallToAction.astro';
+---
+
+<Layout title="Deepgram Enterprise Clone">
+  <div class="relative bg-gray-900 text-white">
+    <Header />
+    <main class="relative">
+      <div class="pt-24 sm:pt-32">
+        <div class="container mx-auto px-6 text-center">
+          <h1 class="text-4xl font-bold tracking-tight sm:text-6xl">
+            Voice AI for Enterprise
+          </h1>
+          <p class="mt-6 text-lg leading-8 text-gray-300 max-w-2xl mx-auto">
+            From transcription to voice synthesis to AI voice agents, Deepgram is the preferred enterprise partner for delivering intelligent voice experiences safely, securely, and at scale.
+          </p>
+          <div class="mt-10 flex items-center justify-center gap-x-6">
+            <a href="#" class="rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">Get a Demo</a>
+            <a href="#" class="text-sm font-semibold leading-6">Join our Enterprise Accelerator Program <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+      <DeploymentOptions />
+      <PlatformFeatures />
+      <BusinessTransformation />
+      <Resources />
+      <CallToAction />
+    </main>
+  </div>
+</Layout>

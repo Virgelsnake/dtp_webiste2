@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+---
+
+<BaseLayout
+  title="Pricing - Company Name"
+  description="Transparent pricing for our professional services"
+>
+  <div class="flex flex-col min-h-screen">
+    <Header />
+    <main class="flex-grow container mx-auto px-4 py-8">
+      <h1 class="text-3xl font-bold text-gray-800 mb-6">Pricing</h1>
+      <p class="text-gray-700 mb-8">
+        Transparent, competitive pricing for all our services.
+      </p>
+
+      <!-- Pricing tables will be styled by designer -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Pricing cards will be added by designer -->
+      </div>
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>

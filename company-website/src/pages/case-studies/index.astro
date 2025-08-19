@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import '../../styles/global.css';
+---
+
+<BaseLayout
+  title="Case Studies - Company Name"
+  description="Real success stories from our clients"
+>
+  <div class="flex flex-col min-h-screen">
+    <Header />
+    <main class="flex-grow container mx-auto px-4 py-8">
+      <h1 class="text-3xl font-bold text-gray-800 mb-6">Case Studies</h1>
+      <p class="text-gray-700 mb-8">
+        Discover how we've helped our clients achieve their goals.
+      </p>
+
+      <!-- Case study grid will be styled by designer -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Case study cards will be added by designer -->
+        <div class="border rounded-lg p-6">
+          <h3 class="text-xl font-semibold mb-4">Case Study Title</h3>
+          <p class="text-gray-600 mb-4">Brief case study description.</p>
+          <a
+            href="/case-studies/case-study-1"
+            class="text-blue-600 hover:text-blue-800">Read Full Case Study →</a
+          >
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>

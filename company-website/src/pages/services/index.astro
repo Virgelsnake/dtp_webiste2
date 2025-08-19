@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import '../../styles/global.css';
+---
+
+<BaseLayout
+  title="Services - Company Name"
+  description="Our comprehensive range of professional services"
+>
+  <div class="flex flex-col min-h-screen">
+    <Header />
+    <main class="flex-grow container mx-auto px-4 py-8">
+      <h1 class="text-3xl font-bold text-gray-800 mb-6">Our Services</h1>
+      <p class="text-gray-700 mb-8">
+        Explore our comprehensive range of professional services.
+      </p>
+
+      <!-- Service grid will be styled by designer -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Individual service cards will be added by designer -->
+        <div class="p-6 border rounded-lg">
+          <h3 class="text-xl font-semibold mb-4">Service 1</h3>
+          <p class="text-gray-600 mb-4">Service description goes here.</p>
+          <a
+            href="/services/service-1"
+            class="text-blue-600 hover:text-blue-800">Learn More →</a
+          >
+        </div>
+        <!-- Add more service cards as needed -->
+      </div>
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>

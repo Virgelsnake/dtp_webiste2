@@ -148,6 +148,16 @@ mkdir -p public/{images,icons}
 
 Create the following files with the specified content:
 
+#### `src/styles/global.css`
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+> **Important:** Use these three directives to correctly import Tailwind's styles. Using `@import 'tailwindcss';` can cause build errors with PostCSS.
+
 #### `src/layouts/BaseLayout.astro`
 
 ```astro
