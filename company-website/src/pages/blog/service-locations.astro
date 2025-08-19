@@ -1,35 +1,16 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import '../../styles/global.css';
 ---
 
-<BaseLayout
-  title="Service Locations - Company Name"
-  description="Our services available across multiple locations"
->
-  <div class="flex flex-col min-h-screen">
+<Layout title="Service Locations - Company Name">
+  <div class="min-h-screen bg-gray-900 text-white">
     <Header />
-    <main class="flex-grow container mx-auto px-4 py-8">
-      <h1 class="text-3xl font-bold text-gray-800 mb-6">
-        Service-City Combinations
-      </h1>
-      <p class="text-gray-700 mb-8">
-        Discover our services available in your area.
-      </p>
-
-      <!-- Location/service grid will be styled by designer -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="border rounded-lg p-4">
-          <h3 class="font-semibold mb-2">Service in City</h3>
-          <p class="text-gray-600">
-            Information about this service in this location.
-          </p>
-        </div>
-        <!-- More service-location combinations -->
+    <main class="flex items-center justify-center min-h-screen">
+      <div class="text-center">
+        <h1 class="text-6xl font-bold mb-4">Service Locations</h1>
+        <p class="text-xl text-gray-300">Services available in your area</p>
       </div>
     </main>
-    <Footer />
   </div>
-</BaseLayout>
+</Layout>

@@ -1,22 +1,16 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import '../styles/global.css';
 ---
 
-<BaseLayout
-  title="About Us - Company Name"
-  description="Learn more about our company and our mission"
->
-  <div class="flex flex-col min-h-screen">
+<Layout title="About Us - Company Name">
+  <div class="min-h-screen bg-gray-900 text-white">
     <Header />
-    <main class="flex-grow container mx-auto px-4 py-8">
-      <h1 class="text-3xl font-bold text-gray-800 mb-6">About Us</h1>
-      <p class="text-gray-700">
-        About page content goes here - ready for designer implementation.
-      </p>
+    <main class="flex items-center justify-center min-h-screen">
+      <div class="text-center">
+        <h1 class="text-6xl font-bold mb-4">About</h1>
+        <p class="text-xl text-gray-300">Learn more about our company</p>
+      </div>
     </main>
-    <Footer />
   </div>
-</BaseLayout>
+</Layout>

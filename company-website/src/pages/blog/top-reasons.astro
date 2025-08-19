@@ -1,34 +1,16 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import '../../styles/global.css';
 ---
 
-<BaseLayout
-  title="Top Reasons Series - Company Name"
-  description="Top reasons to choose our services"
->
-  <div class="flex flex-col min-h-screen">
+<Layout title="Top Reasons Series - Company Name">
+  <div class="min-h-screen bg-gray-900 text-white">
     <Header />
-    <main class="flex-grow container mx-auto px-4 py-8">
-      <h1 class="text-3xl font-bold text-gray-800 mb-6">Top Reasons Series</h1>
-      <p class="text-gray-700 mb-8">
-        Explore the key advantages of working with us.
-      </p>
-
-      <!-- Article list will be styled by designer -->
-      <div class="space-y-6">
-        <article class="border-b pb-6">
-          <h2 class="text-xl font-semibold mb-2">Top Reasons Article Title</h2>
-          <p class="text-gray-600 mb-2">Article excerpt goes here...</p>
-          <a
-            href="/blog/top-reasons/article-slug"
-            class="text-blue-600 hover:text-blue-800">Read More →</a
-          >
-        </article>
+    <main class="flex items-center justify-center min-h-screen">
+      <div class="text-center">
+        <h1 class="text-6xl font-bold mb-4">Top Reasons</h1>
+        <p class="text-xl text-gray-300">Key advantages of working with us</p>
       </div>
     </main>
-    <Footer />
   </div>
-</BaseLayout>
+</Layout>
