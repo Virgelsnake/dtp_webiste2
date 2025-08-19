@@ -102,6 +102,8 @@ npx astro add tailwind
 # Confirm integration when prompted
 ```
 
+> **Note:** `@astrojs/tailwind` requires `tailwindcss` v3. After running the command above, verify that your `package.json` lists `"tailwindcss": "^3.x.x"`. If it shows version 4, manually downgrade it to `^3.4.4` before running `npm install`.
+
 ### 2.2 Install Additional Development Dependencies
 
 ```bash
