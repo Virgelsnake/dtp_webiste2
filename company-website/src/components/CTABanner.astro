@@ -21,13 +21,13 @@
         <!-- CTA Buttons -->
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <!-- Primary CTA Button -->
-          <button class="cta-primary-btn bg-white text-gray-900 px-8 py-3 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900">
-            Sign Up
+          <button class="cta-primary-btn bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-gray-900 relative overflow-hidden">
+            <span class="relative z-10">Sign Up</span>
           </button>
           
           <!-- Secondary CTA Button -->
-          <button class="cta-secondary-btn border-2 border-teal-400 text-teal-400 px-8 py-3 rounded-lg font-semibold text-lg hover:bg-teal-400 hover:text-gray-900 transition-all duration-300 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-offset-2 focus:ring-offset-gray-900">
-            Book A Free Demo
+          <button class="cta-secondary-btn border border-teal-400 text-teal-400 px-8 py-3 rounded-lg font-semibold text-lg hover:bg-teal-400 hover:text-gray-900 transition-all duration-300 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-offset-2 focus:ring-offset-gray-900 relative overflow-hidden">
+            <span class="relative z-10">Book A Free Demo</span>
           </button>
         </div>
       </div>
@@ -71,32 +71,93 @@
       0 4px 15px rgba(0, 0, 0, 0.2),
       0 1px 3px rgba(0, 0, 0, 0.1),
       inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+
+  .cta-primary-btn::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    opacity: 0;
+    background: linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(147, 197, 253, 0.2));
+    transition: opacity 150ms ease-in-out, transform 400ms ease-in-out;
+    border-radius: 8px;
+    transform: scale(0.8);
   }
   
   .cta-primary-btn:hover {
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+    color: #ffffff !important;
+    transform: translateY(-3px) !important;
     box-shadow: 
-      0 8px 25px rgba(0, 0, 0, 0.3),
-      0 2px 6px rgba(0, 0, 0, 0.15),
-      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      0 15px 35px rgba(59, 130, 246, 0.4),
+      0 8px 20px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+  }
+
+  .cta-primary-btn:hover::before {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .cta-primary-btn {
+    position: relative;
+    z-index: 10;
   }
   
-  .cta-secondary-btn {
-    background: rgba(45, 212, 191, 0.1);
-    border-color: #2dd4bf;
+  /* Deepgram-style hover effects for the Book A Free Demo button */
+  button.cta-secondary-btn.border-2.border-teal-400 {
+    background: rgba(45, 212, 191, 0.1) !important;
+    border-color: #2dd4bf !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) !important;
     box-shadow: 
       0 4px 15px rgba(45, 212, 191, 0.2),
       0 1px 3px rgba(45, 212, 191, 0.1),
-      inset 0 1px 0 rgba(45, 212, 191, 0.2);
+      inset 0 1px 0 rgba(45, 212, 191, 0.2) !important;
+  }
+
+  button.cta-secondary-btn.border-2.border-teal-400::before {
+    content: "" !important;
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: 0 !important;
+    opacity: 0 !important;
+    background: linear-gradient(45deg, rgba(45, 212, 191, 0.3), rgba(20, 184, 166, 0.4)) !important;
+    transition: opacity 150ms ease-in-out, transform 400ms ease-in-out !important;
+    border-radius: 8px !important;
+    transform: scale(0.8) !important;
   }
   
-  .cta-secondary-btn:hover {
-    background: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 100%);
-    border-color: #14b8a6;
+  button.cta-secondary-btn.border-2.border-teal-400:hover {
+    background: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 100%) !important;
+    border-color: #14b8a6 !important;
+    color: #ffffff !important;
+    transform: translateY(-3px) scale(1.02) !important;
     box-shadow: 
-      0 8px 25px rgba(45, 212, 191, 0.4),
-      0 2px 6px rgba(45, 212, 191, 0.2),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      0 15px 35px rgba(45, 212, 191, 0.6),
+      0 8px 20px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+  }
+
+  button.cta-secondary-btn.border-2.border-teal-400:hover::before {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+  }
+
+  button.cta-secondary-btn.border-2.border-teal-400 {
+    position: relative !important;
+    z-index: 10 !important;
   }
   
   /* Responsive adjustments */

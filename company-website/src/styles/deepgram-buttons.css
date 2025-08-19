@@ -1,0 +1,179 @@
+/* Deepgram-style hover effects for all buttons */
+
+/* Base button styles */
+button, 
+a[href="#"], 
+.get-demo-btn, 
+.get-started-btn,
+.cta-primary-btn,
+.cta-secondary-btn {
+  position: relative !important;
+  overflow: hidden !important;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Pseudo-element for gradient overlay */
+button::before,
+a[href="#"]::before,
+.get-demo-btn::before,
+.get-started-btn::before,
+.cta-primary-btn::before,
+.cta-secondary-btn::before {
+  content: "" !important;
+  position: absolute !important;
+  width: 100% !important;
+  height: 100% !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 0 !important;
+  opacity: 0 !important;
+  transition: opacity 150ms ease-in-out, transform 400ms ease-in-out !important;
+  border-radius: inherit !important;
+  transform: scale(0.8) !important;
+}
+
+/* Primary buttons (blue theme) */
+button.bg-blue-600,
+button.cta-primary-btn,
+a.bg-blue-600,
+.get-demo-btn {
+  background: rgba(59, 130, 246, 0.9) !important;
+  border-color: #3b82f6 !important;
+  box-shadow: 
+    0 4px 15px rgba(59, 130, 246, 0.3),
+    0 1px 3px rgba(59, 130, 246, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+button.bg-blue-600::before,
+button.cta-primary-btn::before,
+a.bg-blue-600::before,
+.get-demo-btn::before {
+  background: linear-gradient(45deg, rgba(59, 130, 246, 0.3), rgba(147, 197, 253, 0.4)) !important;
+}
+
+button.bg-blue-600:hover,
+button.cta-primary-btn:hover,
+a.bg-blue-600:hover,
+.get-demo-btn:hover {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+  color: #ffffff !important;
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 
+    0 15px 35px rgba(59, 130, 246, 0.5),
+    0 8px 20px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Secondary buttons (teal theme) */
+button.cta-secondary-btn,
+button.border-teal-400,
+.get-started-btn {
+  background: rgba(45, 212, 191, 0.1) !important;
+  border-color: #2dd4bf !important;
+  color: #2dd4bf !important;
+  box-shadow: 
+    0 4px 15px rgba(45, 212, 191, 0.2),
+    0 1px 3px rgba(45, 212, 191, 0.1),
+    inset 0 1px 0 rgba(45, 212, 191, 0.2) !important;
+}
+
+button.cta-secondary-btn::before,
+button.border-teal-400::before,
+.get-started-btn::before {
+  background: linear-gradient(45deg, rgba(45, 212, 191, 0.3), rgba(20, 184, 166, 0.4)) !important;
+}
+
+button.cta-secondary-btn:hover,
+button.border-teal-400:hover,
+.get-started-btn:hover {
+  background: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 100%) !important;
+  border-color: #14b8a6 !important;
+  color: #ffffff !important;
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 
+    0 15px 35px rgba(45, 212, 191, 0.6),
+    0 8px 20px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+}
+
+/* FAQ buttons and navigation buttons */
+button.w-full,
+button.hover\\:text-blue-400,
+button.md\\:hidden {
+  background: rgba(59, 130, 246, 0.05) !important;
+  border: 1px solid rgba(59, 130, 246, 0.2) !important;
+}
+
+button.w-full::before,
+button.hover\\:text-blue-400::before,
+button.md\\:hidden::before {
+  background: linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(147, 197, 253, 0.2)) !important;
+}
+
+button.w-full:hover,
+button.hover\\:text-blue-400:hover,
+button.md\\:hidden:hover {
+  background: rgba(59, 130, 246, 0.15) !important;
+  color: #93c5fd !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 
+    0 8px 20px rgba(59, 130, 246, 0.3),
+    0 4px 12px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Link buttons */
+a[href="#"] {
+  background: rgba(59, 130, 246, 0.05) !important;
+  border: 1px solid rgba(59, 130, 246, 0.2) !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 6px !important;
+  display: inline-block !important;
+}
+
+a[href="#"]::before {
+  background: linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(147, 197, 253, 0.2)) !important;
+}
+
+a[href="#"]:hover {
+  background: rgba(59, 130, 246, 0.2) !important;
+  color: #93c5fd !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 
+    0 8px 20px rgba(59, 130, 246, 0.3),
+    0 4px 12px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Ensure text stays above background effects */
+button *,
+a[href="#"] *,
+.get-demo-btn *,
+.get-started-btn *,
+.cta-primary-btn *,
+.cta-secondary-btn * {
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+/* Hover state for pseudo-elements */
+button:hover::before,
+a[href="#"]:hover::before,
+.get-demo-btn:hover::before,
+.get-started-btn:hover::before,
+.cta-primary-btn:hover::before,
+.cta-secondary-btn:hover::before {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+
+/* Arrow animation for get-started button */
+.get-started-btn:hover span[aria-hidden="true"] {
+  transform: translateX(6px) !important;
+}
+
+/* Focus states */
+button:focus-visible,
+a[href="#"]:focus-visible {
+  outline: 2px solid #3b82f6 !important;
+  outline-offset: 3px !important;
+}
