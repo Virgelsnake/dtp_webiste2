@@ -485,16 +485,14 @@ import Header from '../../components/Header.astro';
   .logo-section {
     width: 100% !important;
     height: 100% !important;
-    background-image: url('/images/dtp-logo-black.png') !important;
+    background-image: url('/images/user-sailing-girl.jpg') !important;
     background-repeat: no-repeat !important;
-    filter: invert(1) !important;
     position: relative !important;
     /* DEBUG: Add visible borders and minimum dimensions */
     border: 10px solid red !important;
     outline: 5px solid orange !important;
     min-height: 100px !important;
     min-width: 100px !important;
-    background-color: yellow !important;
     box-shadow: inset 0 0 20px red !important;
   }
   
@@ -502,7 +500,6 @@ import Header from '../../components/Header.astro';
   .mosaic-piece {
     border: 5px solid blue !important;
     min-height: 150px !important;
-    background-color: green !important;
     display: flex !important;
     align-items: stretch !important;
     justify-content: stretch !important;
@@ -519,53 +516,57 @@ import Header from '../../components/Header.astro';
   .layout-3piece {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
-    gap: 2px;
+    gap: 0px;
+    height: 400px;
     position: relative;
   }
 
   .split-piece-1 {
     grid-row: 1;
-    transform: translateX(-120px);
+    transform: translateX(-200px) translateY(-50px) rotate(-5deg);
+    opacity: 0.8;
   }
 
   .split-piece-2 {
     grid-row: 2;
-    transform: translateX(120px);
+    transform: translateX(150px) translateY(30px) rotate(3deg);
+    opacity: 0.8;
   }
 
   .split-piece-3 {
     grid-row: 3;
-    transform: translateX(-120px);
+    transform: translateX(-100px) translateY(80px) rotate(-2deg);
+    opacity: 0.8;
   }
 
   .layout-3piece .logo-section[data-section="top"] {
-    background-position: 0 0 !important;
+    background-position: 50% 0% !important;
     background-size: 100% 300% !important;
-    background-color: rgba(255,192,203,0.3) !important;
   }
 
   .layout-3piece .logo-section[data-section="middle"] {
-    background-position: 0 -33.33% !important;
+    background-position: 50% 50% !important;
     background-size: 100% 300% !important;
-    background-color: rgba(173,216,230,0.3) !important;
   }
 
   .layout-3piece .logo-section[data-section="bottom"] {
-    background-position: 0 -66.67% !important;
+    background-position: 50% 100% !important;
     background-size: 100% 300% !important;
-    background-color: rgba(144,238,144,0.3) !important;
   }
 
   .layout-3piece:hover .split-piece-1 {
-    transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0) rotate(0deg);
+    opacity: 1;
     grid-row: 1;
   }
   .layout-3piece:hover .split-piece-2 {
-    transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0) rotate(0deg);
+    opacity: 1;
     grid-row: 2;
   }
   .layout-3piece:hover .split-piece-3 {
-    transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0) rotate(0deg);
+    opacity: 1;
     grid-row: 3;
   }
 
@@ -970,9 +971,9 @@ import Header from '../../components/Header.astro';
     
     // Test image loading
     const testImg = new Image();
-    testImg.onload = () => console.log('✅ DTP logo image loaded successfully');
-    testImg.onerror = () => console.error('❌ DTP logo image failed to load');
-    testImg.src = '/images/dtp-logo-black.png';
+    testImg.onload = () => console.log('✅ Test girl image loaded successfully');
+    testImg.onerror = () => console.error('❌ Test girl image failed to load');
+    testImg.src = '/images/test-girl.jpg';
     
     // Check container dimensions
     const logoSections = document.querySelectorAll('.logo-section');
