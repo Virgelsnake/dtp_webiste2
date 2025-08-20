@@ -1,0 +1,265 @@
+---
+interface Props {
+  variant?: 'minimal' | 'detailed';
+}
+
+const { variant = 'minimal' } = Astro.props;
+
+const journeySteps = [
+  {
+    id: 1,
+    stepName: "Step One",
+    title: "Idea Generation & Discovery",
+    shortTitle: "Discovery",
+    description: "Understanding business needs and challenges",
+    fullDescription: "The Discovery phase is focused on clearly defining the business challenges, success measures, and system requirements. We work directly with stakeholders to map existing processes, identify inefficiencies, and establish clear objectives for the solution. This includes reviewing data needs, security considerations, and user expectations. The outcome is a documented framework that ensures the solution is designed to align with business priorities and deliver measurable improvements.",
+    icon: "lightbulb",
+    color: "yellow"
+  },
+  {
+    id: 2,
+    stepName: "Step Two",
+    title: "Proof of Concept (PoC)",
+    shortTitle: "Proof of Concept",
+    description: "Validate solution viability",
+    fullDescription: "The Proof of Concept (PoC) stage produces a working prototype to validate that the proposed solution is both feasible and effective. The prototype demonstrates core functionality and user interactions, while aligning with existing processes and data structures. This step confirms the technical approach, highlights potential challenges, and provides stakeholders with a tangible demonstration of how the system will operate before full-scale development begins.",
+    icon: "flask",
+    color: "green"
+  },
+  {
+    id: 3,
+    stepName: "Step Three",
+    title: "Minimum Viable Product (MVP)",
+    shortTitle: "MVP Development",
+    description: "Develop core functionalities",
+    fullDescription: "The Minimum Viable Product (MVP) stage delivers a production-ready version of the software containing all essential features and capabilities. It includes secure user access, core business workflows, structured data handling, and automated functions. The system is designed for daily operational use, allowing teams to complete key tasks effectively while establishing a solid foundation for future enhancements and scaling.",
+    icon: "cog",
+    color: "blue"
+  },
+  {
+    id: 4,
+    stepName: "Step Four",
+    title: "Pilot Programme",
+    shortTitle: "Pilot Testing",
+    description: "Test solution with a small group",
+    fullDescription: "The Pilot Programme involves deploying the system with a select group of users in their operational environment. This phase validates stability, performance, and usability under real conditions. User activity and system behaviour are closely monitored, and structured feedback is collected to identify refinements. The pilot ensures the system is fully optimised and reliable before expanding to a wider rollout.",
+    icon: "users",
+    color: "purple"
+  },
+  {
+    id: 5,
+    stepName: "Step Five",
+    title: "Full Launch",
+    shortTitle: "Full Deployment",
+    description: "Wide adoption across the organisation",
+    fullDescription: "The Full Launch stage introduces the solution across the entire organisation. It includes structured rollout planning, user training, and ongoing support to ensure smooth adoption. System performance and user engagement are monitored, and updates are applied as required. This stage transitions the solution from controlled testing to full-scale use, delivering measurable business impact.",
+    icon: "rocket",
+    color: "cyan"
+  }
+];
+
+const getIcon = (iconName: string) => {
+  const icons = {
+    lightbulb: `<path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1H5C3.89 1 3 1.89 3 3V21C3 22.1 3.89 23 5 23H19C20.1 23 21 22.1 21 21V9M19 21H5V3H13V9H19Z"/>`,
+    flask: `<path d="M9,2V7.38L4.38,16.38C3.67,17.78 4.66,19.5 6.25,19.5H17.75C19.34,19.5 20.33,17.78 19.62,16.38L15,7.38V2H9M11,4H13V7.5L17.62,16.5H6.38L11,7.5V4Z"/>`,
+    cog: `<path d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.22,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.22,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.68 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z"/>`,
+    users: `<path d="M16 4C18.2 4 20 5.8 20 8S18.2 12 16 12 12 10.2 12 8 13.8 4 16 4M16 14C20.4 14 24 15.8 24 18V20H8V18C8 15.8 11.6 14 16 14M8.5 4C10.4 4 12 5.6 12 7.5S10.4 11 8.5 11 5 9.4 5 7.5 6.6 4 8.5 4M8.5 13C12.1 13 15 14.3 15 16V18H2V16C2 14.3 4.9 13 8.5 13Z"/>`,
+    rocket: `<path d="M2.81,14.12L5.64,11.29L8.17,10.79C11.39,6.41 17.55,4.22 19.78,4.22C19.78,6.45 17.59,12.61 13.21,15.83L12.71,18.36L9.88,21.19C9.29,21.78 8.28,21.85 7.59,21.17L2.83,16.41C2.15,15.72 2.22,14.71 2.81,14.12M7.89,17.06L11.17,13.78C9.76,13.05 8.95,12.24 8.22,10.83L4.94,14.11L7.89,17.06Z"/>`,
+  };
+  return icons[iconName as keyof typeof icons] || icons.lightbulb;
+};
+
+const getColorClasses = (color: string) => {
+  const colors = {
+    yellow: {
+      border: 'border-yellow-500/30',
+      glow: 'border-yellow-400/50',
+      inner: 'border-yellow-500/40',
+      icon: 'text-yellow-400',
+      bg: 'bg-yellow-500/10'
+    },
+    green: {
+      border: 'border-green-500/30',
+      glow: 'border-green-400/50',
+      inner: 'border-green-500/40',
+      icon: 'text-green-400',
+      bg: 'bg-green-500/10'
+    },
+    blue: {
+      border: 'border-blue-500/30',
+      glow: 'border-blue-400/50',
+      inner: 'border-blue-500/40',
+      icon: 'text-blue-400',
+      bg: 'bg-blue-500/10'
+    },
+    purple: {
+      border: 'border-purple-500/30',
+      glow: 'border-purple-400/50',
+      inner: 'border-purple-500/40',
+      icon: 'text-purple-400',
+      bg: 'bg-purple-500/10'
+    },
+    cyan: {
+      border: 'border-cyan-500/30',
+      glow: 'border-cyan-400/50',
+      inner: 'border-cyan-500/40',
+      icon: 'text-cyan-400',
+      bg: 'bg-cyan-500/10'
+    }
+  };
+  return colors[color as keyof typeof colors] || colors.blue;
+};
+---
+
+<section class="py-20 sm:py-32 bg-gray-900">
+  <div class="container mx-auto px-6">
+
+    {variant === 'minimal' ? (
+      <!-- Minimal version for homepage - Vertical layout -->
+      <div class="max-w-7xl mx-auto">
+        <div class="relative">
+          {journeySteps.map((step, index) => {
+            const colorClasses = getColorClasses(step.color);
+            return (
+              <div class="relative mb-16 last:mb-0">
+                <div class="grid grid-cols-3 gap-8 items-center group">
+                  <!-- Left side: Step number -->
+                  <div class="text-right">
+                    <h3 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                      {step.stepName}
+                    </h3>
+                  </div>
+                  
+                  <!-- Center: Icon (matching Business Transformation size) -->
+                  <div class="flex justify-center relative">
+                    <div class="relative">
+                      <!-- Animated outer ring -->
+                      <div class={`w-24 h-24 rounded-full border-2 ${colorClasses.border} group-hover:animate-spin-slow transition-all duration-300`}></div>
+                      <!-- Glowing middle ring -->
+                      <div class={`absolute inset-2 w-20 h-20 rounded-full border ${colorClasses.glow} group-hover:animate-pulse`}></div>
+                      <!-- Inner circle with icon -->
+                      <div class={`absolute inset-4 w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center border ${colorClasses.inner}`}>
+                        <svg class={`w-8 h-8 ${colorClasses.icon}`} fill="currentColor" viewBox="0 0 24 24">
+                          <Fragment set:html={getIcon(step.icon)} />
+                        </svg>
+                      </div>
+                      <!-- Glowing effect -->
+                      <div class={`absolute inset-0 w-24 h-24 rounded-full ${colorClasses.bg} group-hover:animate-ping opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+                    </div>
+                    
+                    <!-- Connecting line (except for last item) -->
+                    {index < journeySteps.length - 1 && (
+                      <div class="absolute left-1/2 top-24 w-0.5 h-16 bg-gradient-to-b from-blue-500/50 to-blue-500/20 transform -translate-x-0.5"></div>
+                    )}
+                  </div>
+                  
+                  <!-- Right side: Title and Description -->
+                  <div class="text-left">
+                    <h4 class="text-xl font-semibold text-white mb-2">
+                      {step.title}
+                    </h4>
+                    <p class="text-gray-300 leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    ) : (
+      <!-- Detailed version for services page -->
+      <div class="space-y-8">
+        {journeySteps.map((step, index) => {
+          const colorClasses = getColorClasses(step.color);
+          return (
+            <div class="journey-card group">
+              <div class="flex items-start gap-6">
+                <div class="flex-shrink-0">
+                  <div class="relative">
+                    <!-- Animated outer ring -->
+                    <div class={`w-20 h-20 rounded-full border-2 ${colorClasses.border} group-hover:animate-spin-slow`}></div>
+                    <!-- Glowing middle ring -->
+                    <div class={`absolute inset-2 w-16 h-16 rounded-full border ${colorClasses.glow} group-hover:animate-pulse`}></div>
+                    <!-- Inner circle with icon -->
+                    <div class={`absolute inset-3 w-14 h-14 bg-gray-800 rounded-full flex items-center justify-center border ${colorClasses.inner}`}>
+                      <svg class={`w-7 h-7 ${colorClasses.icon}`} fill="currentColor" viewBox="0 0 24 24">
+                        <Fragment set:html={getIcon(step.icon)} />
+                      </svg>
+                    </div>
+                    <!-- Glowing effect -->
+                    <div class={`absolute inset-0 w-20 h-20 rounded-full ${colorClasses.bg} group-hover:animate-ping`}></div>
+                  </div>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <h3 class="text-xl font-semibold text-white mb-3">{step.stepName} - {step.title}</h3>
+                  <p class="text-gray-300 leading-relaxed">{step.fullDescription}</p>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    )}
+
+    {variant === 'minimal' && (
+      <div class="text-center mt-12">
+        <a href="/services" class="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium transition-colors duration-200">
+          Learn more about our process
+          <svg class="ml-2 w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .journey-card {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+  }
+
+  .journey-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.15), transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .journey-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 20px 40px -12px rgba(59, 130, 246, 0.25), 0 15px 25px -5px rgba(0, 0, 0, 0.4);
+  }
+
+  .journey-card:hover::before {
+    opacity: 1;
+  }
+
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+  }
+</style>
