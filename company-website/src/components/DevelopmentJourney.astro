@@ -126,10 +126,10 @@ const getColorClasses = (color: string) => {
             return (
               <div class="relative mb-16 last:mb-0">
                 <div class="grid grid-cols-3 gap-8 items-center group">
-                  <!-- Left side: Step number -->
+                  <!-- Left side: Step title -->
                   <div class="text-right">
-                    <h3 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                      {step.stepName}
+                    <h3 class="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+                      {step.title}
                     </h3>
                   </div>
                   
@@ -156,11 +156,8 @@ const getColorClasses = (color: string) => {
                     )}
                   </div>
                   
-                  <!-- Right side: Title and Description -->
+                  <!-- Right side: Description only -->
                   <div class="text-left">
-                    <h4 class="text-xl font-semibold text-white mb-2">
-                      {step.title}
-                    </h4>
                     <p class="text-gray-300 leading-relaxed">
                       {step.description}
                     </p>
