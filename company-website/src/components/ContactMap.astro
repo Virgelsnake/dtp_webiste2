@@ -35,14 +35,49 @@
           </a>
         </div>
 
-        <!-- Getting Here -->
+        <!-- Contact Form -->
         <div class="contact-card">
-          <h3 class="text-xl font-semibold text-white mb-4">Getting here</h3>
-          <div class="space-y-2 text-gray-300">
-            <p><strong>By car:</strong> Central Aberdeen location with nearby parking; A96 and A90 access routes.</p>
-            <p><strong>Public transport:</strong> Close to Aberdeen Bus Station with regular services.</p>
-            <p><strong>By air:</strong> Aberdeen Airport ~20 minutes away with flights from major UK cities.</p>
-          </div>
+          <h3 class="text-xl font-semibold text-white mb-6">Get in touch</h3>
+          <form class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="form-group">
+                <label for="firstName" class="block text-sm font-medium text-gray-300 mb-2">First Name</label>
+                <input type="text" id="firstName" name="firstName" class="form-input w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200" placeholder="Your first name">
+              </div>
+              <div class="form-group">
+                <label for="lastName" class="block text-sm font-medium text-gray-300 mb-2">Last Name</label>
+                <input type="text" id="lastName" name="lastName" class="form-input w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200" placeholder="Your last name">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
+              <input type="email" id="email" name="email" class="form-input w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200" placeholder="your@email.com">
+            </div>
+            
+            <div class="form-group">
+              <label for="company" class="block text-sm font-medium text-gray-300 mb-2">Company (Optional)</label>
+              <input type="text" id="company" name="company" class="form-input w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200" placeholder="Your company">
+            </div>
+            
+            <div class="form-group">
+              <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
+              <textarea id="message" name="message" rows="4" class="form-input w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none" placeholder="Tell us about your project or question..."></textarea>
+            </div>
+            
+            <button type="submit" class="contact-submit-btn w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 relative overflow-hidden">
+              <span class="relative z-10">Send Message</span>
+            </button>
+            
+            <p class="text-sm text-gray-400 text-center mt-4">
+              <span class="inline-flex items-center">
+                <svg class="w-4 h-4 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                We reply within 1 working day
+              </span>
+            </p>
+          </form>
         </div>
 
         <!-- Contact CTAs -->
@@ -89,6 +124,40 @@
     transform: translateY(-2px);
     border-color: rgba(59, 130, 246, 0.3);
     box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.1);
+  }
+
+  .form-input:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+  }
+
+  .contact-submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(37, 99, 235, 0.3));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .contact-submit-btn:hover::before {
+    opacity: 1;
+  }
+
+  .form-group {
+    position: relative;
+  }
+
+  .form-group label {
+    transition: color 0.2s ease;
+  }
+
+  .form-input:focus + label,
+  .form-group:focus-within label {
+    color: #60a5fa;
   }
 
   .map-container {
