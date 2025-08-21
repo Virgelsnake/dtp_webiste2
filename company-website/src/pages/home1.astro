@@ -1,0 +1,172 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import PlatformFeatures from '../components/PlatformFeatures.astro';
+import TestimonialCarousel from '../components/TestimonialCarousel.astro';
+import DevelopmentJourney from '../components/DevelopmentJourney.astro';
+import DeploymentOptions from '../components/DeploymentOptions.astro';
+import BusinessTransformation from '../components/BusinessTransformation.astro';
+import CTABanner from '../components/CTABanner.astro';
+import Resources from '../components/Resources.astro';
+import PhaseCards from '../components/PhaseCards.astro';
+import WhyChooseUs from '../components/WhyChooseUs.astro';
+import ContactMap from '../components/ContactMap.astro';
+---
+
+<Layout title="DTP Home 1">
+  <div class="relative bg-gray-900 text-white">
+    <Header />
+    <main class="relative">
+      <!-- Block A: Hero -->
+      <div class="pt-24 sm:pt-32">
+        <div class="container mx-auto px-6 text-center">
+          <h1 class="text-4xl font-bold tracking-tight sm:text-6xl">
+            Digital Technology Partner for Real-World Results
+          </h1>
+          <p class="mt-6 text-lg leading-8 text-gray-300 max-w-2xl mx-auto">
+            We help UK organisations design, test, and launch practical digital solutions — safely, securely, and step-by-step.
+          </p>
+          <p class="mt-4 text-sm text-gray-400 max-w-xl mx-auto">
+            What we do: Discovery → Proof of Concept → MVP → Pilot → Launch.
+          </p>
+          <div class="mt-10 flex items-center justify-center gap-x-6">
+            <a href="#" class="get-demo-btn rounded-md bg-blue-600 px-4 py-3 text-sm font-semibold shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 relative overflow-hidden transition-all duration-250 ease-out">
+              <span class="relative z-10">Book a Discovery Workshop</span>
+            </a>
+            <a href="#" class="get-started-btn rounded-md bg-gray-800 border border-gray-600 px-3.5 py-2.5 text-sm font-semibold shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 relative overflow-hidden transition-all duration-250 ease-out">
+              <span class="relative z-10">See How Our Process Works <span aria-hidden="true" class="inline-block transition-transform duration-250 ease-out">→</span></span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Block B: Benefits Grid -->
+      <PlatformFeatures />
+      
+      <!-- Block C: Testimonials -->
+      <TestimonialCarousel />
+      
+      <!-- Block D: Development Journey -->
+      <DevelopmentJourney />
+      
+      <!-- Block E: Deployment Options -->
+      <DeploymentOptions />
+      
+      <!-- Block F: Use Cases -->
+      <BusinessTransformation />
+      
+      <!-- Block G: CTA Banner -->
+      <CTABanner />
+      
+      <!-- Block H: Resources teaser -->
+      <Resources />
+      
+      <!-- Block I: Long phase cards -->
+      <PhaseCards />
+      
+      <!-- Block J: Why choose us 3 icons -->
+      <WhyChooseUs />
+      
+      <!-- Block K: Contact & map layout -->
+      <ContactMap />
+    </main>
+  </div>
+</Layout>
+
+<style>
+  /* Enhanced hover effects inspired by Deepgram */
+  .get-demo-btn {
+    position: relative !important;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+    overflow: hidden !important;
+  }
+
+  .get-demo-btn::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    opacity: 0;
+    background: linear-gradient(45deg, rgba(59, 130, 246, 0.2), rgba(147, 197, 253, 0.2));
+    transition: opacity 150ms ease-in-out, transform 400ms ease-in-out;
+    border-radius: 6px;
+    transform: scale(0.8);
+  }
+
+  .get-demo-btn:hover {
+    color: #ffffff !important;
+    background-color: rgba(59, 130, 246, 0.9) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 12px 30px rgba(59, 130, 246, 0.4), 0 6px 16px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  .get-demo-btn:hover::before {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .get-demo-btn:focus-visible {
+    outline: 2px solid #3b82f6 !important;
+    outline-offset: 3px !important;
+  }
+
+  .get-started-btn {
+    position: relative !important;
+    padding: 0.625rem 1.25rem !important;
+    border-radius: 6px !important;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+    overflow: hidden !important;
+  }
+
+  .get-started-btn::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    opacity: 0;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.08), rgba(147, 197, 253, 0.12));
+    transition: opacity 150ms ease-in-out, transform 400ms ease-in-out;
+    border-radius: 6px;
+    transform: scale(0.8);
+  }
+
+  .get-started-btn:hover {
+    color: #93c5fd !important;
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(147, 197, 253, 0.2) !important;
+  }
+
+  .get-started-btn:hover::before {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .get-started-btn:hover span {
+    transform: translateX(6px) !important;
+  }
+
+  .get-started-btn:focus-visible {
+    outline: 2px solid #3b82f6 !important;
+    outline-offset: 3px !important;
+  }
+
+  /* Ensure text stays above background effects */
+  .get-demo-btn span,
+  .get-started-btn {
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Additional enhancement for arrow animation */
+  .get-started-btn span[aria-hidden="true"] {
+    display: inline-block;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+</style>

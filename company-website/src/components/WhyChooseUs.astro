@@ -1,0 +1,110 @@
+---
+// Block J - Why choose us 3 icons row component
+const reasons = [
+  {
+    title: "Risk Reduction",
+    description: "Staged delivery lowers risk and increases confidence.",
+    icon: "shield",
+    color: "blue"
+  },
+  {
+    title: "Proven Results",
+    description: "We report outcomes clearly with before/after metrics.",
+    icon: "chart",
+    color: "green"
+  },
+  {
+    title: "Stakeholder Alignment",
+    description: "Regular checkpoints keep everyone on the same page.",
+    icon: "users",
+    color: "purple"
+  }
+];
+
+const getIcon = (iconName: string) => {
+  const icons = {
+    shield: `<path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.6 14.8,10V11.5C15.4,11.5 16,12.1 16,12.7V16.2C16,16.8 15.4,17.3 14.8,17.3H9.2C8.6,17.3 8,16.8 8,16.2V12.7C8,12.1 8.6,11.5 9.2,11.5V10C9.2,8.6 10.6,7 12,7M12,8.2C11.2,8.2 10.5,8.7 10.5,10V11.5H13.5V10C13.5,8.7 12.8,8.2 12,8.2Z"/>`,
+    chart: `<path d="M2,2V22H22V20H4V2H2M7,10V18H9V10H7M12,6V18H14V6H12M17,14V18H19V14H17Z"/>`,
+    users: `<path d="M16 4C18.2 4 20 5.8 20 8S18.2 12 16 12 12 10.2 12 8 13.8 4 16 4M16 14C20.4 14 24 15.8 24 18V20H8V18C8 15.8 11.6 14 16 14M8.5 4C10.4 4 12 5.6 12 7.5S10.4 11 8.5 11 5 9.4 5 7.5 6.6 4 8.5 4M8.5 13C12.1 13 15 14.3 15 16V18H2V16C2 14.3 4.9 13 8.5 13Z"/>`
+  };
+  return icons[iconName as keyof typeof icons] || icons.shield;
+};
+
+const getColorClasses = (color: string) => {
+  const colors = {
+    blue: {
+      border: 'border-blue-500/30',
+      glow: 'border-blue-400/50',
+      inner: 'border-blue-500/40',
+      icon: 'text-blue-400',
+      bg: 'bg-blue-500/10'
+    },
+    green: {
+      border: 'border-green-500/30',
+      glow: 'border-green-400/50',
+      inner: 'border-green-500/40',
+      icon: 'text-green-400',
+      bg: 'bg-green-500/10'
+    },
+    purple: {
+      border: 'border-purple-500/30',
+      glow: 'border-purple-400/50',
+      inner: 'border-purple-500/40',
+      icon: 'text-purple-400',
+      bg: 'bg-purple-500/10'
+    }
+  };
+  return colors[color as keyof typeof colors] || colors.blue;
+};
+---
+
+<section class="py-20 sm:py-32 bg-gray-900">
+  <div class="container mx-auto px-6">
+    <div class="max-w-2xl mx-auto text-center mb-16">
+      <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Why choose our approach?</h2>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      {reasons.map((reason) => {
+        const colorClasses = getColorClasses(reason.color);
+        return (
+          <div class="text-center group">
+            <div class="flex justify-center mb-8">
+              <div class="relative">
+                <!-- Animated outer ring -->
+                <div class={`w-24 h-24 rounded-full border-2 ${colorClasses.border} group-hover:animate-spin-slow`}></div>
+                <!-- Glowing middle ring -->
+                <div class={`absolute inset-2 w-20 h-20 rounded-full border ${colorClasses.glow} group-hover:animate-pulse`}></div>
+                <!-- Inner circle with icon -->
+                <div class={`absolute inset-4 w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center border ${colorClasses.inner}`}>
+                  <svg class={`w-8 h-8 ${colorClasses.icon}`} fill="currentColor" viewBox="0 0 24 24">
+                    <Fragment set:html={getIcon(reason.icon)} />
+                  </svg>
+                </div>
+                <!-- Glowing effect -->
+                <div class={`absolute inset-0 w-24 h-24 rounded-full ${colorClasses.bg} group-hover:animate-ping`}></div>
+              </div>
+            </div>
+            <h3 class="text-xl font-semibold text-white mb-4">{reason.title}</h3>
+            <p class="text-gray-300">{reason.description}</p>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+  }
+</style>

@@ -1,0 +1,113 @@
+---
+// Block K - Contact & map layout component
+---
+
+<section class="py-20 sm:py-32 bg-gray-900">
+  <div class="container mx-auto px-6">
+    <div class="max-w-2xl mx-auto text-center mb-16">
+      <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Visit or contact us</h2>
+    </div>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+      <!-- Contact Information -->
+      <div class="space-y-8">
+        <!-- Office Address -->
+        <div class="contact-card">
+          <h3 class="text-xl font-semibold text-white mb-4">Our Office</h3>
+          <p class="text-gray-300">
+            111 Gallowgate, Aberdeen, AB25 1BU, Scotland, United Kingdom
+          </p>
+        </div>
+
+        <!-- Email -->
+        <div class="contact-card">
+          <h3 class="text-xl font-semibold text-white mb-4">Email</h3>
+          <a href="mailto:info@digitaltechnologypartner.ai" class="text-blue-400 hover:text-blue-300 transition-colors">
+            info@digitaltechnologypartner.ai
+          </a>
+        </div>
+
+        <!-- WhatsApp -->
+        <div class="contact-card">
+          <h3 class="text-xl font-semibold text-white mb-4">WhatsApp</h3>
+          <a href="https://wa.me/447769386204" class="text-blue-400 hover:text-blue-300 transition-colors">
+            +44 7769 386204
+          </a>
+        </div>
+
+        <!-- Getting Here -->
+        <div class="contact-card">
+          <h3 class="text-xl font-semibold text-white mb-4">Getting here</h3>
+          <div class="space-y-2 text-gray-300">
+            <p><strong>By car:</strong> Central Aberdeen location with nearby parking; A96 and A90 access routes.</p>
+            <p><strong>Public transport:</strong> Close to Aberdeen Bus Station with regular services.</p>
+            <p><strong>By air:</strong> Aberdeen Airport ~20 minutes away with flights from major UK cities.</p>
+          </div>
+        </div>
+
+        <!-- Contact CTAs -->
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#" class="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold">
+            Send a message
+          </a>
+          <a href="https://maps.google.com/?q=111+Gallowgate,+Aberdeen,+AB25+1BU" target="_blank" class="inline-flex items-center px-6 py-3 border border-gray-600 text-gray-300 rounded-lg hover:bg-gray-800 transition-colors font-semibold">
+            Open in Maps
+          </a>
+        </div>
+      </div>
+
+      <!-- Map Panel -->
+      <div class="map-container">
+        <div class="map-placeholder">
+          <div class="text-center p-8">
+            <svg class="w-16 h-16 text-gray-400 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12,2C15.31,2 18,4.66 18,7.95C18,12.41 12,19 12,19S6,12.41 6,7.95C6,4.66 8.69,2 12,2M12,6A2,2 0 0,0 10,8A2,2 0 0,0 12,10A2,2 0 0,0 14,8A2,2 0 0,0 12,6Z"/>
+            </svg>
+            <h3 class="text-lg font-semibold text-white mb-2">Find us</h3>
+            <p class="text-gray-300 mb-4">Click to open the interactive map for directions to 111 Gallowgate, Aberdeen AB25 1BU.</p>
+            <a href="https://maps.google.com/?q=111+Gallowgate,+Aberdeen,+AB25+1BU" target="_blank" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+              Open Map
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-card {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+  }
+
+  .contact-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(59, 130, 246, 0.3);
+    box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.1);
+  }
+
+  .map-container {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+    border-radius: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .map-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>

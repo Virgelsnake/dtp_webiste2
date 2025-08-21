@@ -1,0 +1,258 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+---
+
+<Layout title="News 2 - Digital Technology Partner">
+  <Header />
+  
+  <!-- Hero Section -->
+  <section class="pt-24 pb-12 bg-gradient-to-br from-gray-900 via-blue-900/20 to-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="text-center max-w-4xl mx-auto">
+        <h1 class="text-5xl md:text-6xl font-bold text-white mb-6 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+          Tech News Hub
+        </h1>
+        <p class="text-xl text-gray-300 mb-8">
+          Stay ahead with the latest insights in digital transformation, AI, and emerging technologies
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bento Grid News Layout -->
+  <section class="py-16 bg-gray-900">
+    <div class="container mx-auto px-6">
+      <!-- Featured Article Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-12">
+        <!-- Large Featured Article -->
+        <article class="lg:col-span-2 lg:row-span-2 group relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-600/20 to-purple-600/20 backdrop-blur-sm border border-gray-700/50 hover:border-blue-500/50 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-blue-500/20">
+          <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative p-8 h-full flex flex-col justify-between min-h-[400px]">
+            <div>
+              <div class="flex items-center space-x-2 mb-4">
+                <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm font-medium">Featured</span>
+                <span class="text-gray-400 text-sm">Dec 15, 2024</span>
+              </div>
+              <h2 class="text-3xl font-bold text-white mb-4 group-hover:text-blue-300 transition-colors">
+                The Future of AI in Enterprise: Beyond ChatGPT
+              </h2>
+              <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                Exploring how artificial intelligence is reshaping business operations, from automated decision-making to predictive analytics and the next generation of enterprise AI solutions.
+              </p>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center">
+                  <span class="text-white font-semibold text-sm">AI</span>
+                </div>
+                <div>
+                  <p class="text-white font-medium">Sarah Chen</p>
+                  <p class="text-gray-400 text-sm">AI Research Lead</p>
+                </div>
+              </div>
+              <button class="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors group-hover:shadow-lg">
+                Read More
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Medium Article 1 -->
+        <article class="lg:col-span-2 group relative overflow-hidden rounded-2xl bg-gradient-to-br from-green-600/20 to-teal-600/20 backdrop-blur-sm border border-gray-700/50 hover:border-green-500/50 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-green-500/20">
+          <div class="absolute inset-0 bg-gradient-to-br from-green-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative p-6 h-full flex flex-col justify-between min-h-[180px]">
+            <div>
+              <div class="flex items-center space-x-2 mb-3">
+                <span class="px-2 py-1 bg-green-500/20 text-green-300 rounded-full text-xs font-medium">Cloud</span>
+                <span class="text-gray-400 text-sm">Dec 12, 2024</span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3 group-hover:text-green-300 transition-colors">
+                Kubernetes Security: Best Practices for 2025
+              </h3>
+              <p class="text-gray-300 text-sm">
+                Essential security measures every DevOps team should implement when deploying containerized applications.
+              </p>
+            </div>
+            <button class="self-start mt-4 text-green-400 hover:text-green-300 font-medium text-sm transition-colors">
+              Read Article →
+            </button>
+          </div>
+        </article>
+
+        <!-- Small Article 1 -->
+        <article class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-600/20 to-pink-600/20 backdrop-blur-sm border border-gray-700/50 hover:border-purple-500/50 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-purple-500/20">
+          <div class="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative p-4 h-full flex flex-col justify-between min-h-[180px]">
+            <div>
+              <div class="flex items-center space-x-2 mb-2">
+                <span class="px-2 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs font-medium">Blockchain</span>
+              </div>
+              <h4 class="text-lg font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">
+                Web3 Integration Strategies
+              </h4>
+              <p class="text-gray-300 text-xs">
+                How traditional businesses are adopting blockchain technology.
+              </p>
+            </div>
+            <span class="text-gray-400 text-xs mt-2">Dec 10, 2024</span>
+          </div>
+        </article>
+
+        <!-- Small Article 2 -->
+        <article class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-orange-600/20 to-red-600/20 backdrop-blur-sm border border-gray-700/50 hover:border-orange-500/50 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-orange-500/20">
+          <div class="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative p-4 h-full flex flex-col justify-between min-h-[180px]">
+            <div>
+              <div class="flex items-center space-x-2 mb-2">
+                <span class="px-2 py-1 bg-orange-500/20 text-orange-300 rounded-full text-xs font-medium">IoT</span>
+              </div>
+              <h4 class="text-lg font-bold text-white mb-2 group-hover:text-orange-300 transition-colors">
+                Smart Manufacturing Revolution
+              </h4>
+              <p class="text-gray-300 text-xs">
+                IoT sensors transforming production efficiency and quality control.
+              </p>
+            </div>
+            <span class="text-gray-400 text-xs mt-2">Dec 8, 2024</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- Secondary News Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <!-- Tech Trends Card -->
+        <article class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-cyan-600/20 to-blue-600/20 backdrop-blur-sm border border-gray-700/50 hover:border-cyan-500/50 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-cyan-500/20">
+          <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative p-6">
+            <div class="flex items-center space-x-2 mb-4">
+              <span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-sm font-medium">Trends</span>
+              <span class="text-gray-400 text-sm">Dec 5, 2024</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors">
+              Quantum Computing Breakthroughs
+            </h3>
+            <p class="text-gray-300 text-sm mb-4">
+              Recent advances in quantum processors and their potential impact on cryptography and complex problem solving.
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="text-cyan-400 text-sm font-medium">5 min read</span>
+              <button class="text-cyan-400 hover:text-cyan-300 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Development Card -->
+        <article class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-600/20 to-purple-600/20 backdrop-blur-sm border border-gray-700/50 hover:border-indigo-500/50 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-indigo-500/20">
+          <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative p-6">
+            <div class="flex items-center space-x-2 mb-4">
+              <span class="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-sm font-medium">Development</span>
+              <span class="text-gray-400 text-sm">Dec 3, 2024</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-indigo-300 transition-colors">
+              Next.js 15: What's New
+            </h3>
+            <p class="text-gray-300 text-sm mb-4">
+              Exploring the latest features in Next.js 15, including improved performance and new developer tools.
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="text-indigo-400 text-sm font-medium">8 min read</span>
+              <button class="text-indigo-400 hover:text-indigo-300 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Security Card -->
+        <article class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-red-600/20 to-pink-600/20 backdrop-blur-sm border border-gray-700/50 hover:border-red-500/50 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-red-500/20">
+          <div class="absolute inset-0 bg-gradient-to-br from-red-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative p-6">
+            <div class="flex items-center space-x-2 mb-4">
+              <span class="px-3 py-1 bg-red-500/20 text-red-300 rounded-full text-sm font-medium">Security</span>
+              <span class="text-gray-400 text-sm">Dec 1, 2024</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-red-300 transition-colors">
+              Zero Trust Architecture
+            </h3>
+            <p class="text-gray-300 text-sm mb-4">
+              Implementing zero trust security models in modern enterprise environments for enhanced protection.
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="text-red-400 text-sm font-medium">6 min read</span>
+              <button class="text-red-400 hover:text-red-300 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Newsletter Subscription -->
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-cyan-600/20 backdrop-blur-sm border border-gray-700/50 p-8 text-center">
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-cyan-500/5"></div>
+        <div class="relative">
+          <h3 class="text-2xl font-bold text-white mb-4">Stay Updated</h3>
+          <p class="text-gray-300 mb-6 max-w-2xl mx-auto">
+            Get the latest tech insights, industry trends, and digital transformation strategies delivered to your inbox.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <input 
+              type="email" 
+              placeholder="Enter your email" 
+              class="flex-1 px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors"
+            >
+            <button class="px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl">
+              Subscribe
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Custom scrollbar for webkit browsers */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #1f2937;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #4b5563;
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #6b7280;
+  }
+
+  /* Smooth animations */
+  article {
+    transform-origin: center;
+  }
+
+  /* Gradient text animation */
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .bg-gradient-to-r {
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease infinite;
+  }
+</style>
