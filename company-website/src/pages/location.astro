@@ -108,6 +108,43 @@ import Header from '../components/Header.astro';
 
           <!-- Interactive Map Section -->
           <div class="space-y-6">
+            <!-- Contact Form (moved from Home) -->
+            <div class="info-card p-6">
+              <h3 class="text-xl font-semibold mb-6">Get in touch</h3>
+              <form class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div class="form-group">
+                    <label for="firstName" class="block text-sm font-medium text-gray-300 mb-2">First Name</label>
+                    <input type="text" id="firstName" name="firstName" class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200" placeholder="Your first name">
+                  </div>
+                  <div class="form-group">
+                    <label for="lastName" class="block text-sm font-medium text-gray-300 mb-2">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200" placeholder="Your last name">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
+                  <input type="email" id="email" name="email" class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200" placeholder="your@email.com">
+                </div>
+
+                <div class="form-group">
+                  <label for="company" class="block text-sm font-medium text-gray-300 mb-2">Company (Optional)</label>
+                  <input type="text" id="company" name="company" class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200" placeholder="Your company">
+                </div>
+
+                <div class="form-group">
+                  <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
+                  <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none" placeholder="Tell us about your project or question..."></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 relative overflow-hidden">
+                  <span class="relative z-10">Send Message</span>
+                </button>
+
+                <p class="text-sm text-gray-400 text-center mt-2">We reply within 1 working day</p>
+              </form>
+            </div>
             <!-- Map Container -->
             <div class="info-card p-6">
               <h3 class="text-xl font-semibold mb-4">Find Us</h3>
