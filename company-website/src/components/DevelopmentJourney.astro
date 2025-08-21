@@ -12,7 +12,12 @@ const journeySteps = [
     title: "Discovery",
     shortTitle: "Discovery",
     description: "Understand the problem, users, and success measures. Agree the plan.",
-    fullDescription: "Understand the problem, users, and success measures. Agree the plan.",
+    fullDescription: `The Discovery phase is focused on clearly defining the business challenges, success
+measures, and system requirements. We work directly with stakeholders to map
+existing processes, identify inefficiencies, and establish clear objectives for the
+solution. This includes reviewing data needs, security considerations, and user
+expectations. The outcome is a documented framework that ensures the solution is
+designed to align with business priorities and deliver measurable improvements.`,
     icon: "lightbulb",
     color: "yellow"
   },
@@ -22,7 +27,12 @@ const journeySteps = [
     title: "Proof of Concept (PoC)",
     shortTitle: "Proof of Concept",
     description: "Test the core idea quickly to prove feasibility and value.",
-    fullDescription: "Test the core idea quickly to prove feasibility and value.",
+    fullDescription: `The Proof of Concept (PoC) stage produces a working prototype to validate that the
+proposed solution is both feasible and effective. The prototype demonstrates core
+functionality and user interactions, while aligning with existing processes and data
+structures. This step confirms the technical approach, highlights potential challenges,
+and provides stakeholders with a tangible demonstration of how the system will
+operate before full-scale development begins.`,
     icon: "flask",
     color: "green"
   },
@@ -32,7 +42,11 @@ const journeySteps = [
     title: "Minimum Viable Product (MVP)",
     shortTitle: "MVP",
     description: "Build the essential features so real users can do real work.",
-    fullDescription: "Build the essential features so real users can do real work.",
+    fullDescription: `The Minimum Viable Product (MVP) stage delivers a production-ready version of the
+software containing all essential features and capabilities. It includes secure user
+access, core business workflows, structured data handling, and automated functions.
+The system is designed for daily operational use, allowing teams to complete key tasks
+effectively while establishing a solid foundation for future enhancements and scaling.`,
     icon: "cog",
     color: "blue"
   },
@@ -42,7 +56,11 @@ const journeySteps = [
     title: "Pilot Programme",
     shortTitle: "Pilot",
     description: "Run in a controlled setting, collect feedback, and refine.",
-    fullDescription: "Run in a controlled setting, collect feedback, and refine.",
+    fullDescription: `The Pilot Programme involves deploying the system with a select group of users in
+their operational environment. This phase validates stability, performance, and
+usability under real conditions. User activity and system behaviour are closely
+monitored, and structured feedback is collected to identify refinements. The pilot
+ensures the system is fully optimised and reliable before expanding to a wider rollout.`,
     icon: "users",
     color: "purple"
   },
@@ -52,7 +70,11 @@ const journeySteps = [
     title: "Launch",
     shortTitle: "Launch",
     description: "Roll out with training, support, and a roadmap for improvements.",
-    fullDescription: "Roll out with training, support, and a roadmap for improvements.",
+    fullDescription: `The Full Launch stage introduces the solution across the entire organisation. It includes
+structured rollout planning, user training, and ongoing support to ensure smooth
+adoption. System performance and user engagement are monitored, and updates are
+applied as required. This stage transitions the solution from controlled testing to full-
+scale use, delivering measurable business impact.`,
     icon: "rocket",
     color: "cyan"
   }
@@ -169,35 +191,45 @@ const getColorClasses = (color: string) => {
         </div>
       </div>
     ) : (
-      <!-- Detailed version for services page -->
-      <div class="space-y-8">
-        {journeySteps.map((step, index) => {
+      <!-- Detailed version for services page with accordions -->
+      <div class="space-y-6">
+        {journeySteps.map((step) => {
           const colorClasses = getColorClasses(step.color);
           return (
-            <div class="journey-card group">
-              <div class="flex items-start gap-6">
-                <div class="flex-shrink-0">
-                  <div class="relative">
-                    <!-- Animated outer ring -->
-                    <div class={`w-20 h-20 rounded-full border-2 ${colorClasses.border} group-hover:animate-spin-slow`}></div>
-                    <!-- Glowing middle ring -->
-                    <div class={`absolute inset-2 w-16 h-16 rounded-full border ${colorClasses.glow} group-hover:animate-pulse`}></div>
-                    <!-- Inner circle with icon -->
-                    <div class={`absolute inset-3 w-14 h-14 bg-gray-800 rounded-full flex items-center justify-center border ${colorClasses.inner}`}>
-                      <svg class={`w-7 h-7 ${colorClasses.icon}`} fill="currentColor" viewBox="0 0 24 24">
-                        <Fragment set:html={getIcon(step.icon)} />
-                      </svg>
+            <details class="journey-accordion group">
+              <summary class="journey-summary">
+                <div class="flex items-start gap-6">
+                  <div class="flex-shrink-0">
+                    <div class="relative">
+                      <!-- Animated outer ring -->
+                      <div class={`w-20 h-20 rounded-full border-2 ${colorClasses.border} group-open:animate-spin-slow`}></div>
+                      <!-- Glowing middle ring -->
+                      <div class={`absolute inset-2 w-16 h-16 rounded-full border ${colorClasses.glow} group-open:animate-pulse`}></div>
+                      <!-- Inner circle with icon -->
+                      <div class={`absolute inset-3 w-14 h-14 bg-gray-800 rounded-full flex items-center justify-center border ${colorClasses.inner}`}>
+                        <svg class={`w-7 h-7 ${colorClasses.icon}`} fill="currentColor" viewBox="0 0 24 24">
+                          <Fragment set:html={getIcon(step.icon)} />
+                        </svg>
+                      </div>
+                      <!-- Glowing effect -->
+                      <div class={`absolute inset-0 w-20 h-20 rounded-full ${colorClasses.bg} opacity-0 group-open:opacity-100 transition-opacity`}></div>
                     </div>
-                    <!-- Glowing effect -->
-                    <div class={`absolute inset-0 w-20 h-20 rounded-full ${colorClasses.bg} group-hover:animate-ping`}></div>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <h3 class="text-xl font-semibold text-white mb-1">{step.title}</h3>
+                    <p class="text-gray-300 leading-relaxed">{step.description}</p>
+                  </div>
+                  <div class="ml-auto pt-2">
+                    <svg class="w-5 h-5 text-gray-400 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.08 1.04l-4.25 4.25a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                    </svg>
                   </div>
                 </div>
-                <div class="flex-1 min-w-0">
-                  <h3 class="text-xl font-semibold text-white mb-3">{step.stepName} - {step.title}</h3>
-                  <p class="text-gray-300 leading-relaxed">{step.fullDescription}</p>
-                </div>
+              </summary>
+              <div class="journey-panel">
+                <p class="text-gray-300 leading-relaxed">{step.fullDescription}</p>
               </div>
-            </div>
+            </details>
           );
         })}
       </div>
@@ -226,6 +258,30 @@ const getColorClasses = (color: string) => {
     overflow: hidden;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
+  }
+
+  /* Accordion shells reuse card visuals */
+  .journey-accordion {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+    border-radius: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  }
+
+  .journey-summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 2rem;
+  }
+
+  .journey-accordion[open] {
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 20px 40px -12px rgba(59, 130, 246, 0.25), 0 15px 25px -5px rgba(0, 0, 0, 0.4);
+  }
+
+  .journey-panel {
+    padding: 0 2rem 2rem 2rem;
   }
 
   .journey-card::before {
