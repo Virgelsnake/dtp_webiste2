@@ -21,13 +21,32 @@ import Resources from '../components/Resources.astro';
     </div>
   </section>
 
-  <!-- Bento Grid News Layout -->
+  <!-- Bento Grid News Layout with Tag Sidebar -->
   <section class="py-16 bg-gray-900">
     <div class="container mx-auto px-6">
-      <!-- Featured Article Grid -->
-      <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-12">
-        <!-- Large Featured Article -->
-        <article class="lg:col-span-2 lg:row-span-2 group relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-600/20 to-purple-600/20 backdrop-blur-sm border border-gray-700/50 hover:border-blue-500/50 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-blue-500/20">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <!-- Tag Sidebar -->
+        <aside class="lg:col-span-3 xl:col-span-2 bg-gray-800/40 border border-gray-700 rounded-2xl p-5 h-max sticky top-24">
+          <h3 class="text-lg font-semibold mb-4">Browse by Tag</h3>
+          <div class="flex flex-wrap lg:flex-col gap-3" id="tag-filter">
+            <button data-tag="all" class="tag-btn active px-3 py-1 rounded-md border border-gray-600 text-gray-200 hover:bg-gray-700/60 transition">All</button>
+            <button data-tag="featured" class="tag-btn px-3 py-1 rounded-md border border-gray-600 text-gray-200 hover:bg-gray-700/60 transition">Featured</button>
+            <button data-tag="ai" class="tag-btn px-3 py-1 rounded-md border border-gray-600 text-gray-200 hover:bg-gray-700/60 transition">AI</button>
+            <button data-tag="cloud" class="tag-btn px-3 py-1 rounded-md border border-gray-600 text-gray-200 hover:bg-gray-700/60 transition">Cloud</button>
+            <button data-tag="security" class="tag-btn px-3 py-1 rounded-md border border-gray-600 text-gray-200 hover:bg-gray-700/60 transition">Security</button>
+            <button data-tag="blockchain" class="tag-btn px-3 py-1 rounded-md border border-gray-600 text-gray-200 hover:bg-gray-700/60 transition">Blockchain</button>
+            <button data-tag="iot" class="tag-btn px-3 py-1 rounded-md border border-gray-600 text-gray-200 hover:bg-gray-700/60 transition">IoT</button>
+            <button data-tag="trends" class="tag-btn px-3 py-1 rounded-md border border-gray-600 text-gray-200 hover:bg-gray-700/60 transition">Trends</button>
+            <button data-tag="development" class="tag-btn px-3 py-1 rounded-md border border-gray-600 text-gray-200 hover:bg-gray-700/60 transition">Development</button>
+          </div>
+        </aside>
+
+        <!-- News Content -->
+        <div class="lg:col-span-9 xl:col-span-10" id="news-content">
+          <!-- Featured Article Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-12">
+            <!-- Large Featured Article -->
+            <article data-tags="featured,ai" class="lg:col-span-2 lg:row-span-2 group relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-600/20 to-purple-600/20 backdrop-blur-sm border border-gray-700/50 hover:border-blue-500/50 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-blue-500/20">
           <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <div class="relative p-8 h-full flex flex-col justify-between min-h-[400px]">
             <div>
@@ -57,10 +76,10 @@ import Resources from '../components/Resources.astro';
               </button>
             </div>
           </div>
-        </article>
+            </article>
 
-        <!-- Medium Article 1 -->
-        <article class="lg:col-span-2 group relative overflow-hidden rounded-2xl bg-gradient-to-br from-green-600/20 to-teal-600/20 backdrop-blur-sm border border-gray-700/50 hover:border-green-500/50 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-green-500/20">
+            <!-- Medium Article 1 -->
+            <article data-tags="cloud,security" class="lg:col-span-2 group relative overflow-hidden rounded-2xl bg-gradient-to-br from-green-600/20 to-teal-600/20 backdrop-blur-sm border border-gray-700/50 hover:border-green-500/50 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-green-500/20">
           <div class="absolute inset-0 bg-gradient-to-br from-green-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <div class="relative p-6 h-full flex flex-col justify-between min-h-[180px]">
             <div>
@@ -79,10 +98,10 @@ import Resources from '../components/Resources.astro';
               Read Article →
             </button>
           </div>
-        </article>
+            </article>
 
-        <!-- Small Article 1 -->
-        <article class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-600/20 to-pink-600/20 backdrop-blur-sm border border-gray-700/50 hover:border-purple-500/50 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-purple-500/20">
+            <!-- Small Article 1 -->
+            <article data-tags="blockchain" class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-600/20 to-pink-600/20 backdrop-blur-sm border border-gray-700/50 hover:border-purple-500/50 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-purple-500/20">
           <div class="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <div class="relative p-4 h-full flex flex-col justify-between min-h-[180px]">
             <div>
@@ -98,10 +117,10 @@ import Resources from '../components/Resources.astro';
             </div>
             <span class="text-gray-400 text-xs mt-2">Dec 10, 2024</span>
           </div>
-        </article>
+            </article>
 
-        <!-- Small Article 2 -->
-        <article class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-orange-600/20 to-red-600/20 backdrop-blur-sm border border-gray-700/50 hover:border-orange-500/50 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-orange-500/20">
+            <!-- Small Article 2 -->
+            <article data-tags="iot" class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-orange-600/20 to-red-600/20 backdrop-blur-sm border border-gray-700/50 hover:border-orange-500/50 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-orange-500/20">
           <div class="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <div class="relative p-4 h-full flex flex-col justify-between min-h-[180px]">
             <div>
@@ -117,13 +136,13 @@ import Resources from '../components/Resources.astro';
             </div>
             <span class="text-gray-400 text-xs mt-2">Dec 8, 2024</span>
           </div>
-        </article>
-      </div>
+            </article>
+          </div>
 
-      <!-- Secondary News Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-        <!-- Tech Trends Card -->
-        <article class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-cyan-600/20 to-blue-600/20 backdrop-blur-sm border border-gray-700/50 hover:border-cyan-500/50 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-cyan-500/20">
+          <!-- Secondary News Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            <!-- Tech Trends Card -->
+            <article data-tags="trends,quantum" class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-cyan-600/20 to-blue-600/20 backdrop-blur-sm border border-gray-700/50 hover:border-cyan-500/50 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-cyan-500/20">
           <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <div class="relative p-6">
             <div class="flex items-center space-x-2 mb-4">
@@ -145,10 +164,10 @@ import Resources from '../components/Resources.astro';
               </button>
             </div>
           </div>
-        </article>
+            </article>
 
-        <!-- Development Card -->
-        <article class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-600/20 to-purple-600/20 backdrop-blur-sm border border-gray-700/50 hover:border-indigo-500/50 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-indigo-500/20">
+            <!-- Development Card -->
+            <article data-tags="development,nextjs" class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-600/20 to-purple-600/20 backdrop-blur-sm border border-gray-700/50 hover:border-indigo-500/50 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-indigo-500/20">
           <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <div class="relative p-6">
             <div class="flex items-center space-x-2 mb-4">
@@ -170,10 +189,10 @@ import Resources from '../components/Resources.astro';
               </button>
             </div>
           </div>
-        </article>
+            </article>
 
-        <!-- Security Card -->
-        <article class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-red-600/20 to-pink-600/20 backdrop-blur-sm border border-gray-700/50 hover:border-red-500/50 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-red-500/20">
+            <!-- Security Card -->
+            <article data-tags="security" class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-red-600/20 to-pink-600/20 backdrop-blur-sm border border-gray-700/50 hover:border-red-500/50 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-red-500/20">
           <div class="absolute inset-0 bg-gradient-to-br from-red-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <div class="relative p-6">
             <div class="flex items-center space-x-2 mb-4">
@@ -195,27 +214,29 @@ import Resources from '../components/Resources.astro';
               </button>
             </div>
           </div>
-        </article>
-      </div>
+            </article>
+          </div>
 
-      <!-- Newsletter Subscription -->
-      <Resources />
-      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-cyan-600/20 backdrop-blur-sm border border-gray-700/50 p-8 text-center">
-        <div class="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-cyan-500/5"></div>
-        <div class="relative">
-          <h3 class="text-2xl font-bold text-white mb-4">Stay Updated</h3>
-          <p class="text-gray-300 mb-6 max-w-2xl mx-auto">
-            Get the latest tech insights, industry trends, and digital transformation strategies delivered to your inbox.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-            <input 
-              type="email" 
-              placeholder="Enter your email" 
-              class="flex-1 px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors"
-            >
-            <button class="px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl">
-              Subscribe
-            </button>
+          <!-- Newsletter Subscription -->
+          <Resources />
+          <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-cyan-600/20 backdrop-blur-sm border border-gray-700/50 p-8 text-center">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-cyan-500/5"></div>
+            <div class="relative">
+              <h3 class="text-2xl font-bold text-white mb-4">Stay Updated</h3>
+              <p class="text-gray-300 mb-6 max-w-2xl mx-auto">
+                Get the latest tech insights, industry trends, and digital transformation strategies delivered to your inbox.
+              </p>
+              <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                <input 
+                  type="email" 
+                  placeholder="Enter your email" 
+                  class="flex-1 px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors"
+                >
+                <button class="px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl">
+                  Subscribe
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -247,6 +268,14 @@ import Resources from '../components/Resources.astro';
     transform-origin: center;
   }
 
+  /* Tag button active state */
+  .tag-btn.active {
+    background: rgba(59, 130, 246, 0.15);
+    border-color: rgba(59, 130, 246, 0.6);
+    color: #93c5fd;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15) inset;
+  }
+
   /* Gradient text animation */
   @keyframes gradient-shift {
     0%, 100% { background-position: 0% 50%; }
@@ -258,3 +287,74 @@ import Resources from '../components/Resources.astro';
     animation: gradient-shift 8s ease infinite;
   }
 </style>
+
+<script>
+  // Tag-based sorting for news articles
+  (function () {
+    const tagContainer = document.getElementById('tag-filter');
+    const newsContent = document.getElementById('news-content');
+    if (!tagContainer || !newsContent) return;
+
+    // Collect all articles under news-content
+    const allArticles = Array.from(newsContent.querySelectorAll('article'));
+    // Remember original order to restore when 'all' is selected
+    const originalOrder = allArticles.slice();
+
+    // Build tag set from data-tags
+    const tagSet = new Set();
+    originalOrder.forEach((el) => {
+      (el.getAttribute('data-tags') || '')
+        .split(',')
+        .map((t) => t.trim().toLowerCase())
+        .filter(Boolean)
+        .forEach((t) => tagSet.add(t));
+    });
+
+    // Render buttons: All + dynamic tags (alphabetical)
+    tagContainer.innerHTML = '';
+    const makeBtn = (text, tag, active = false) => {
+      const b = document.createElement('button');
+      b.textContent = text;
+      b.setAttribute('data-tag', tag);
+      b.className = 'tag-btn px-3 py-1 rounded-md border border-gray-600 text-gray-200 hover:bg-gray-700/60 transition' + (active ? ' active' : '');
+      return b;
+    };
+    tagContainer.appendChild(makeBtn('All', 'all', true));
+    Array.from(tagSet)
+      .sort((a, b) => a.localeCompare(b))
+      .forEach((t) => tagContainer.appendChild(makeBtn(t.replace(/\b\w/g, (m) => m.toUpperCase()), t)));
+
+    function applyActive(button) {
+      tagContainer.querySelectorAll('.tag-btn').forEach((b) => b.classList.remove('active'));
+      button.classList.add('active');
+    }
+
+    function reorderByTag(tag) {
+      // Compute order: matching first (preserving relative order), then non-matching
+      const matches = [];
+      const others = [];
+      originalOrder.forEach((el) => {
+        const tags = (el.getAttribute('data-tags') || '').toLowerCase();
+        if (tag === 'all' || tags.split(',').map((t) => t.trim()).includes(tag)) {
+          matches.push(el);
+        } else {
+          others.push(el);
+        }
+      });
+
+      // Append in new order to their current parent containers without breaking grids
+      [...matches, ...others].forEach((el) => {
+        const parentGrid = el.parentElement; // grid container
+        if (parentGrid) parentGrid.appendChild(el);
+      });
+    }
+
+    tagContainer.addEventListener('click', (e) => {
+      const btn = e.target.closest('.tag-btn');
+      if (!btn) return;
+      const tag = (btn.getAttribute('data-tag') || 'all').toLowerCase();
+      applyActive(btn);
+      reorderByTag(tag);
+    });
+  })();
+</script>
