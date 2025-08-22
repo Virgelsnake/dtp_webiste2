@@ -202,9 +202,9 @@ const getColorClasses = (color: string) => {
                   <div class="flex-shrink-0">
                     <div class="relative">
                       <!-- Animated outer ring -->
-                      <div class={`w-20 h-20 rounded-full border-2 ${colorClasses.border} group-open:animate-spin-slow`}></div>
+                      <div class={`w-20 h-20 rounded-full border-2 ${colorClasses.border} group-open:animate-spin-slow group-hover:animate-spin-slow transition-all duration-300`}></div>
                       <!-- Glowing middle ring -->
-                      <div class={`absolute inset-2 w-16 h-16 rounded-full border ${colorClasses.glow} group-open:animate-pulse`}></div>
+                      <div class={`absolute inset-2 w-16 h-16 rounded-full border ${colorClasses.glow} group-open:animate-pulse group-hover:animate-pulse`}></div>
                       <!-- Inner circle with icon -->
                       <div class={`absolute inset-3 w-14 h-14 bg-gray-800 rounded-full flex items-center justify-center border ${colorClasses.inner}`}>
                         <svg class={`w-7 h-7 ${colorClasses.icon}`} fill="currentColor" viewBox="0 0 24 24">
@@ -212,7 +212,7 @@ const getColorClasses = (color: string) => {
                         </svg>
                       </div>
                       <!-- Glowing effect -->
-                      <div class={`absolute inset-0 w-20 h-20 rounded-full ${colorClasses.bg} opacity-0 group-open:opacity-100 transition-opacity`}></div>
+                      <div class={`absolute inset-0 w-20 h-20 rounded-full ${colorClasses.bg} opacity-0 group-open:opacity-100 group-hover:opacity-100 group-hover:animate-ping transition-opacity`}></div>
                     </div>
                   </div>
                   <div class="flex-1 min-w-0">
