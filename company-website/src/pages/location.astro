@@ -104,12 +104,52 @@ import Header from '../components/Header.astro';
                 </div>
               </div>
             </div>
+
+            <!-- Getting Here (moved under Why Aberdeen) -->
+            <div class="info-card p-8">
+              <h3 class="text-xl font-semibold mb-4">Getting Here</h3>
+              <div class="space-y-4">
+                <div class="flex items-start space-x-3">
+                  <div class="w-8 h-8 bg-yellow-600/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 icon-container">
+                    <svg class="w-4 h-4 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-gray-200">By Car</h4>
+                    <p class="text-gray-400 text-sm">Central Aberdeen location with nearby parking options. A96 and A90 access routes.</p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <div class="w-8 h-8 bg-blue-600/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 icon-container">
+                    <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-gray-200">Public Transport</h4>
+                    <p class="text-gray-400 text-sm">Aberdeen Bus Station nearby. Regular services from across Scotland.</p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <div class="w-8 h-8 bg-purple-600/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 icon-container">
+                    <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-gray-200">By Air</h4>
+                    <p class="text-gray-400 text-sm">Aberdeen Airport 20 minutes away. Regular flights from major UK cities.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- Interactive Map Section -->
-          <div class="space-y-6">
+          <div class="space-y-8">
             <!-- Contact Form (moved from Home) -->
-            <div class="info-card p-6">
+            <div class="info-card p-8">
               <h3 class="text-xl font-semibold mb-6">Get in touch</h3>
               <form class="space-y-4">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -146,7 +186,7 @@ import Header from '../components/Header.astro';
               </form>
             </div>
             <!-- Map Container -->
-            <div class="info-card p-6">
+            <div class="info-card p-8">
               <h3 class="text-xl font-semibold mb-4">Find Us</h3>
               <div class="map-container relative overflow-hidden rounded-xl border border-gray-700">
                 <div id="static-map" class="w-full h-80 bg-gray-800 relative cursor-pointer group">
@@ -195,45 +235,6 @@ import Header from '../components/Header.astro';
               </div>
             </div>
 
-            <!-- Getting Here -->
-            <div class="info-card p-6">
-              <h3 class="text-xl font-semibold mb-4">Getting Here</h3>
-              <div class="space-y-4">
-                <div class="flex items-start space-x-3">
-                  <div class="w-8 h-8 bg-yellow-600/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 icon-container">
-                    <svg class="w-4 h-4 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 class="font-medium text-gray-200">By Car</h4>
-                    <p class="text-gray-400 text-sm">Central Aberdeen location with nearby parking options. A96 and A90 access routes.</p>
-                  </div>
-                </div>
-                <div class="flex items-start space-x-3">
-                  <div class="w-8 h-8 bg-blue-600/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 icon-container">
-                    <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 class="font-medium text-gray-200">Public Transport</h4>
-                    <p class="text-gray-400 text-sm">Aberdeen Bus Station nearby. Regular services from across Scotland.</p>
-                  </div>
-                </div>
-                <div class="flex items-start space-x-3">
-                  <div class="w-8 h-8 bg-purple-600/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 icon-container">
-                    <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 class="font-medium text-gray-200">By Air</h4>
-                    <p class="text-gray-400 text-sm">Aberdeen Airport 20 minutes away. Regular flights from major UK cities.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
