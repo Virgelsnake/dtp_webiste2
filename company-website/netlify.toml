@@ -2,3 +2,9 @@
   command = "npm run build"
   publish = "dist"
   functions = "netlify/functions"
+
+[[redirects]]
+  from = "/location"
+  to = "/contact"
+  status = 301
+  force = true
