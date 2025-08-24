@@ -40,22 +40,97 @@
         </li>
       </ul>
       
-      <!-- CTA Buttons -->
-      <div class="hidden md:flex items-center space-x-4">
-        <a href="/contact" class="text-sm font-medium hover:text-blue-400 transition-colors duration-200">
-          Contact Us
-        </a>
-        <a href="/contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-6 rounded-lg text-sm transition-all duration-200 shadow-lg hover:shadow-xl">
-          Book a Discovery Call
-        </a>
-      </div>
+      <!-- CTA Buttons removed per request -->
       
       <!-- Mobile menu button -->
-      <button class="md:hidden text-white hover:text-blue-400 transition-colors">
+      <button id="mobile-menu-button" class="lg:hidden text-white hover:text-blue-400 transition-colors" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation menu">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </button>
     </div>
+    
+    <!-- Mobile Menu Panel -->
+    <div id="mobile-menu" class="lg:hidden mt-3 hidden bg-gray-900/95 border border-gray-800 rounded-xl shadow-xl">
+      <ul class="flex flex-col divide-y divide-gray-800">
+        <li><a href="/services" class="block px-4 py-3 text-sm hover:text-blue-400 hover:bg-gray-800/60 rounded-t-xl transition-colors">Our Approach</a></li>
+        <li><a href="/faq" class="block px-4 py-3 text-sm hover:text-blue-400 hover:bg-gray-800/60 transition-colors">FAQ</a></li>
+        <li><a href="/news2" class="block px-4 py-3 text-sm hover:text-blue-400 hover:bg-gray-800/60 transition-colors">News</a></li>
+        <li><a href="/contact" class="block px-4 py-3 text-sm hover:text-blue-400 hover:bg-gray-800/60 transition-colors">Contact</a></li>
+        <li class="relative">
+          <details class="group">
+            <summary class="flex items-center justify-between px-4 py-3 text-sm cursor-pointer hover:text-blue-400 hover:bg-gray-800/60 transition-colors">
+              <span>Draft</span>
+              <svg class="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-2 pb-2">
+              <a href="/" class="block px-2 py-2 text-sm rounded-md hover:bg-gray-800/60 hover:text-blue-400 transition-colors">Original Home</a>
+              <a href="/home1" class="block px-2 py-2 text-sm rounded-md hover:bg-gray-800/60 hover:text-blue-400 transition-colors">Home 1</a>
+              <a href="/case-studies" class="block px-2 py-2 text-sm rounded-md hover:bg-gray-800/60 hover:text-blue-400 transition-colors">Case Studies</a>
+              <a href="/contact" class="block px-2 py-2 text-sm rounded-md hover:bg-gray-800/60 hover:text-blue-400 transition-colors">Contact</a>
+              <a href="/news" class="block px-2 py-2 text-sm rounded-md hover:bg-gray-800/60 hover:text-blue-400 transition-colors">News</a>
+              <a href="/news2" class="block px-2 py-2 text-sm rounded-md hover:bg-gray-800/60 hover:text-blue-400 transition-colors">News 2</a>
+              <a href="/faq" class="block px-2 py-2 text-sm rounded-md hover:bg-gray-800/60 hover:text-blue-400 transition-colors">FAQ</a>
+            </div>
+          </details>
+        </li>
+      </ul>
+      <div class="p-4">
+        <a href="/contact" class="w-full inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-6 rounded-lg text-sm transition-all duration-200 shadow-lg hover:shadow-xl">Book a Discovery Call</a>
+      </div>
+    </div>
   </nav>
+  
+  <!-- Temporary instrumentation + minimal toggle logic (remove before prod) -->
+  <script is:client>
+    const header = document.querySelector('header');
+    const btn = document.getElementById('mobile-menu-button');
+    const panel = document.getElementById('mobile-menu');
+    const firstLink = panel?.querySelector('a');
+
+    const getBucket = (w) => (w < 1024 ? 'mobile' : 'desktop');
+    const setBpData = () => {
+      const w = window.innerWidth;
+      const bucket = getBucket(w);
+      header?.setAttribute('data-bp', bucket);
+      const hamburgerVisible = !!btn && getComputedStyle(btn).display !== 'none';
+      const desktopNav = document.querySelector('ul.hidden.lg\\:flex');
+      const desktopVisible = !!desktopNav && getComputedStyle(desktopNav).display !== 'none';
+      console.log('[nav]', { width: w, bucket, hamburgerVisible, desktopVisible, menuOpen: panel && !panel.classList.contains('hidden') });
+    };
+
+    // Initial mark
+    setBpData();
+    window.addEventListener('resize', () => setBpData());
+
+    const closeMenu = () => {
+      if (!panel) return;
+      panel.classList.add('hidden');
+      btn?.setAttribute('aria-expanded', 'false');
+      header?.setAttribute('data-menu-open', 'false');
+    };
+
+    const openMenu = () => {
+      if (!panel) return;
+      panel.classList.remove('hidden');
+      btn?.setAttribute('aria-expanded', 'true');
+      header?.setAttribute('data-menu-open', 'true');
+      // Focus first link for basic a11y
+      firstLink?.focus({ preventScroll: true });
+    };
+
+    btn?.addEventListener('click', () => {
+      if (!panel) return;
+      const isHidden = panel.classList.contains('hidden');
+      isHidden ? openMenu() : closeMenu();
+      setBpData();
+    });
+
+    // Close on ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+  </script>
 </header>

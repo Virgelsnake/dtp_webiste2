@@ -189,7 +189,7 @@ import Header from '../components/Header.astro';
             <!-- Map Container -->
             <div class="info-card p-8">
               <h3 class="text-xl font-semibold mb-4">Find Us</h3>
-              <div class="map-container relative overflow-hidden rounded-xl border border-gray-700">
+              <div class="map-container relative overflow-hidden rounded-xl border border-white/10">
                 <div id="static-map" class="w-full h-80 bg-gray-800 relative cursor-pointer group">
                   <!-- Static map placeholder -->
                   <div class="absolute inset-0 flex items-center justify-center">
@@ -270,3 +270,88 @@ import Header from '../components/Header.astro';
     </main>
   </div>
 </Layout>
+
+<style>
+  /* Glass-morphism info cards to match site */
+  .info-card {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.75) 0%, rgba(15, 23, 42, 0.9) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+  }
+
+  .info-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(59, 130, 246, 0.35);
+    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.25), 0 12px 24px rgba(0,0,0,0.4);
+  }
+
+  /* Icon container glow */
+  .icon-container {
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.25), inset 0 1px 0 rgba(255,255,255,0.15);
+  }
+
+  /* Map action buttons */
+  .map-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.75rem;
+    color: #cbd5e1;
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 200ms ease;
+  }
+
+  .map-action-btn:hover {
+    color: #ffffff;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(37, 99, 235, 0.25) 100%);
+    border-color: rgba(59, 130, 246, 0.45);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(59, 130, 246, 0.25);
+  }
+
+  /* Submit / CTA buttons style parity with homepage */
+  .get-started-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.75rem;
+    color: #0b1220;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    overflow: hidden;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .get-started-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(45deg, rgba(59, 130, 246, 0.12), rgba(147, 197, 253, 0.18));
+    opacity: 0;
+    transform: scale(0.85);
+    transition: opacity 150ms ease-in-out, transform 400ms ease-in-out;
+    z-index: 0;
+  }
+
+  .get-started-btn:hover {
+    color: #ffffff;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(59, 130, 246, 0.35), 0 8px 20px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.3);
+  }
+
+  .get-started-btn:hover::before { opacity: 1; transform: scale(1); }
+
+  .get-started-btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.7), 0 0 0 6px rgba(15, 23, 42, 0.9);
+  }
+</style>
