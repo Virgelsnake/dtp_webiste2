@@ -13,6 +13,16 @@
   to = "/index.html"
   status = 200
 
+[[redirects]]
+  from = "/home1"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/news"
+  to = "/news2"
+  status = 301
+
 [[headers]]
   for = "/*"
   [headers.values]
