@@ -1,8 +1,10 @@
-# Tasks
+# Deprecated – Tasks in Reference/
 
-This directory is for tracking discrete tasks and work items, similar to a lightweight issue tracker. It can be used for managing small development tasks, content updates, or other project-related work.
+> [!IMPORTANT]
+> Deprecated: Task tracking has moved
 
-## Structure
+This file is deprecated to avoid duplication. Please use the canonical task tracker:
 
-- Each task can be a separate file (e.g., `TASK-001.md`).
-- Use these files to describe the task, assign an owner, and track its status.
+- `/tasks/OUTSTANDING_TASKS.md` – single-source checklist of all website work
+
+Reference/ is reserved only for docs and assets (see `Reference/README.md`).
