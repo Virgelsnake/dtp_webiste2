@@ -4,7 +4,7 @@ export interface Props {
   description?: string;
 }
 
-const { title, description = 'Modern company website built with Astro' } =
+const { title, description = 'Digital Technology Partner (DTP) helps founders and teams turn ideas into products: Discovery → PoC → MVP → Pilot → Full Launch.' } =
   Astro.props;
 ---
 
@@ -17,6 +17,37 @@ const { title, description = 'Modern company website built with Astro' } =
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+
+    {/* Canonical URL */}
+    {(() => {
+      const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+      return <link rel="canonical" href={canonical} />
+    })()}
+
+    {/* Open Graph for rich previews */}
+    {(() => {
+      const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+      const imageUrl = new URL('/apple-touch-icon.png', Astro.site).toString(); // Replace with 1200x630 OG image when available
+      return (
+        <fragment>
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content={title} />
+          <meta property="og:description" content={description} />
+          <meta property="og:url" content={pageUrl} />
+          <meta property="og:image" content={imageUrl} />
+          <meta property="og:image:alt" content="Digital Technology Partner (DTP)" />
+        </fragment>
+      );
+    })()}
+
+    {/* Twitter Cards */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {(() => {
+      const imageUrl = new URL('/apple-touch-icon.png', Astro.site).toString();
+      return <meta name="twitter:image" content={imageUrl} />
+    })()}
   </head>
   <body class="min-h-screen bg-white">
     <slot />

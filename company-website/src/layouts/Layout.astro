@@ -13,7 +13,7 @@ const { title } = Astro.props;
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content="Digital Technology Partner (DTP) helps founders and teams turn ideas into products: Discovery → PoC → MVP → Pilot → Full Launch." />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -21,6 +21,38 @@ const { title } = Astro.props;
 		<link rel="shortcut icon" href="/favicon-32x32.png" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+
+		{/* Canonical URL */}
+		{(() => {
+		  const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+		  return <link rel="canonical" href={canonical} />
+		})()}
+
+		{/* Open Graph (WhatsApp/LinkedIn/Slack) */}
+		{(() => {
+		  const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+		  const imageUrl = new URL('/apple-touch-icon.png', Astro.site).toString(); // Replace with a 1200x630 image when available
+		  const desc = 'Digital Technology Partner (DTP) helps founders and teams turn ideas into products: Discovery → PoC → MVP → Pilot → Full Launch.';
+		  return (
+		    <fragment>
+		      <meta property="og:type" content="website" />
+		      <meta property="og:title" content={title} />
+		      <meta property="og:description" content={desc} />
+		      <meta property="og:url" content={pageUrl} />
+		      <meta property="og:image" content={imageUrl} />
+		      <meta property="og:image:alt" content="Digital Technology Partner (DTP)" />
+		    </fragment>
+		  );
+		})()}
+
+		{/* Twitter Cards */}
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content="Digital Technology Partner (DTP) helps founders and teams turn ideas into products: Discovery → PoC → MVP → Pilot → Full Launch." />
+		{(() => {
+		  const imageUrl = new URL('/apple-touch-icon.png', Astro.site).toString();
+		  return <meta name="twitter:image" content={imageUrl} />
+		})()}
 	</head>
 	<body class="bg-gray-900">
 		<slot />

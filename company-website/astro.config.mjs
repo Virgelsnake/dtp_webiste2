@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  site: 'https://yourcompany.com', // Replace with actual domain
+  site: 'https://digitaltechnologypartner.ai', // Production domain for absolute URLs
   integrations: [
     sitemap(),
     tailwind()
