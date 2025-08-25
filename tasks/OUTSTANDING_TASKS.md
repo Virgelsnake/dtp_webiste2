@@ -4,6 +4,13 @@ Use this checklist to track work. Tick items as they’re completed. Feel free t
 
 - [ ] General: Review this list weekly and prune completed/obsolete items
 
+## How to Use (from Reference/tasks/README.md)
+
+This repo supports lightweight task tracking in Markdown. For small items, use this single checklist. If a task is large or needs its own thread, you can also create a separate file:
+
+- Create a file like `tasks/TASK-001.md`
+- Describe the task, assign an owner, and track status within that file
+
 ## SEO & Meta
 
 - [ ] Add dedicated Open Graph image (1200x630) at `public/images/og-default.jpg`
