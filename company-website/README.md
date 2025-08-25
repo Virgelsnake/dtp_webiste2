@@ -41,3 +41,39 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+---
+
+## Deployment Strategy (DTP)
+
+- **Production host**: `https://digitaltechnologypartner.ai` (Netlify)
+- **Production branch**: `main` only. Netlify builds and deploys automatically on pushes to `main`.
+- **Development branch**: `development` for ongoing work and local/test-browser verification. Netlify branch deploys are not used.
+
+ 
+
+### Develop locally
+
+- Create PRs targeting `development` or commit directly to `development` for rapid iteration.
+
+- Run locally:
+
+  ```bash
+  npm install
+  npm run dev
+  ```
+
+ 
+
+### Deploy to production
+
+- Merge `development` → `main` (or commit to `main`). Netlify will auto-deploy.
+- To force a rebuild without code changes, use Netlify UI: "Trigger deploy" → "Clear cache and deploy site".
+
+### Netlify config
+- See `netlify.toml` for build command, publish dir, headers, and redirects.
+- Redirects include `/news → /news2` and `/home1 → /`.
+
+### Favicons / cache
+- Icons live in `public/` and are linked in `src/layouts/Layout.astro`.
+- Browsers cache favicons aggressively; use hard reload or add a query string (e.g. `?v=2`) if needed.
