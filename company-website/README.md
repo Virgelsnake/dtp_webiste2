@@ -50,20 +50,15 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 - **Production branch**: `main` only. Netlify builds and deploys automatically on pushes to `main`.
 - **Development branch**: `development` for ongoing work and local/test-browser verification. Netlify branch deploys are not used.
 
- 
-
 ### Develop locally
 
 - Create PRs targeting `development` or commit directly to `development` for rapid iteration.
-
 - Run locally:
 
-  ```bash
-  npm install
-  npm run dev
-  ```
-
- 
+```bash
+npm install
+npm run dev
+```
 
 ### Deploy to production
 
@@ -71,9 +66,11 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 - To force a rebuild without code changes, use Netlify UI: "Trigger deploy" → "Clear cache and deploy site".
 
 ### Netlify config
+
 - See `netlify.toml` for build command, publish dir, headers, and redirects.
 - Redirects include `/news → /news2` and `/home1 → /`.
 
 ### Favicons / cache
+
 - Icons live in `public/` and are linked in `src/layouts/Layout.astro`.
 - Browsers cache favicons aggressively; use hard reload or add a query string (e.g. `?v=2`) if needed.
