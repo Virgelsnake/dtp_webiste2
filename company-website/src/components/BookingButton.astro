@@ -1,0 +1,179 @@
+---
+// BookingButton.astro - Centralized booking button component with multiple fallback options
+export interface Props {
+  text?: string;
+  variant?: 'primary' | 'secondary' | 'cta';
+  class?: string;
+}
+
+const { 
+  text = "Book a Discovery Call", 
+  variant = "primary",
+  class: additionalClasses = ""
+} = Astro.props;
+
+// Multiple booking URL options in order of preference
+const bookingOptions = [
+  {
+    name: "Microsoft Bookings (Primary)",
+    url: "https://outlook.office.com/bookwithme/user/f0762b9af6a94ed2add9818a4f3ca4e5@digitaltechnologypartner.ai/meetingtype/qc2lOXjEdkO6GkMS_jZJrQ2?anonymous",
+    description: "Standard Microsoft Bookings URL"
+  },
+  {
+    name: "Calendly Alternative", 
+    url: "https://calendly.com/steve-shearman-dtp/30min",
+    description: "Calendly booking page (if configured)"
+  },
+  {
+    name: "Contact Form Fallback",
+    url: "/contact",
+    description: "Contact page fallback"
+  },
+  {
+    name: "Email Direct",
+    url: "mailto:steve.shearman@digitaltransformationpartners.co.uk?subject=Discovery Call Request&body=Hi Steve,%0D%0A%0D%0AI'd like to book a discovery call to discuss AI solutions for my business.%0D%0A%0D%0APlease let me know your availability.%0D%0A%0D%0AThank you!",
+    description: "Direct email with pre-filled subject"
+  }
+];
+
+const baseClasses = "relative overflow-hidden transition-all duration-250 ease-out";
+const variantClasses = {
+  primary: "rounded-md bg-blue-600 px-4 py-3 text-sm font-semibold shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600",
+  secondary: "rounded-md bg-gray-800 border border-gray-600 px-3.5 py-2.5 text-sm font-semibold shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600",
+  cta: "bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-gray-900"
+};
+
+const buttonClasses = `${baseClasses} ${variantClasses[variant]} ${additionalClasses}`;
+---
+
+<div class="booking-button-container">
+  <button 
+    type="button" 
+    class={buttonClasses}
+    onclick="handleBookingClick()"
+    aria-label={text}
+  >
+    <span class="relative z-10">{text}</span>
+  </button>
+</div>
+
+<script>
+  // Global booking handler with fallback logic
+  window.handleBookingClick = function() {
+    console.log('Booking button clicked - attempting booking options...');
+    
+    const bookingOptions = [
+      {
+        name: "Microsoft Bookings (Primary)",
+        url: "https://outlook.office.com/bookwithme/user/f0762b9af6a94ed2add9818a4f3ca4e5@digitaltechnologypartner.ai/meetingtype/qc2lOXjEdkO6GkMS_jZJrQ2?anonymous",
+        test: () => true // Always try this first
+      },
+      {
+        name: "Microsoft Bookings (Alternative Format)",
+        url: "https://bookings.office.com/calendar/steve.shearman@digitaltransformationpartners.co.uk",
+        test: () => true
+      },
+      {
+        name: "Outlook Calendar Direct",
+        url: "https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&subject=Discovery Call with Steve Shearman&body=30 minute discovery call to discuss AI solutions",
+        test: () => true
+      },
+      {
+        name: "Email Fallback",
+        url: "mailto:steve.shearman@digitaltransformationpartners.co.uk?subject=Discovery Call Request&body=Hi Steve,%0D%0A%0D%0AI'd like to book a discovery call to discuss AI solutions for my business.%0D%0A%0D%0APlease let me know your availability.%0D%0A%0D%0AThank you!",
+        test: () => true
+      }
+    ];
+
+    // Try each booking option in sequence
+    function tryBookingOption(index = 0) {
+      if (index >= bookingOptions.length) {
+        console.error('All booking options failed');
+        // Final fallback to contact page
+        window.location.href = '/contact';
+        return;
+      }
+
+      const option = bookingOptions[index];
+      console.log(`Trying booking option ${index + 1}: ${option.name}`);
+      
+      try {
+        // For email links, use window.location
+        if (option.url.startsWith('mailto:')) {
+          window.location.href = option.url;
+          return;
+        }
+        
+        // For web URLs, try opening in new window
+        const bookingWindow = window.open(option.url, '_blank', 'width=800,height=600,scrollbars=yes,resizable=yes');
+        
+        if (bookingWindow) {
+          console.log(`${option.name}: Window opened successfully`);
+          
+          // Check if window loads successfully
+          setTimeout(() => {
+            try {
+              if (bookingWindow.closed) {
+                console.log(`${option.name}: Window closed - assuming success or user action`);
+              } else {
+                // Test if we can access the window (will fail for cross-origin)
+                try {
+                  const windowLocation = bookingWindow.location.href;
+                  if (windowLocation.includes('error') || windowLocation.includes('404')) {
+                    console.log(`${option.name}: Error detected in URL, trying next option`);
+                    bookingWindow.close();
+                    tryBookingOption(index + 1);
+                  }
+                } catch (e) {
+                  // Cross-origin restriction is normal and expected
+                  console.log(`${option.name}: Cross-origin restriction (normal behavior)`);
+                }
+              }
+            } catch (e) {
+              console.log(`${option.name}: Window check error - ${e.message}`);
+            }
+          }, 2000);
+          
+        } else {
+          console.log(`${option.name}: Window blocked, trying next option`);
+          tryBookingOption(index + 1);
+        }
+        
+      } catch (error) {
+        console.error(`${option.name}: Error - ${error.message}`);
+        tryBookingOption(index + 1);
+      }
+    }
+
+    // Start the booking attempt sequence
+    tryBookingOption(0);
+  };
+</script>
+
+<style>
+  .booking-button-container {
+    display: inline-block;
+  }
+  
+  /* Enhanced hover effects */
+  .booking-button-container button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 197, 253, 0.2) 100%);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+  
+  .booking-button-container button:hover::before {
+    opacity: 1;
+  }
+  
+  .booking-button-container button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+  }
+</style>

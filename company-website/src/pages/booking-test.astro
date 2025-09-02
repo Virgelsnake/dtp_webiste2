@@ -1,0 +1,359 @@
+---
+---
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking URL Diagnostic Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #1a1a1a;
+      color: #fff;
+    }
+    .test-section {
+      background: #2a2a2a;
+      border: 1px solid #444;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    .test-button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 10px;
+      background: #0066cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+    }
+    .test-button:hover {
+      background: #0052a3;
+    }
+    .log-area {
+      background: #000;
+      color: #0f0;
+      padding: 15px;
+      border-radius: 5px;
+      font-family: monospace;
+      margin-top: 10px;
+      min-height: 100px;
+      overflow-y: auto;
+    }
+    .url-display {
+      background: #333;
+      padding: 10px;
+      border-radius: 5px;
+      word-break: break-all;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Microsoft 365 Booking URL Diagnostic Test</h1>
+  
+  <div class="test-section">
+    <h2>Current URL Being Used</h2>
+    <div class="url-display" id="current-url">
+      https://outlook.office365.com/owa/calendar/BooktimewithSteveShearman@digitaltransformationpartners.co.uk/bookings/s/30minutesmeeting
+    </div>
+    <button class="test-button" onclick="testCurrentURL()">Test Current URL</button>
+  </div>
+
+  <div class="test-section">
+    <h2>Alternative URL Formats to Test</h2>
+    
+    <h3>Format 1: Standard Bookings URL</h3>
+    <div class="url-display">
+      https://outlook.office.com/bookwithme/user/f0762b9af6a94ed2add9818a4f3ca4e5@digitaltechnologypartner.ai/meetingtype/qc2lOXjEdkO6GkMS_jZJrQ2?anonymous
+    </div>
+    <button class="test-button" onclick="testURL('https://outlook.office.com/bookwithme/user/f0762b9af6a94ed2add9818a4f3ca4e5@digitaltechnologypartner.ai/meetingtype/qc2lOXjEdkO6GkMS_jZJrQ2?anonymous', 'Format 1')">Test Format 1</button>
+
+    <h3>Format 2: Outlook Live Calendar</h3>
+    <div class="url-display">
+      https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent
+    </div>
+    <button class="test-button" onclick="testURL('https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent', 'Format 2')">Test Format 2</button>
+
+    <h3>Format 3: Direct OWA Calendar</h3>
+    <div class="url-display">
+      https://outlook.office365.com/owa/calendar/BooktimewithSteveShearman@digitaltransformationpartners.co.uk/bookings/
+    </div>
+    <button class="test-button" onclick="testURL('https://outlook.office365.com/owa/calendar/BooktimewithSteveShearman@digitaltransformationpartners.co.uk/bookings/', 'Format 3')">Test Format 3</button>
+
+    <h3>Format 4: URL Encoded Version</h3>
+    <div class="url-display" id="encoded-url">
+      <!-- Will be populated by JavaScript -->
+    </div>
+    <button class="test-button" onclick="testEncodedURL()">Test URL Encoded</button>
+  </div>
+
+  <div class="test-section">
+    <h2>Network Diagnostics</h2>
+    <button class="test-button" onclick="checkNetworkConnectivity()">Check Network Connectivity</button>
+    <button class="test-button" onclick="testCORS()">Test CORS Issues</button>
+    <button class="test-button" onclick="validateDomain()">Validate Domain</button>
+  </div>
+
+  <div class="test-section">
+    <h2>Test Results & Logs</h2>
+    <div class="log-area" id="log-output">
+      Diagnostic tests ready. Click buttons above to run tests...\n
+    </div>
+    <button class="test-button" onclick="clearLogs()">Clear Logs</button>
+  </div>
+
+  <script>
+    console.log('Script loading...');
+    
+    function log(message) {
+      console.log('Log function called:', message);
+      const logArea = document.getElementById('log-output');
+      if (!logArea) {
+        console.error('Log area not found!');
+        return;
+      }
+      const timestamp = new Date().toLocaleTimeString();
+      logArea.innerHTML += `[${timestamp}] ${message}\n`;
+      logArea.scrollTop = logArea.scrollHeight;
+    }
+
+    function clearLogs() {
+      console.log('Clear logs called');
+      const logArea = document.getElementById('log-output');
+      if (logArea) {
+        logArea.innerHTML = 'Logs cleared...\n';
+      }
+    }
+
+    // Auto-run comprehensive diagnostics on page load
+    function runComprehensiveDiagnostics() {
+      log('=== STARTING COMPREHENSIVE MICROSOFT 365 BOOKING URL DIAGNOSTICS ===');
+      
+      // Test 1: Current URL Structure Analysis
+      const currentURL = 'https://outlook.office365.com/owa/calendar/BooktimewithSteveShearman@digitaltransformationpartners.co.uk/bookings/s/30minutesmeeting';
+      log(`CURRENT URL: ${currentURL}`);
+      
+      // Test 2: URL Component Analysis
+      try {
+        const urlObj = new URL(currentURL);
+        log(`Protocol: ${urlObj.protocol}`);
+        log(`Host: ${urlObj.host}`);
+        log(`Pathname: ${urlObj.pathname}`);
+        log(`Search: ${urlObj.search || 'None'}`);
+      } catch (e) {
+        log(`URL parsing error: ${e.message}`);
+      }
+      
+      // Test 3: Alternative URL Formats
+      const alternativeURLs = [
+        'https://outlook.office.com/bookwithme/user/f0762b9af6a94ed2add9818a4f3ca4e5@digitaltechnologypartner.ai/meetingtype/qc2lOXjEdkO6GkMS_jZJrQ2?anonymous',
+        'https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent',
+        'https://outlook.office365.com/owa/calendar/BooktimewithSteveShearman@digitaltransformationpartners.co.uk/bookings/',
+        'https://bookings.office.com/calendar/BooktimewithSteveShearman@digitaltransformationpartners.co.uk',
+        'https://outlook.office365.com/calendar/published/BooktimewithSteveShearman@digitaltransformationpartners.co.uk'
+      ];
+      
+      log('=== TESTING ALTERNATIVE URL FORMATS ===');
+      alternativeURLs.forEach((url, index) => {
+        log(`Format ${index + 1}: ${url}`);
+        testURLDirectly(url, `Format ${index + 1}`);
+      });
+      
+      // Test 4: Network Connectivity
+      log('=== TESTING NETWORK CONNECTIVITY ===');
+      testNetworkConnectivity();
+      
+      // Test 5: Browser Environment
+      log('=== BROWSER ENVIRONMENT ===');
+      log(`User Agent: ${navigator.userAgent}`);
+      log(`Current Location: ${window.location.href}`);
+      log(`Cookies Enabled: ${navigator.cookieEnabled}`);
+      log(`Online Status: ${navigator.onLine}`);
+      
+      // Test 6: Microsoft Services Reachability
+      log('=== MICROSOFT SERVICES REACHABILITY ===');
+      testMicrosoftServices();
+    }
+
+    function testURLDirectly(url, label) {
+      // Create a hidden iframe to test URL loading
+      const iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      iframe.style.width = '1px';
+      iframe.style.height = '1px';
+      
+      iframe.onload = function() {
+        log(`${label}: iframe loaded successfully`);
+        try {
+          // Try to access iframe content (will fail for cross-origin)
+          const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+          if (iframeDoc) {
+            log(`${label}: Content accessible - likely same origin or CORS allowed`);
+          }
+        } catch (e) {
+          log(`${label}: Cross-origin restriction - ${e.message}`);
+        }
+        document.body.removeChild(iframe);
+      };
+      
+      iframe.onerror = function() {
+        log(`${label}: iframe failed to load`);
+        document.body.removeChild(iframe);
+      };
+      
+      iframe.src = url;
+      document.body.appendChild(iframe);
+      
+      // Also test with fetch
+      fetch(url, { method: 'HEAD', mode: 'no-cors' })
+        .then(response => {
+          log(`${label}: Fetch HEAD request completed`);
+        })
+        .catch(error => {
+          log(`${label}: Fetch failed - ${error.message}`);
+        });
+    }
+
+    function testNetworkConnectivity() {
+      const testHosts = [
+        'https://outlook.office365.com',
+        'https://login.microsoftonline.com',
+        'https://outlook.live.com',
+        'https://bookings.office.com',
+        'https://graph.microsoft.com'
+      ];
+      
+      testHosts.forEach(host => {
+        fetch(host, { method: 'HEAD', mode: 'no-cors' })
+          .then(() => {
+            log(`Network: ${host} - Reachable`);
+          })
+          .catch(error => {
+            log(`Network: ${host} - Error: ${error.message}`);
+          });
+      });
+    }
+
+    function testMicrosoftServices() {
+      // Test Microsoft Graph API endpoint
+      fetch('https://graph.microsoft.com/v1.0/', { method: 'GET' })
+        .then(response => {
+          log(`Microsoft Graph: Status ${response.status} - ${response.statusText}`);
+        })
+        .catch(error => {
+          log(`Microsoft Graph: Error - ${error.message}`);
+        });
+      
+      // Test Office 365 login page
+      fetch('https://login.microsoftonline.com/common/oauth2/v2.0/authorize', { method: 'HEAD', mode: 'no-cors' })
+        .then(() => {
+          log('OAuth endpoint: Reachable');
+        })
+        .catch(error => {
+          log(`OAuth endpoint: Error - ${error.message}`);
+        });
+    }
+
+    // Manual test functions for buttons
+    function testCurrentURL() {
+      log('=== MANUAL TEST: Current URL ===');
+      const url = 'https://outlook.office365.com/owa/calendar/BooktimewithSteveShearman@digitaltransformationpartners.co.uk/bookings/s/30minutesmeeting';
+      
+      // Open in new window and log result
+      try {
+        const newWindow = window.open(url, '_blank', 'width=800,height=600');
+        if (newWindow) {
+          log('Current URL: Window opened successfully');
+          setTimeout(() => {
+            try {
+              if (newWindow.closed) {
+                log('Current URL: Window was closed by user or redirect');
+              } else {
+                log('Current URL: Window still open - checking status...');
+                newWindow.close();
+              }
+            } catch (e) {
+              log(`Current URL: Window check error - ${e.message}`);
+            }
+          }, 3000);
+        } else {
+          log('Current URL: Window blocked by popup blocker');
+        }
+      } catch (error) {
+        log(`Current URL: Error opening window - ${error.message}`);
+      }
+    }
+
+    function testURL(url, label) {
+      log(`=== MANUAL TEST: ${label} ===`);
+      testURLDirectly(url, label);
+    }
+
+    function testEncodedURL() {
+      const originalURL = 'https://outlook.office365.com/owa/calendar/BooktimewithSteveShearman@digitaltransformationpartners.co.uk/bookings/s/30minutesmeeting';
+      const encodedURL = encodeURIComponent(originalURL);
+      
+      log('=== URL ENCODING TEST ===');
+      log(`Original: ${originalURL}`);
+      log(`Encoded: ${encodedURL}`);
+      
+      document.getElementById('encoded-url').textContent = encodedURL;
+      testURL(encodedURL, 'URL Encoded');
+    }
+
+    function checkNetworkConnectivity() {
+      log('=== MANUAL NETWORK CHECK ===');
+      testNetworkConnectivity();
+    }
+
+    function testCORS() {
+      log('=== MANUAL CORS TEST ===');
+      testMicrosoftServices();
+    }
+
+    function validateDomain() {
+      log('=== DOMAIN VALIDATION ===');
+      const domain = 'digitaltransformationpartners.co.uk';
+      
+      fetch(`https://${domain}`, { method: 'HEAD', mode: 'no-cors' })
+        .then(() => {
+          log(`Domain ${domain}: Reachable`);
+        })
+        .catch(error => {
+          log(`Domain ${domain}: Error - ${error.message}`);
+        });
+      
+      log(`Current page: ${window.location.href}`);
+      log(`Referrer: ${document.referrer || 'None'}`);
+    }
+
+    // Initialize and auto-run diagnostics
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('DOM loaded, initializing diagnostics...');
+      
+      // Set encoded URL display
+      const originalURL = 'https://outlook.office365.com/owa/calendar/BooktimewithSteveShearman@digitaltransformationpartners.co.uk/bookings/s/30minutesmeeting';
+      const encodedURL = encodeURI(originalURL);
+      const encodedElement = document.getElementById('encoded-url');
+      if (encodedElement) {
+        encodedElement.textContent = encodedURL;
+      }
+      
+      log('Diagnostic page initialized');
+      log('Auto-running comprehensive diagnostics...');
+      
+      // Auto-run diagnostics after a short delay
+      setTimeout(runComprehensiveDiagnostics, 1000);
+    });
+    
+    console.log('Script loaded successfully');
+  </script>
+</body>
+</html>

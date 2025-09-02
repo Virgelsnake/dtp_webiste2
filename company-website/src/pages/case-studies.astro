@@ -10,241 +10,306 @@ import Header from '../components/Header.astro';
       <!-- Hero Section -->
       <div class="pt-24 sm:pt-32 pb-16">
         <div class="container mx-auto px-6 text-center">
-          <h1 class="text-4xl font-bold tracking-tight sm:text-6xl">
+          <h1 class="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl bg-gradient-to-r from-white via-blue-100 to-blue-200 bg-clip-text text-transparent">
             Case Studies
           </h1>
-          <p class="mt-6 text-lg leading-8 text-gray-300 max-w-3xl mx-auto">
-            Real transformations. Real results. See how we've helped businesses across industries turn ideas into successful digital solutions through our proven 5-stage process.
+          <p class="mt-6 text-lg sm:text-xl leading-relaxed text-gray-200 max-w-4xl mx-auto font-light">
+            Real transformations. Real results. See how we've helped businesses across industries turn ideas into successful digital solutions through our proven development process.
           </p>
         </div>
       </div>
 
       <!-- Case Studies Grid -->
-      <div class="py-16">
-        <div class="container mx-auto px-6">
-          <div class="grid gap-16 lg:gap-24">
+      <div class="py-8 sm:py-16">
+        <div class="container mx-auto px-4 sm:px-6">
+          <div class="grid gap-8 sm:gap-16 lg:gap-24">
             
-            <!-- Case Study 1: Manufacturing AI Optimization -->
+            <!-- Case Study 1: Protective Coating Automation -->
             <div class="case-study-card">
-              <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="order-2 lg:order-1">
-                  <div class="case-study-badge">Manufacturing</div>
-                  <h2 class="text-3xl font-bold mt-4 mb-6">AI-Powered Production Optimization</h2>
-                  <p class="text-gray-300 text-lg mb-6">
-                    A leading UK manufacturer was losing £50K monthly due to production inefficiencies and equipment downtime. Traditional monitoring systems provided data but no actionable insights.
-                  </p>
-                  
-                  <div class="results-grid">
-                    <div class="result-item">
-                      <div class="result-number">40%</div>
-                      <div class="result-label">Reduction in Downtime</div>
-                    </div>
-                    <div class="result-item">
-                      <div class="result-number">£180K</div>
-                      <div class="result-label">Annual Savings</div>
-                    </div>
-                    <div class="result-item">
-                      <div class="result-number">3 Months</div>
-                      <div class="result-label">ROI Achieved</div>
-                    </div>
-                  </div>
-
-                  <div class="process-timeline">
-                    <h3 class="text-xl font-semibold mb-4">Our Process</h3>
-                    <div class="timeline-steps">
-                      <div class="timeline-step">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                          <strong>Discovery:</strong> Mapped production workflows and identified 12 critical bottlenecks
-                        </div>
-                      </div>
-                      <div class="timeline-step">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                          <strong>PoC:</strong> Built predictive model for main production line in 2 weeks
-                        </div>
-                      </div>
-                      <div class="timeline-step">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                          <strong>MVP:</strong> Deployed real-time monitoring dashboard with AI alerts
-                        </div>
-                      </div>
-                      <div class="timeline-step">
-                        <div class="step-number">4</div>
-                        <div class="step-content">
-                          <strong>Pilot:</strong> Tested across 3 production lines for 6 weeks
-                        </div>
-                      </div>
-                      <div class="timeline-step">
-                        <div class="step-number">5</div>
-                        <div class="step-content">
-                          <strong>Launch:</strong> Full deployment with staff training and support
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+              <div class="case-study-header mb-12">
+                <div class="case-study-badge">Manufacturing</div>
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mt-6 mb-6 leading-tight bg-gradient-to-r from-white to-gray-100 bg-clip-text text-transparent">
+                  Automating Surface Area Calculations for Protective Coating Applications
+                </h2>
+                <p class="text-gray-200 text-base sm:text-lg lg:text-xl leading-relaxed font-light">
+                  A specialist protective coating company was spending significant time manually analyzing PDF engineering drawings to calculate surface areas for quotations. This manual process was time-consuming and error-prone, creating bottlenecks in their competitive quotation process.
+                </p>
+              </div>
+              
+              <div class="grid lg:grid-cols-2 gap-12 mb-12">
+                <div class="challenge-section">
+                  <h3 class="text-2xl font-bold mb-6 text-blue-300 flex items-center">
+                    <span class="w-2 h-8 bg-blue-400 rounded-full mr-4"></span>
+                    The Challenge
+                  </h3>
+                  <ul class="text-gray-200 space-y-4 text-lg leading-relaxed">
+                    <li class="flex items-start">
+                      <span class="w-2 h-2 bg-blue-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                      Manual identification of fabricated structures from PDF drawings
+                    </li>
+                    <li class="flex items-start">
+                      <span class="w-2 h-2 bg-blue-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                      Complex mathematical calculations for various geometric shapes
+                    </li>
+                    <li class="flex items-start">
+                      <span class="w-2 h-2 bg-blue-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                      Time-consuming quotation process affecting competitiveness
+                    </li>
+                    <li class="flex items-start">
+                      <span class="w-2 h-2 bg-blue-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                      Risk of human error in critical pricing calculations
+                    </li>
+                  </ul>
                 </div>
-                
-                <div class="order-1 lg:order-2">
-                  <div class="case-study-image">
-                    <div class="image-placeholder manufacturing">
-                      <div class="placeholder-content">
-                        <div class="placeholder-icon">🏭</div>
-                        <div class="placeholder-text">Manufacturing Dashboard</div>
-                      </div>
+
+                <div class="solution-section">
+                  <h3 class="text-2xl font-bold mb-6 text-green-300 flex items-center">
+                    <span class="w-2 h-8 bg-green-400 rounded-full mr-4"></span>
+                    Our Solution
+                  </h3>
+                  <div class="grid grid-cols-1 gap-4">
+                    <div class="solution-item">
+                      <strong class="text-white text-base sm:text-lg">Interactive PDF Processing</strong>
+                      <p class="text-gray-200 mt-2 text-sm sm:text-base leading-relaxed">OCR-enabled tagging interface for direct element selection</p>
+                    </div>
+                    <div class="solution-item">
+                      <strong class="text-white text-base sm:text-lg">Automated Calculations</strong>
+                      <p class="text-gray-200 mt-2 text-sm sm:text-base leading-relaxed">Pre-defined formulas for CHS/SHS, I-Beams, RSA, and more</p>
+                    </div>
+                    <div class="solution-item">
+                      <strong class="text-white text-base sm:text-lg">Multi-tenant Architecture</strong>
+                      <p class="text-gray-200 mt-2 text-sm sm:text-base leading-relaxed">MongoDB backend with React frontend for secure data management</p>
+                    </div>
+                    <div class="solution-item">
+                      <strong class="text-white text-base sm:text-lg">Export Integration</strong>
+                      <p class="text-gray-200 mt-2 text-sm sm:text-base leading-relaxed">Automated Excel report generation for quotation workflow</p>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-
-            <!-- Case Study 2: Healthcare Data Analytics -->
-            <div class="case-study-card">
-              <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="order-1">
-                  <div class="case-study-image">
-                    <div class="image-placeholder healthcare">
-                      <div class="placeholder-content">
-                        <div class="placeholder-icon">🏥</div>
-                        <div class="placeholder-text">Patient Analytics Platform</div>
-                      </div>
-                    </div>
+              
+              <div class="results-section mb-12">
+                <h3 class="text-2xl font-bold mb-8 text-center text-white">Business Impact</h3>
+                <div class="results-grid">
+                  <div class="result-item">
+                    <div class="result-number">Hours → Minutes</div>
+                    <div class="result-label">Processing Time Reduction</div>
+                  </div>
+                  <div class="result-item">
+                    <div class="result-number">100%</div>
+                    <div class="result-label">Calculation Accuracy</div>
+                  </div>
+                  <div class="result-item">
+                    <div class="result-number">Faster</div>
+                    <div class="result-label">Quote Turnaround</div>
                   </div>
                 </div>
-                
-                <div class="order-2">
-                  <div class="case-study-badge">Healthcare</div>
-                  <h2 class="text-3xl font-bold mt-4 mb-6">Patient Flow Analytics System</h2>
-                  <p class="text-gray-300 text-lg mb-6">
-                    A regional hospital network struggled with patient flow management, leading to overcrowding in A&E and delayed treatments. Manual processes created bottlenecks and poor patient experience.
-                  </p>
-                  
-                  <div class="results-grid">
-                    <div class="result-item">
-                      <div class="result-number">35%</div>
-                      <div class="result-label">Faster Patient Processing</div>
-                    </div>
-                    <div class="result-item">
-                      <div class="result-number">60%</div>
-                      <div class="result-label">Reduction in Wait Times</div>
-                    </div>
-                    <div class="result-item">
-                      <div class="result-number">95%</div>
-                      <div class="result-label">Staff Satisfaction</div>
-                    </div>
-                  </div>
+              </div>
 
-                  <div class="process-timeline">
-                    <h3 class="text-xl font-semibold mb-4">Our Process</h3>
-                    <div class="timeline-steps">
-                      <div class="timeline-step">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                          <strong>Discovery:</strong> Analyzed patient journey across 4 departments
-                        </div>
-                      </div>
-                      <div class="timeline-step">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                          <strong>PoC:</strong> Created predictive model for A&E demand patterns
-                        </div>
-                      </div>
-                      <div class="timeline-step">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                          <strong>MVP:</strong> Built real-time dashboard for bed management
-                        </div>
-                      </div>
-                      <div class="timeline-step">
-                        <div class="step-number">4</div>
-                        <div class="step-content">
-                          <strong>Pilot:</strong> Tested in main hospital for 8 weeks
-                        </div>
-                      </div>
-                      <div class="timeline-step">
-                        <div class="step-number">5</div>
-                        <div class="step-content">
-                          <strong>Launch:</strong> Rolled out across entire hospital network
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+              <div class="tech-stack">
+                <h4 class="text-lg font-semibold text-gray-300 mb-4">Technology Stack</h4>
+                <div class="flex flex-wrap gap-3">
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">Flask/FastAPI</span>
+                  <span class="tech-tag">React</span>
+                  <span class="tech-tag">MongoDB</span>
+                  <span class="tech-tag">OCR</span>
                 </div>
               </div>
             </div>
 
-            <!-- Case Study 3: Retail Customer Intelligence -->
+            <!-- Case Study 2: Manufacturing Maintenance AI -->
             <div class="case-study-card">
-              <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="order-2 lg:order-1">
-                  <div class="case-study-badge">Retail</div>
-                  <h2 class="text-3xl font-bold mt-4 mb-6">AI-Driven Customer Intelligence Platform</h2>
-                  <p class="text-gray-300 text-lg mb-6">
-                    A multi-channel retailer with 50+ stores was struggling with inventory management and personalized customer experiences. Disconnected systems meant missed opportunities and excess stock.
-                  </p>
-                  
-                  <div class="results-grid">
-                    <div class="result-item">
-                      <div class="result-number">25%</div>
-                      <div class="result-label">Increase in Sales</div>
-                    </div>
-                    <div class="result-item">
-                      <div class="result-number">45%</div>
-                      <div class="result-label">Reduction in Stock Waste</div>
-                    </div>
-                    <div class="result-item">
-                      <div class="result-number">80%</div>
-                      <div class="result-label">Improvement in Customer Satisfaction</div>
-                    </div>
-                  </div>
+              <div class="case-study-header mb-12">
+                <div class="case-study-badge">Manufacturing</div>
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mt-6 mb-6 leading-tight bg-gradient-to-r from-white to-gray-100 bg-clip-text text-transparent">
+                  Transforming Manufacturing Maintenance Through Intelligent Messaging
+                </h2>
+                <p class="text-gray-200 text-base sm:text-lg lg:text-xl leading-relaxed font-light">
+                  A window and door manufacturer needed to systematically manage machine maintenance across their production floor. Engineers worked directly with machinery and rarely accessed desktop systems, creating a communication gap for critical maintenance tasks.
+                </p>
+              </div>
+              
+              <div class="grid lg:grid-cols-2 gap-12 mb-12">
+                <div class="challenge-section">
+                  <h3 class="text-2xl font-bold mb-6 text-blue-300 flex items-center">
+                    <span class="w-2 h-8 bg-blue-400 rounded-full mr-4"></span>
+                    The Challenge
+                  </h3>
+                  <ul class="text-gray-200 space-y-4 text-lg leading-relaxed">
+                    <li class="flex items-start">
+                      <span class="w-2 h-2 bg-blue-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                      No systematic reminders for scheduled maintenance
+                    </li>
+                    <li class="flex items-start">
+                      <span class="w-2 h-2 bg-blue-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                      Engineers worked on production floor, not at computers
+                    </li>
+                    <li class="flex items-start">
+                      <span class="w-2 h-2 bg-blue-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                      Missed maintenance windows causing potential equipment failures
+                    </li>
+                    <li class="flex items-start">
+                      <span class="w-2 h-2 bg-blue-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                      Lack of management visibility on maintenance completion
+                    </li>
+                  </ul>
+                </div>
 
-                  <div class="process-timeline">
-                    <h3 class="text-xl font-semibold mb-4">Our Process</h3>
-                    <div class="timeline-steps">
-                      <div class="timeline-step">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                          <strong>Discovery:</strong> Mapped customer journey across online and offline channels
-                        </div>
-                      </div>
-                      <div class="timeline-step">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                          <strong>PoC:</strong> Built recommendation engine for top-selling categories
-                        </div>
-                      </div>
-                      <div class="timeline-step">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                          <strong>MVP:</strong> Integrated customer data platform with inventory system
-                        </div>
-                      </div>
-                      <div class="timeline-step">
-                        <div class="step-number">4</div>
-                        <div class="step-content">
-                          <strong>Pilot:</strong> Tested in 5 flagship stores for 10 weeks
-                        </div>
-                      </div>
-                      <div class="timeline-step">
-                        <div class="step-number">5</div>
-                        <div class="step-content">
-                          <strong>Launch:</strong> Full rollout with staff training and ongoing support
-                        </div>
-                      </div>
+                <div class="solution-section">
+                  <h3 class="text-2xl font-bold mb-6 text-green-300 flex items-center">
+                    <span class="w-2 h-8 bg-green-400 rounded-full mr-4"></span>
+                    Our Solution
+                  </h3>
+                  <div class="grid grid-cols-1 gap-4">
+                    <div class="solution-item">
+                      <strong class="text-white text-lg">Messaging-Native Interface</strong>
+                      <p class="text-gray-200 mt-2 leading-relaxed">AI agent integrated with existing mobile messaging platforms</p>
+                    </div>
+                    <div class="solution-item">
+                      <strong class="text-white text-lg">Natural Language Processing</strong>
+                      <p class="text-gray-200 mt-2 leading-relaxed">Text, voice-to-text, and voice note processing capabilities</p>
+                    </div>
+                    <div class="solution-item">
+                      <strong class="text-white text-lg">Visual Documentation</strong>
+                      <p class="text-gray-200 mt-2 leading-relaxed">Mobile camera integration for maintenance evidence capture</p>
+                    </div>
+                    <div class="solution-item">
+                      <strong class="text-white text-lg">Meeting Integration</strong>
+                      <p class="text-gray-200 mt-2 leading-relaxed">Automatic task extraction from meeting transcriptions</p>
                     </div>
                   </div>
                 </div>
-                
-                <div class="order-1 lg:order-2">
-                  <div class="case-study-image">
-                    <div class="image-placeholder retail">
-                      <div class="placeholder-content">
-                        <div class="placeholder-icon">🛍️</div>
-                        <div class="placeholder-text">Customer Intelligence Dashboard</div>
-                      </div>
+              </div>
+              
+              <div class="results-section mb-12">
+                <h3 class="text-2xl font-bold mb-8 text-center text-white">Business Impact</h3>
+                <div class="results-grid">
+                  <div class="result-item">
+                    <div class="result-number">Zero</div>
+                    <div class="result-label">Missed Maintenance</div>
+                  </div>
+                  <div class="result-item">
+                    <div class="result-number">Real-time</div>
+                    <div class="result-label">Management Visibility</div>
+                  </div>
+                  <div class="result-item">
+                    <div class="result-number">No Training</div>
+                    <div class="result-label">Required for Engineers</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tech-stack">
+                <h4 class="text-lg font-semibold text-gray-300 mb-4">Technology Stack</h4>
+                <div class="flex flex-wrap gap-3">
+                  <span class="tech-tag">AI Agent</span>
+                  <span class="tech-tag">NLP</span>
+                  <span class="tech-tag">Cloud APIs</span>
+                  <span class="tech-tag">Mobile Integration</span>
+                  <span class="tech-tag">Voice Processing</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Case Study 3: Infrastructure AI Partnership -->
+            <div class="case-study-card">
+              <div class="case-study-header mb-12">
+                <div class="case-study-badge">Infrastructure</div>
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mt-6 mb-6 leading-tight bg-gradient-to-r from-white to-gray-100 bg-clip-text text-transparent">
+                  Delivering AI Expertise as Technical Partner in Infrastructure Analytics
+                </h2>
+                <p class="text-gray-200 text-base sm:text-lg lg:text-xl leading-relaxed font-light">
+                  A specialist technology consultancy needed advanced AI and machine learning expertise for their infrastructure client project. They required a trusted technical partner to deliver production-ready AI solutions while maintaining client relationships.
+                </p>
+              </div>
+              
+              <div class="grid lg:grid-cols-2 gap-12 mb-12">
+                <div class="challenge-section">
+                  <h3 class="text-2xl font-bold mb-6 text-blue-300 flex items-center">
+                    <span class="w-2 h-8 bg-blue-400 rounded-full mr-4"></span>
+                    The Partnership Need
+                  </h3>
+                  <ul class="text-gray-200 space-y-4 text-lg leading-relaxed">
+                    <li class="flex items-start">
+                      <span class="w-2 h-2 bg-blue-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                      Client required sophisticated root cause analysis capabilities
+                    </li>
+                    <li class="flex items-start">
+                      <span class="w-2 h-2 bg-blue-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                      Needed AI-enhanced reporting within existing monitoring platform
+                    </li>
+                    <li class="flex items-start">
+                      <span class="w-2 h-2 bg-blue-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                      Consultancy lacked specialized AI/ML expertise
+                    </li>
+                    <li class="flex items-start">
+                      <span class="w-2 h-2 bg-blue-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                      Required rapid integration with existing project team
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="solution-section">
+                  <h3 class="text-2xl font-bold mb-6 text-green-300 flex items-center">
+                    <span class="w-2 h-8 bg-green-400 rounded-full mr-4"></span>
+                    Our Technical Contributions
+                  </h3>
+                  <div class="grid grid-cols-1 gap-4">
+                    <div class="solution-item">
+                      <strong class="text-white text-lg">Vector Database Architecture</strong>
+                      <p class="text-gray-200 mt-2 leading-relaxed">Designed efficient indexing for natural language queries</p>
+                    </div>
+                    <div class="solution-item">
+                      <strong class="text-white text-lg">ML Pipeline Development</strong>
+                      <p class="text-gray-200 mt-2 leading-relaxed">Built classification algorithms for predictive root cause analysis</p>
+                    </div>
+                    <div class="solution-item">
+                      <strong class="text-white text-lg">Integration Strategy</strong>
+                      <p class="text-gray-200 mt-2 leading-relaxed">Seamless data parsing pipelines with existing platform APIs</p>
+                    </div>
+                    <div class="solution-item">
+                      <strong class="text-white text-lg">Conversational AI Framework</strong>
+                      <p class="text-gray-200 mt-2 leading-relaxed">Natural language processing for technical query transformation</p>
                     </div>
                   </div>
+                </div>
+              </div>
+              
+              <div class="results-section mb-12">
+                <h3 class="text-2xl font-bold mb-8 text-center text-white">Business Impact</h3>
+                <div class="results-grid">
+                  <div class="result-item">
+                    <div class="result-number">Expanded</div>
+                    <div class="result-label">Service Capabilities</div>
+                  </div>
+                  <div class="result-item">
+                    <div class="result-number">Accelerated</div>
+                    <div class="result-label">Project Delivery</div>
+                  </div>
+                  <div class="result-item">
+                    <div class="result-number">Enhanced</div>
+                    <div class="result-label">Client Value</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="partnership-model mb-8 p-6 bg-gradient-to-r from-gray-700/40 to-gray-800/40 rounded-xl border border-gray-600/40 backdrop-blur-sm">
+                <h4 class="text-xl font-bold text-blue-300 mb-3 flex items-center">
+                  <span class="w-2 h-6 bg-blue-400 rounded-full mr-3"></span>
+                  Partnership Model
+                </h4>
+                <p class="text-gray-200 text-lg leading-relaxed">Technical subcontracting that allowed our client to maintain project ownership and client relationships while accessing deep AI/ML expertise when needed.</p>
+              </div>
+
+              <div class="tech-stack">
+                <h4 class="text-lg font-semibold text-gray-300 mb-4">Technology Stack</h4>
+                <div class="flex flex-wrap gap-3">
+                  <span class="tech-tag">Vector Databases</span>
+                  <span class="tech-tag">Machine Learning</span>
+                  <span class="tech-tag">Generative AI</span>
+                  <span class="tech-tag">NLP</span>
+                  <span class="tech-tag">API Integration</span>
                 </div>
               </div>
             </div>
@@ -258,14 +323,11 @@ import Header from '../components/Header.astro';
         <div class="container mx-auto px-6 text-center">
           <h2 class="text-3xl font-bold mb-6">Ready to Transform Your Business?</h2>
           <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            See how our proven 5-stage process can deliver real results for your organization.
+            See how our proven 5-stage process can deliver real results for your organisation.
           </p>
           <div class="flex items-center justify-center gap-x-6">
-            <a href="/contact" class="get-demo-btn rounded-md bg-blue-600 px-4 py-3 text-sm font-semibold shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 relative overflow-hidden transition-all duration-250 ease-out">
+            <a href="https://outlook.office.com/bookwithme/user/f0762b9af6a94ed2add9818a4f3ca4e5@digitaltechnologypartner.ai/meetingtype/qc2lOXjEdkO6GkMS_jZJrQ2?anonymous" target="_blank" rel="noopener noreferrer" class="get-demo-btn rounded-md bg-blue-600 px-4 py-3 text-sm font-semibold shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 relative overflow-hidden transition-all duration-250 ease-out">
               <span class="relative z-10">Book a Discovery Call</span>
-            </a>
-            <a href="/services" class="get-started-btn rounded-md bg-gray-800 border border-gray-600 px-3.5 py-2.5 text-sm font-semibold shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 relative overflow-hidden transition-all duration-250 ease-out">
-              <span class="relative z-10">Learn About Our Process <span aria-hidden="true" class="inline-block transition-transform duration-250 ease-out">→</span></span>
             </a>
           </div>
         </div>
@@ -278,43 +340,102 @@ import Header from '../components/Header.astro';
 <style>
   /* Case Study Styling */
   .case-study-card {
-    @apply bg-gray-800/30 backdrop-blur-sm rounded-2xl p-8 lg:p-12 border border-gray-700/50;
-    transition: all 300ms ease-out;
+    @apply bg-gradient-to-br from-gray-800/40 via-gray-800/30 to-gray-900/40 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-16 border border-gray-700/50;
+    transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .case-study-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent);
+    opacity: 0;
+    transition: opacity 400ms ease;
   }
 
   .case-study-card:hover {
-    @apply bg-gray-800/50 border-gray-600/50;
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    @apply bg-gradient-to-br from-gray-800/60 via-gray-800/50 to-gray-900/60 border-gray-600/60;
+    transform: translateY(-8px);
+    box-shadow: 0 32px 64px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(59, 130, 246, 0.1);
+  }
+
+  .case-study-card:hover::before {
+    opacity: 1;
+  }
+
+  .case-study-header {
+    @apply text-center lg:text-left;
   }
 
   .case-study-badge {
-    @apply inline-block px-4 py-2 bg-blue-600/20 text-blue-300 rounded-full text-sm font-semibold border border-blue-500/30;
+    @apply inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600/30 to-blue-500/20 text-blue-200 rounded-full text-base font-bold border border-blue-500/40 backdrop-blur-sm;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
   }
 
-  .case-study-image {
-    @apply relative;
+  /* Challenge and Solution Sections */
+  .challenge-section, .solution-section {
+    @apply mb-12;
   }
 
-  .image-placeholder {
-    @apply w-full h-80 rounded-xl flex items-center justify-center text-center;
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 197, 253, 0.05));
-    border: 2px dashed rgba(59, 130, 246, 0.3);
+  .challenge-section h3, .solution-section h3 {
+    @apply text-2xl font-bold mb-6;
+    transition: all 300ms ease;
   }
 
-  .image-placeholder.manufacturing {
-    background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(74, 222, 128, 0.05));
-    border-color: rgba(34, 197, 94, 0.3);
+  .challenge-section ul {
+    @apply text-gray-200 space-y-4 text-lg;
   }
 
-  .image-placeholder.healthcare {
-    background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(248, 113, 113, 0.05));
-    border-color: rgba(239, 68, 68, 0.3);
+  .solution-item {
+    @apply p-4 sm:p-5 bg-gradient-to-r from-gray-700/30 to-gray-800/20 rounded-lg sm:rounded-xl border border-gray-600/30 backdrop-blur-sm;
+    transition: all 300ms ease;
   }
 
-  .image-placeholder.retail {
-    background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(196, 181, 253, 0.05));
-    border-color: rgba(168, 85, 247, 0.3);
+  .solution-item:hover {
+    @apply bg-gradient-to-r from-gray-700/40 to-gray-800/30 border-gray-600/50;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .solution-item strong {
+    @apply text-white text-lg font-bold;
+  }
+
+  .solution-item p {
+    @apply text-gray-200 mt-2 leading-relaxed;
+  }
+
+  /* Technology Stack */
+  .tech-stack {
+    @apply mt-8;
+  }
+
+  .tech-tag {
+    @apply px-3 sm:px-4 py-1 sm:py-2 bg-gradient-to-r from-blue-600/30 to-blue-500/20 text-blue-200 rounded-full text-xs sm:text-sm font-semibold border border-blue-500/40 backdrop-blur-sm;
+    transition: all 300ms ease;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
+  }
+
+  .tech-tag:hover {
+    @apply bg-gradient-to-r from-blue-600/40 to-blue-500/30 text-blue-100 border-blue-400/60;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+  }
+
+  /* Partnership Model */
+  .partnership-model {
+    @apply mb-8 p-6 rounded-xl border backdrop-blur-sm;
+    transition: all 300ms ease;
+  }
+
+  .partnership-model:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   }
 
   .placeholder-content {
@@ -329,20 +450,38 @@ import Header from '../components/Header.astro';
     @apply text-gray-400 font-medium;
   }
 
+  .results-section {
+    @apply mb-12;
+  }
+
   .results-grid {
-    @apply grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8;
+    @apply grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8;
   }
 
   .result-item {
-    @apply text-center p-4 bg-gray-700/30 rounded-lg border border-gray-600/30;
+    @apply text-center p-4 sm:p-6 bg-gradient-to-b from-gray-700/40 to-gray-800/30 rounded-xl sm:rounded-2xl border border-gray-600/40 backdrop-blur-sm;
+    transition: all 300ms ease;
+  }
+
+  .result-item:hover {
+    @apply bg-gradient-to-b from-gray-700/50 to-gray-800/40 border-gray-600/60;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (min-width: 640px) {
+    .result-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    }
   }
 
   .result-number {
-    @apply text-2xl font-bold text-blue-400 mb-1;
+    @apply text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent mb-2 sm:mb-3;
   }
 
   .result-label {
-    @apply text-sm text-gray-300;
+    @apply text-sm sm:text-base font-medium text-gray-200;
   }
 
   .process-timeline {
