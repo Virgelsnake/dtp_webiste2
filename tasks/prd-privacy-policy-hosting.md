@@ -34,12 +34,10 @@ Apple requires all apps that collect user data to provide a publicly accessible 
 ### Proposed URL
 
 ```
-https://digitaltechnologypartner.ai/apps/10-touches/privacy-policy
+https://digitaltechnologypartner.ai/10-touches/privacy
 ```
 
-Alternative options:
-- `https://digitaltechnologypartner.ai/legal/10-touches/privacy`
-- `https://digitaltechnologypartner.ai/privacy/10-touches`
+**Note:** This URL structure was chosen to be consistent with the TestFlight beta privacy policy at `/10-touches/privacy/beta`.
 
 ### Non-Functional Requirements
 
