@@ -381,13 +381,14 @@ import Header from '../components/Header.astro';
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--ma-mint), transparent);
     opacity: 0.5;
-    animation: ma-scan 4s ease-in-out infinite;
+    animation: ma-scan 9s ease-in-out infinite;
   }
 
   @keyframes ma-scan {
     0% { top: 10%; opacity: 0; }
     10% { opacity: 0.5; }
-    90% { opacity: 0.5; }
+    44% { opacity: 0.5; }
+    45% { top: 95%; opacity: 0; }
     100% { top: 95%; opacity: 0; }
   }
   .mesh-hero-bg {
