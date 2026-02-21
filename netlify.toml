@@ -1,8 +1,8 @@
 [build]
   base = "company-website"
-  command = "npm run build"
-  publish = "dist"
-  functions = "netlify/functions"
+  command = "cd company-website && npm run build"
+  publish = "company-website/dist"
+  functions = "company-website/netlify/functions"
 
 [build.environment]
   NODE_VERSION = "20.11.1"
