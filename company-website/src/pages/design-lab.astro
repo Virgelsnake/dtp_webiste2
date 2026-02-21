@@ -1,0 +1,596 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+---
+
+<Layout title="Design Lab — Visual Experiments">
+  <Header />
+  <main>
+    
+    <!-- S6: Gradient Mesh Hero -->
+    <section class="ma-hero mesh-hero">
+      <div class="gradient-mesh-bg"></div>
+      <div class="ma-scan-line"></div>
+      <div class="ma-container ma-hero-content">
+        <div class="ma-hero-tag">&gt; experiment.mesh_hero.init()</div>
+        <h1>Gradient Mesh<span class="ma-cursor">|</span></h1>
+        <p class="ma-hero-sub">Animated gradient mesh background with slow-moving colour blobs. Scroll down to see the scroll-triggered process demo.</p>
+        <div class="ma-hero-actions">
+          <a href="#scroll-process" class="ma-btn ma-btn-mint">View Process Demo</a>
+          <a href="/" class="ma-btn ma-btn-outline">Back to Home →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Three-Column Scroll-Triggered Process Section -->
+    <section class="ma-section three-col-process-section" id="scroll-process">
+      <!-- Scroll trigger points positioned at strategic intervals -->
+      <div class="scroll-trigger-point" data-trigger="1"></div>
+      <div class="scroll-trigger-point" data-trigger="2"></div>
+      <div class="scroll-trigger-point" data-trigger="3"></div>
+      <div class="scroll-trigger-point" data-trigger="4"></div>
+      <div class="scroll-trigger-point" data-trigger="5"></div>
+      
+      <div class="ma-container">
+        <div class="three-col-wrapper">
+          
+          <!-- Left: Static Content -->
+          <div class="left-content">
+            <span class="section-tag">// our_process</span>
+            <h2>How We Deliver</h2>
+            <p>Our proven five-stage methodology ensures every project starts with understanding and ends with measurable results. Each phase builds on the last, with validation gates that keep you in control.</p>
+            <div class="process-highlight">
+              <span class="highlight-num">5</span>
+              <span class="highlight-label">Stages to Success</span>
+            </div>
+          </div>
+          
+          <!-- Middle: Compact Horizontal Step Visualization -->
+          <div class="middle-visualization">
+            <div class="compact-flow">
+              <div class="compact-node active" data-step="1">01</div>
+              <div class="compact-line" data-line="1"></div>
+              <div class="compact-node" data-step="2">02</div>
+              <div class="compact-line" data-line="2"></div>
+              <div class="compact-node" data-step="3">03</div>
+              <div class="compact-line" data-line="3"></div>
+              <div class="compact-node" data-step="4">04</div>
+              <div class="compact-line" data-line="4"></div>
+              <div class="compact-node" data-step="5">05</div>
+            </div>
+            <div class="compact-labels">
+              <span class="active" data-label="1">Discovery</span>
+              <span data-label="2">PoC</span>
+              <span data-label="3">MVP</span>
+              <span data-label="4">Pilot</span>
+              <span data-label="5">Launch</span>
+            </div>
+          </div>
+          
+          <!-- Right: Sticky Content Box -->
+          <div class="right-content-wrapper">
+            <div class="right-content-box">
+              <div class="step-description active" data-desc="1">
+                <span class="desc-tag">Step 01</span>
+                <h3>Discovery</h3>
+                <p>We begin by understanding your unique challenges. Through workshops and analysis, we map your processes and identify the highest-value opportunities for AI implementation.</p>
+                <div class="desc-accent"></div>
+              </div>
+              <div class="step-description" data-desc="2">
+                <span class="desc-tag">Step 02</span>
+                <h3>Proof of Concept</h3>
+                <p>A focused prototype validates our approach. We demonstrate feasibility with real data, proving the solution works before committing to full development.</p>
+                <div class="desc-accent"></div>
+              </div>
+              <div class="step-description" data-desc="3">
+                <span class="desc-tag">Step 03</span>
+                <h3>MVP</h3>
+                <p>We build a working product with core features ready for real-world testing. This is where theory meets practice in your actual environment.</p>
+                <div class="desc-accent"></div>
+              </div>
+              <div class="step-description" data-desc="4">
+                <span class="desc-tag">Step 04</span>
+                <h3>Pilot</h3>
+                <p>Controlled deployment with a select group gathers critical feedback. We refine the solution based on real usage patterns before wider rollout.</p>
+                <div class="desc-accent"></div>
+              </div>
+              <div class="step-description" data-desc="5">
+                <span class="desc-tag">Step 05</span>
+                <h3>Full Launch</h3>
+                <p>Scale to production with comprehensive monitoring, support, and continuous improvement. Your AI solution is now a core part of your operations.</p>
+                <div class="desc-accent"></div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Filler content to allow scrolling -->
+    <section class="ma-section ma-section-alt" style="min-height: 50vh; display: flex; align-items: center; justify-content: center;">
+      <div class="ma-container" style="text-align: center;">
+        <p style="color: var(--ma-text-dim);">End of process demo. Scroll back up to see the interaction again.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // Three-column scroll-triggered interaction with scroll position calculation
+    document.addEventListener('DOMContentLoaded', () => {
+      const section = document.querySelector('.three-col-process-section');
+      const compactNodes = document.querySelectorAll('.compact-node');
+      const compactLines = document.querySelectorAll('.compact-line');
+      const stepDescriptions = document.querySelectorAll('.step-description');
+      const compactLabels = document.querySelectorAll('.compact-labels span');
+      
+      if (!section) {
+        console.warn('❌ Process section not found');
+        return;
+      }
+      
+      console.log('🎯 Scroll Process Init:', {
+        nodes: compactNodes.length,
+        lines: compactLines.length,
+        descriptions: stepDescriptions.length,
+        labels: compactLabels.length
+      });
+      
+      let currentStep = 0;
+      
+      const activateStep = (stepNum: number) => {
+        console.log('✅ Activating step:', stepNum, '(was:', currentStep, ')');
+        currentStep = stepNum;
+        const stepIndex = stepNum - 1;
+        
+        // Update nodes with staggered animation
+        compactNodes.forEach((node, index) => {
+          if (index <= stepIndex) {
+            node.classList.add('active');
+          } else {
+            node.classList.remove('active');
+          }
+        });
+        
+        // Update lines progressively
+        compactLines.forEach((line, index) => {
+          if (index < stepIndex) {
+            line.classList.add('active');
+          } else {
+            line.classList.remove('active');
+          }
+        });
+        
+        // Update labels
+        compactLabels.forEach((label, index) => {
+          if (index === stepIndex) {
+            label.classList.add('active');
+          } else {
+            label.classList.remove('active');
+          }
+        });
+        
+        // Update right content box
+        stepDescriptions.forEach(desc => {
+          const descStep = parseInt(desc.getAttribute('data-desc') || '1', 10);
+          if (descStep === stepNum) {
+            desc.classList.add('active');
+          } else {
+            desc.classList.remove('active');
+          }
+        });
+      };
+      
+      const handleScroll = () => {
+        const rect = section.getBoundingClientRect();
+        const sectionTop = rect.top;
+        const sectionHeight = rect.height;
+        const viewportHeight = window.innerHeight;
+        
+        // Calculate scroll progress: 0 when section enters viewport, 1 when it exits
+        const scrollProgress = Math.max(0, Math.min(1, (viewportHeight - sectionTop) / (sectionHeight + viewportHeight)));
+        
+        console.log('📊 Scroll:', {
+          top: sectionTop.toFixed(0),
+          height: sectionHeight.toFixed(0),
+          progress: (scrollProgress * 100).toFixed(1) + '%'
+        });
+        
+        // Map to 5 steps spanning the scroll range
+        let newStep = 1;
+        if (scrollProgress >= 0.18) newStep = 5;
+        else if (scrollProgress >= 0.15) newStep = 4;
+        else if (scrollProgress >= 0.12) newStep = 3;
+        else if (scrollProgress >= 0.09) newStep = 2;
+        else newStep = 1;
+        
+        console.log('→ Step:', newStep);
+        activateStep(newStep);
+      };
+      
+      // Initial check
+      handleScroll();
+      
+      // Listen to scroll events with throttling
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            handleScroll();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    });
+  </script>
+</Layout>
+
+<style>
+  /* === S6: Gradient Mesh Hero === */
+  .mesh-hero {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .gradient-mesh-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: 
+      radial-gradient(ellipse 80% 50% at 20% 40%, rgba(0, 229, 160, 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse 60% 40% at 80% 60%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse 70% 60% at 60% 20%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+    animation: meshMove 20s ease-in-out infinite;
+    filter: blur(60px);
+  }
+
+  @keyframes meshMove {
+    0%, 100% {
+      background-position: 0% 0%, 100% 100%, 50% 0%;
+      transform: scale(1);
+    }
+    33% {
+      background-position: 50% 50%, 50% 0%, 0% 100%;
+      transform: scale(1.05);
+    }
+    66% {
+      background-position: 100% 50%, 0% 50%, 50% 100%;
+      transform: scale(1.1);
+    }
+  }
+
+  /* === Three-Column Process Section === */
+  .three-col-process-section {
+    min-height: 420vh;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    position: relative;
+    background: linear-gradient(180deg, 
+      var(--ma-bg) 0%, 
+      rgba(0, 229, 160, 0.02) 50%, 
+      var(--ma-bg) 100%
+    );
+  }
+
+  .scroll-trigger-point {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    pointer-events: none;
+    border-top: 1px solid rgba(0, 229, 160, 0.15);
+    z-index: 0;
+  }
+
+  .scroll-trigger-point:nth-of-type(1) { top: 0; }
+  .scroll-trigger-point:nth-of-type(2) { top: 80vh; }
+  .scroll-trigger-point:nth-of-type(3) { top: 160vh; }
+  .scroll-trigger-point:nth-of-type(4) { top: 240vh; }
+  .scroll-trigger-point:nth-of-type(5) { top: 320vh; }
+
+  .three-col-wrapper {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1.2fr;
+    gap: 3rem;
+    position: sticky;
+    top: 15vh;
+    height: fit-content;
+  }
+
+  /* Left: Static Content */
+  .left-content {
+    padding-right: 1rem;
+  }
+
+  .section-tag {
+    font-family: var(--ma-font-mono);
+    font-size: 0.8rem;
+    color: var(--ma-mint);
+    text-transform: lowercase;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .left-content h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .left-content p {
+    color: var(--ma-text-dim);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .process-highlight {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: rgba(0, 229, 160, 0.05);
+    border: 1px solid rgba(0, 229, 160, 0.2);
+    border-radius: var(--ma-radius);
+  }
+
+  .highlight-num {
+    font-family: var(--ma-font-display);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--ma-mint);
+    line-height: 1;
+  }
+
+  .highlight-label {
+    font-size: 0.9rem;
+    color: var(--ma-text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* Middle: Compact Horizontal Visualization */
+  .middle-visualization {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+  }
+
+  .compact-flow {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .compact-node {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--ma-surface);
+    border: 2px solid var(--ma-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--ma-font-display);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--ma-text-dim);
+    transition: all 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    z-index: 1;
+  }
+
+  .compact-node.active {
+    border-color: var(--ma-mint);
+    background: rgba(0, 229, 160, 0.15);
+    color: var(--ma-mint);
+    box-shadow: 
+      0 0 0 4px rgba(0, 229, 160, 0.1),
+      0 0 30px rgba(0, 229, 160, 0.4),
+      0 4px 12px rgba(0, 0, 0, 0.3);
+    transform: scale(1.15);
+  }
+
+  .compact-line {
+    width: 28px;
+    height: 3px;
+    background: var(--ma-border);
+    position: relative;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .compact-line::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, 
+      var(--ma-mint) 0%, 
+      rgba(0, 229, 160, 0.8) 100%
+    );
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 0 8px rgba(0, 229, 160, 0.6);
+  }
+
+  .compact-line.active::after {
+    transform: scaleX(1);
+  }
+
+  .compact-labels {
+    display: grid;
+    grid-template-columns: 48px 28px 48px 28px 48px 28px 48px 28px 48px;
+    gap: 0.5rem;
+    font-size: 0.65rem;
+    color: var(--ma-text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .compact-labels span {
+    text-align: center;
+    transition: all 300ms ease;
+    opacity: 0.5;
+  }
+  
+  .compact-labels span:nth-child(1) { grid-column: 1; }
+  .compact-labels span:nth-child(2) { grid-column: 3; }
+  .compact-labels span:nth-child(3) { grid-column: 5; }
+  .compact-labels span:nth-child(4) { grid-column: 7; }
+  .compact-labels span:nth-child(5) { grid-column: 9; }
+
+  .compact-labels span.active {
+    color: var(--ma-mint);
+    opacity: 1;
+    font-weight: 600;
+  }
+
+  /* Right: Content Box */
+  .right-content-box {
+    padding: 2.5rem;
+    min-height: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .step-description {
+    position: absolute;
+    inset: 2.5rem;
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+    transition: all 450ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex;
+    flex-direction: column;
+    pointer-events: none;
+  }
+
+  .step-description.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    position: relative;
+    inset: auto;
+    pointer-events: auto;
+  }
+
+  .desc-tag {
+    font-family: var(--ma-font-mono);
+    font-size: 0.75rem;
+    color: var(--ma-mint);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba(0, 229, 160, 0.1);
+    border-radius: 4px;
+    width: fit-content;
+  }
+
+  .step-description h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1.25rem;
+    font-weight: 600;
+    line-height: 1.2;
+    background: linear-gradient(135deg, var(--ma-text), var(--ma-mint));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .step-description p {
+    color: var(--ma-text-dim);
+    line-height: 1.8;
+    font-size: 0.95rem;
+  }
+
+  .desc-accent {
+    position: absolute;
+    top: 0;
+    left: -2.5rem;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--ma-mint) 0%, rgba(0, 229, 160, 0.3) 100%);
+    border-radius: 2px;
+    opacity: 0;
+    transition: opacity 400ms ease;
+  }
+
+  .step-description.active .desc-accent {
+    opacity: 1;
+  }
+
+  /* === Responsive === */
+  @media (max-width: 1024px) {
+    .three-col-wrapper {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      position: relative;
+      top: auto;
+    }
+
+    .left-content {
+      text-align: center;
+    }
+
+    .left-content p {
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .process-highlight {
+      justify-content: center;
+    }
+
+    .middle-visualization {
+      padding: 1rem 0;
+    }
+
+    .scroll-trigger-point {
+      height: 40vh;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .three-col-process-section {
+      min-height: auto;
+    }
+
+    .scroll-trigger-point {
+      display: none;
+    }
+
+    .three-col-wrapper {
+      position: relative;
+    }
+
+    .compact-flow {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.3rem;
+    }
+
+    .compact-line {
+      width: 15px;
+    }
+
+    .compact-labels {
+      display: none;
+    }
+
+    .right-content-box {
+      min-height: 280px;
+    }
+  }
+</style>

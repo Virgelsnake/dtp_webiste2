@@ -8,6 +8,7 @@ import Header from '../components/Header.astro';
   <main>
     <!-- Gradient Mesh Hero -->
     <section class="ma-hero mesh-hero">
+      <div class="gradient-mesh-bg mesh-hero-bg"></div>
       <div class="ma-hero-grid-bg"></div>
       <div class="ma-hero-scan"></div>
       <div class="ma-container ma-hero-content">
@@ -18,20 +19,20 @@ import Header from '../components/Header.astro';
           <a href="https://outlook.office.com/bookwithme/user/f0762b9af6a94ed2add9818a4f3ca4e5@digitaltechnologypartner.ai/meetingtype/qc2lOXjEdkO6GkMS_jZJrQ2?anonymous" target="_blank" rel="noopener noreferrer" class="ma-btn ma-btn-mint">Book a Discovery Call</a>
           <a href="#process" class="ma-btn ma-btn-outline">View Process Demo →</a>
         </div>
-        <div class="ma-hero-stats">
+        <div class="ma-hero-stats" id="hero-stats">
           <div class="ma-stat">
-            <span class="ma-stat-val">5</span>
-            <span class="ma-stat-label">Stage Process</span>
+            <span class="ma-stat-val" data-start="50" data-target="1" data-suffix="" data-direction="down">50</span>
+            <span class="ma-stat-label">Call To Start</span>
           </div>
           <div class="ma-stat-divider"></div>
           <div class="ma-stat">
-            <span class="ma-stat-val">100%</span>
-            <span class="ma-stat-label">Accuracy Delivered</span>
+            <span class="ma-stat-val" data-start="0" data-target="100" data-suffix="%" data-direction="up">0%</span>
+            <span class="ma-stat-label">Value Delivered</span>
           </div>
           <div class="ma-stat-divider"></div>
           <div class="ma-stat">
-            <span class="ma-stat-val">0</span>
-            <span class="ma-stat-label">Missed Maintenance</span>
+            <span class="ma-stat-val" data-start="20" data-target="0" data-suffix="" data-direction="down">20</span>
+            <span class="ma-stat-label">Opportunities Missed</span>
           </div>
         </div>
       </div>
@@ -44,13 +45,13 @@ import Header from '../components/Header.astro';
           <span class="ma-section-tag">// capabilities</span>
           <h2>Why organisations work with us</h2>
         </div>
-        <div class="ma-grid-6">
-          <div class="ma-card"><div class="ma-card-line"></div><h3>Reduced Risk</h3><p>We deliver in stages. You see progress early and avoid big-bang surprises.</p></div>
-          <div class="ma-card"><div class="ma-card-line"></div><h3>Security by Design</h3><p>Data protection and access controls are built in from day one.</p></div>
-          <div class="ma-card"><div class="ma-card-line"></div><h3>Reliable Delivery</h3><p>Clear scope, fixed steps, and regular check-ins keep work on track.</p></div>
-          <div class="ma-card"><div class="ma-card-line"></div><h3>Scales with You</h3><p>Start small, prove value, then roll out without rework.</p></div>
-          <div class="ma-card"><div class="ma-card-line"></div><h3>Flexible Engagement</h3><p>On your stack, in our cloud, or a hybrid — whatever fits policy and cost.</p></div>
-          <div class="ma-card"><div class="ma-card-line"></div><h3>Works With Your Tools</h3><p>We integrate with common meeting, messaging, and project platforms.</p></div>
+        <div class="ma-benefits-grid">
+          <div class="ma-benefit-card primary"><div class="ma-card-line"></div><h3>Reduced Risk</h3><p>We deliver in stages. You see progress early and avoid big-bang surprises. Each phase has clear deliverables and validation gates.</p></div>
+          <div class="ma-benefit-card"><div class="ma-card-line"></div><h3>Security by Design</h3><p>Data protection and access controls are built in from day one, not bolted on later.</p></div>
+          <div class="ma-benefit-card"><div class="ma-card-line"></div><h3>Reliable Delivery</h3><p>Clear scope, fixed steps, and regular check-ins keep work on track.</p></div>
+          <div class="ma-benefit-card"><div class="ma-card-line"></div><h3>Scales with You</h3><p>Start small, prove value, then roll out without rework.</p></div>
+          <div class="ma-benefit-card"><div class="ma-card-line"></div><h3>Flexible Engagement</h3><p>On your stack, in our cloud, or a hybrid — whatever fits policy and cost.</p></div>
+          <div class="ma-benefit-card"><div class="ma-card-line"></div><h3>Works With Your Tools</h3><p>We integrate with common meeting, messaging, and project platforms.</p></div>
         </div>
       </div>
     </section>
@@ -274,7 +275,83 @@ import Header from '../components/Header.astro';
       </div>
     </section>
   </main>
-</Layout>
+<script>
+  // S11: Results Ticker - Count up/down animation for hero stats (simultaneous)
+  document.addEventListener('DOMContentLoaded', () => {
+    const statsSection = document.getElementById('hero-stats');
+    if (!statsSection) return;
+    
+    const statValues = Array.from(statsSection.querySelectorAll('.ma-stat-val'));
+    let hasAnimated = false;
+    
+    const animateStat = (el: HTMLElement) => {
+      const start = parseInt(el.dataset['start'] || '0');
+      const target = parseInt(el.dataset['target'] || '0');
+      const suffix = el.dataset['suffix'] || '';
+      const direction = el.dataset['direction'] || 'up';
+      const duration = 1500; // ms
+      const startTime = performance.now();
+      
+      const updateCount = (currentTime: number) => {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Ease out cubic
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        
+        let current: number;
+        if (direction === 'down') {
+          // Count down from start to target
+          current = Math.floor(start - (easeOut * (start - target)));
+        } else {
+          // Count up from start to target
+          current = Math.floor(start + (easeOut * (target - start)));
+        }
+        
+        el.textContent = current + suffix;
+        
+        if (progress < 1) {
+          requestAnimationFrame(updateCount);
+        } else {
+          el.textContent = target + suffix;
+        }
+      };
+      
+      requestAnimationFrame(updateCount);
+    };
+    
+    // Trigger on scroll into view - all animate simultaneously
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !hasAnimated) {
+          hasAnimated = true;
+          statValues.forEach(stat => {
+            animateStat(stat as HTMLElement);
+          });
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    observer.observe(statsSection);
+  });
+</script>
+
+<style>
+  /* S11: Results ticker animation enhancement */
+  .ma-stat-val {
+    display: block;
+    font-family: var(--ma-font-display);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--ma-mint);
+    transition: transform 0.3s ease;
+  }
+  
+  .ma-stat-val.counting {
+    transform: scale(1.05);
+  }
+</style>
 
 <style>
   /* --- Hero --- */
@@ -313,12 +390,31 @@ import Header from '../components/Header.astro';
     90% { opacity: 0.5; }
     100% { top: 95%; opacity: 0; }
   }
-  .mesh-hero {
-    position: relative;
-    min-height: 70vh;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
+  .mesh-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: 
+      radial-gradient(ellipse 80% 50% at 20% 40%, rgba(0, 229, 160, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse 60% 40% at 80% 60%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse 70% 60% at 60% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+    animation: meshMoveHero 25s ease-in-out infinite;
+    filter: blur(80px);
+  }
+
+  @keyframes meshMoveHero {
+    0%, 100% {
+      background-position: 0% 0%, 100% 100%, 50% 0%;
+      transform: scale(1);
+    }
+    33% {
+      background-position: 50% 50%, 50% 0%, 0% 100%;
+      transform: scale(1.08);
+    }
+    66% {
+      background-position: 100% 50%, 0% 50%, 50% 100%;
+      transform: scale(1.15);
+    }
   }
 
   .gradient-mesh-bg {
@@ -431,26 +527,31 @@ import Header from '../components/Header.astro';
     background: var(--ma-border);
   }
 
-  /* --- Benefits Grid --- */
-  .ma-grid-6 {
+  /* --- Benefits Grid (Simplified for Cognitive Fluency) --- */
+  .ma-benefits-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
   }
-  .ma-card {
+
+  .ma-benefit-card {
     background: var(--ma-surface);
     border: 1px solid var(--ma-border);
     border-radius: var(--ma-radius);
-    padding: 1.5rem;
+    padding: 2rem;
     position: relative;
     transition: all 250ms ease;
     overflow: hidden;
   }
-  .ma-card:hover {
+
+  .ma-benefit-card:hover {
     border-color: rgba(0, 229, 160, 0.3);
     transform: translateY(-2px);
   }
-  .ma-card::before {
+
+  .ma-benefit-card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -461,11 +562,31 @@ import Header from '../components/Header.astro';
     opacity: 0;
     transition: opacity 300ms ease;
   }
-  .ma-card:hover::before {
+
+  .ma-benefit-card:hover::before {
     opacity: 1;
   }
-  .ma-card h3 { margin-bottom: 0.5rem; }
-  .ma-card p { font-size: 0.9rem; }
+
+  /* Primary card - subtle emphasis without breaking grid */
+  .ma-benefit-card.primary {
+    background: linear-gradient(135deg, var(--ma-surface) 0%, rgba(0, 229, 160, 0.03) 100%);
+    border-color: rgba(0, 229, 160, 0.2);
+  }
+
+  .ma-benefit-card.primary::before {
+    opacity: 1;
+  }
+
+  .ma-benefit-card h3 { 
+    margin-bottom: 0.75rem; 
+    font-size: 1.1rem;
+  }
+  
+  .ma-benefit-card p { 
+    font-size: 0.9rem; 
+    line-height: 1.6;
+    color: var(--ma-text-dim);
+  }
 
   /* --- Testimonials --- */
   .ma-testimonials-grid {
