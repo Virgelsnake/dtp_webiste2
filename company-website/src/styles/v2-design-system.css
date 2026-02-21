@@ -1,0 +1,294 @@
+/* ========================================
+   V2: MIDNIGHT AUTHORITY — Global Design System
+   ======================================== */
+
+/* --- CSS Custom Properties --- */
+:root {
+  --ma-bg: #0A0A0F;
+  --ma-surface: #1A1A2E;
+  --ma-surface-alt: #111122;
+  --ma-border: #2A2A3E;
+  --ma-border-hover: #3A3A4E;
+  --ma-mint: #00E5A0;
+  --ma-mint-dim: rgba(0, 229, 160, 0.12);
+  --ma-mint-glow: rgba(0, 229, 160, 0.35);
+  --ma-text: #E0E0E0;
+  --ma-text-dim: #8888A0;
+  --ma-white: #F0F0F5;
+  --ma-danger: #FF6B6B;
+  --ma-font-display: 'Space Grotesk', system-ui, sans-serif;
+  --ma-font-body: 'IBM Plex Sans', system-ui, sans-serif;
+  --ma-font-mono: 'IBM Plex Mono', 'SF Mono', monospace;
+  --ma-radius: 8px;
+  --ma-radius-lg: 12px;
+  --ma-transition: 220ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Reset & Base --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--ma-font-body);
+  background: var(--ma-bg);
+  color: var(--ma-text);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--ma-font-display);
+  color: var(--ma-white);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; }
+h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 700; }
+h3 { font-size: 1.15rem; font-weight: 600; }
+h4 { font-size: 1rem; font-weight: 600; }
+
+p { color: var(--ma-text-dim); }
+
+a { color: inherit; text-decoration: none; }
+
+/* --- Container --- */
+.ma-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* --- Section Base --- */
+.ma-section {
+  padding: 6rem 0;
+}
+
+.ma-section-alt {
+  background: var(--ma-surface-alt);
+}
+
+/* --- Section Header with monospace tag --- */
+.ma-section-header {
+  margin-bottom: 3.5rem;
+}
+
+.ma-section-tag {
+  display: block;
+  font-family: var(--ma-font-mono);
+  font-size: 0.8rem;
+  color: var(--ma-mint);
+  margin-bottom: 0.75rem;
+  opacity: 0.7;
+}
+
+/* --- Buttons --- */
+.ma-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--ma-font-display);
+  font-weight: 600;
+  font-size: 0.92rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: var(--ma-radius);
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all var(--ma-transition);
+}
+
+.ma-btn-mint {
+  background: var(--ma-mint);
+  color: #0A0A0F;
+}
+
+.ma-btn-mint:hover {
+  background: #00ffb3;
+  transform: translateY(-2px);
+  box-shadow: 0 0 24px var(--ma-mint-glow);
+}
+
+.ma-btn-outline {
+  background: transparent;
+  color: var(--ma-text);
+  border: 1.5px solid var(--ma-border);
+}
+
+.ma-btn-outline:hover {
+  border-color: var(--ma-mint);
+  color: var(--ma-mint);
+}
+
+.ma-btn-lg {
+  font-size: 1rem;
+  padding: 0.95rem 2rem;
+}
+
+/* --- Card Base --- */
+.ma-card {
+  background: var(--ma-surface);
+  border: 1px solid var(--ma-border);
+  border-radius: var(--ma-radius);
+  padding: 1.75rem;
+  position: relative;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.ma-card:hover {
+  border-color: var(--ma-mint);
+  transform: translateY(-3px);
+  box-shadow: 0 0 0 1px var(--ma-mint), 0 16px 40px rgba(0, 229, 160, 0.08);
+}
+
+.ma-card-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--ma-mint), transparent);
+  opacity: 0;
+  transition: opacity 250ms ease;
+}
+
+.ma-card:hover .ma-card-line {
+  opacity: 1;
+}
+
+/* --- Tech Tags --- */
+.ma-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ma-mint);
+  background: var(--ma-mint-dim);
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+}
+
+.ma-tag-outline {
+  font-size: 0.68rem;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--ma-border);
+  border-radius: 4px;
+  color: var(--ma-text-dim);
+  font-weight: 500;
+}
+
+/* --- FAQ Items --- */
+.ma-faq-item {
+  border-bottom: 1px solid var(--ma-border);
+  padding: 1.25rem 0;
+}
+
+.ma-faq-item summary {
+  font-family: var(--ma-font-display);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--ma-white);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: color 200ms ease;
+}
+
+.ma-faq-item summary:hover {
+  color: var(--ma-mint);
+}
+
+.ma-faq-item summary::after {
+  content: '+';
+  font-size: 1.3rem;
+  color: var(--ma-mint);
+  transition: transform 200ms ease;
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+
+.ma-faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.ma-faq-item p,
+.ma-faq-item ul {
+  margin-top: 0.75rem;
+  color: var(--ma-text-dim);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  padding-right: 2rem;
+}
+
+.ma-faq-item ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+
+.ma-faq-item li {
+  margin-bottom: 0.5rem;
+}
+
+/* --- Animations --- */
+@keyframes ma-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes ma-scan {
+  0% { top: 10%; opacity: 0; }
+  10% { opacity: 0.5; }
+  90% { opacity: 0.5; }
+  100% { top: 95%; opacity: 0; }
+}
+
+.ma-cursor {
+  color: var(--ma-mint);
+  animation: ma-blink 1s step-end infinite;
+}
+
+/* --- Grid Background --- */
+.ma-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--ma-border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--ma-border) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.15;
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, black, transparent);
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, black, transparent);
+  pointer-events: none;
+}
+
+/* --- Scan Line --- */
+.ma-scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ma-mint), transparent);
+  opacity: 0.5;
+  animation: ma-scan 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .ma-section { padding: 4rem 0; }
+  .ma-container { padding: 0 1.25rem; }
+}

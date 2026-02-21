@@ -1,0 +1,677 @@
+---
+// Option 5: Neo-Industrial
+// Bold geometric patterns, diagonal lines, metallic gradients, industrial textures
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>DTP — Neo-Industrial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Black&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --zinc: #18181b;
+      --zinc-light: #27272a;
+      --orange: #f97316;
+      --orange-light: #fb923c;
+      --steel-blue: #3b82f6;
+      --white: #fafafa;
+      --gray: #71717a;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Archivo', sans-serif;
+      background: var(--zinc);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    /* Background pattern */
+    .bg-pattern {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        linear-gradient(135deg, transparent 0%, transparent 49%, rgba(249, 115, 22, 0.03) 49%, rgba(249, 115, 22, 0.03) 51%, transparent 51%),
+        linear-gradient(45deg, transparent 0%, transparent 49%, rgba(59, 130, 246, 0.02) 49%, rgba(59, 130, 246, 0.02) 51%, transparent 51%);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(24, 24, 27, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--zinc-light);
+      z-index: 100;
+    }
+    
+    nav {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--white);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--orange) 0%, var(--steel-blue) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.8rem;
+      transform: skewX(-10deg);
+    }
+    
+    .logo-mark span {
+      transform: skewX(10deg);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    
+    .nav-links a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.2s ease;
+    }
+    
+    .nav-links a:hover {
+      color: var(--orange);
+    }
+    
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 2rem 4rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .hero-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--zinc-light);
+      border-left: 3px solid var(--orange);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--orange);
+      margin-bottom: 2rem;
+      width: fit-content;
+    }
+    
+    .hero h1 {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 400;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+    
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.15rem;
+      max-width: 500px;
+      margin-bottom: 2.5rem;
+      color: var(--gray);
+      line-height: 1.8;
+    }
+    
+    .hero-cta {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      font-family: 'Archivo', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+      transform: skewX(-10deg);
+    }
+    
+    .btn span {
+      display: inline-block;
+      transform: skewX(10deg);
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
+      color: var(--white);
+      box-shadow: 0 10px 30px rgba(249, 115, 22, 0.3);
+    }
+    
+    .btn-primary:hover {
+      transform: skewX(-10deg) translateY(-2px);
+      box-shadow: 0 15px 40px rgba(249, 115, 22, 0.4);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid var(--zinc-light);
+      color: var(--white);
+    }
+    
+    .btn-secondary:hover {
+      border-color: var(--orange);
+      color: var(--orange);
+    }
+    
+    .hero-visual {
+      position: relative;
+      height: 400px;
+    }
+    
+    .visual-grid {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      gap: 8px;
+    }
+    
+    .visual-cell {
+      background: var(--zinc-light);
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+    
+    .visual-cell.highlight {
+      background: linear-gradient(135deg, var(--orange) 0%, var(--steel-blue) 100%);
+    }
+    
+    .visual-cell:hover {
+      transform: scale(1.1);
+      z-index: 10;
+    }
+    
+    /* Features Section */
+    .features-section {
+      padding: 6rem 2rem;
+      background: var(--zinc-light);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .section-header {
+      max-width: 1400px;
+      margin: 0 auto 4rem;
+    }
+    
+    .section-header h2 {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+    
+    .section-header h2 span {
+      color: var(--orange);
+    }
+    
+    .section-header p {
+      color: var(--gray);
+      max-width: 500px;
+    }
+    
+    .features-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    
+    .feature-card {
+      background: var(--zinc);
+      padding: 2.5rem;
+      border: 1px solid var(--zinc-light);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--orange), var(--steel-blue));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    
+    .feature-card:hover::before {
+      transform: scaleX(1);
+    }
+    
+    .feature-card:hover {
+      border-color: var(--orange);
+      transform: translateY(-4px);
+    }
+    
+    .feature-card.large {
+      grid-column: span 2;
+    }
+    
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--orange) 0%, var(--steel-blue) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      transform: skewX(-10deg);
+    }
+    
+    .feature-icon span {
+      transform: skewX(10deg);
+      font-size: 1.25rem;
+    }
+    
+    .feature-card h3 {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin-bottom: 0.75rem;
+    }
+    
+    .feature-card p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    
+    /* Process Section */
+    .process-section {
+      padding: 6rem 2rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .process-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      background: var(--zinc-light);
+      margin-top: 4rem;
+    }
+    
+    .process-step {
+      background: var(--zinc);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .process-step::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 0;
+      background: linear-gradient(135deg, var(--orange) 0%, var(--steel-blue) 100%);
+      transition: height 0.3s ease;
+    }
+    
+    .process-step:hover::after {
+      height: 4px;
+    }
+    
+    .process-step:hover {
+      background: var(--zinc-light);
+    }
+    
+    .step-number {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 3rem;
+      color: var(--orange);
+      margin-bottom: 1rem;
+      line-height: 1;
+    }
+    
+    .process-step h3 {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .process-step p {
+      color: var(--gray);
+      font-size: 0.85rem;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      padding: 8rem 2rem;
+      background: linear-gradient(135deg, var(--orange) 0%, rgba(249, 115, 22, 0.8) 50%, var(--steel-blue) 100%);
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .cta-section h2 {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 3rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    
+    .cta-section p {
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 500px;
+      margin: 0 auto 2.5rem;
+      font-size: 1.1rem;
+    }
+    
+    .cta-section .btn-secondary {
+      background: var(--white);
+      color: var(--zinc);
+      border-color: var(--white);
+    }
+    
+    .cta-section .btn-secondary:hover {
+      background: transparent;
+      color: var(--white);
+    }
+    
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--zinc-light);
+      padding: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .footer-text {
+      font-size: 0.8rem;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+      }
+      .hero-visual {
+        display: none;
+      }
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .feature-card.large {
+        grid-column: span 1;
+      }
+      .process-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-pattern"></div>
+  
+  <header>
+    <nav>
+      <a href="/" class="logo">
+        <div class="logo-mark"><span>D</span></div>
+        Digital Technology Partner
+      </a>
+      <ul class="nav-links">
+        <li><a href="/services">Approach</a></li>
+        <li><a href="/case-studies">Case Studies</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="hero-badge">AI Development Partner</div>
+          <h1>AI <span>Simplified</span></h1>
+          <p class="hero-subtitle">We cut through the hype, build AI that works, and prove value through real results — fast, focused, and tailored to you.</p>
+          <div class="hero-cta">
+            <a href="https://outlook.office.com/bookwithme/user/f0762b9af6a94ed2add9818a4f3ca4e5@digitaltechnologypartner.ai/meetingtype/qc2lOXjEdkO6GkMS_jZJrQ2?anonymous" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><span>Book Discovery Call</span></a>
+            <a href="/services" class="btn btn-secondary"><span>Our Process</span></a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="visual-grid">
+            <div class="visual-cell"></div>
+            <div class="visual-cell highlight"></div>
+            <div class="visual-cell"></div>
+            <div class="visual-cell"></div>
+            <div class="visual-cell highlight"></div>
+            <div class="visual-cell"></div>
+            <div class="visual-cell"></div>
+            <div class="visual-cell"></div>
+            <div class="visual-cell highlight"></div>
+            <div class="visual-cell"></div>
+            <div class="visual-cell"></div>
+            <div class="visual-cell highlight"></div>
+            <div class="visual-cell highlight"></div>
+            <div class="visual-cell"></div>
+            <div class="visual-cell"></div>
+            <div class="visual-cell"></div>
+            <div class="visual-cell highlight"></div>
+            <div class="visual-cell"></div>
+            <div class="visual-cell"></div>
+            <div class="visual-cell highlight"></div>
+            <div class="visual-cell"></div>
+            <div class="visual-cell highlight"></div>
+            <div class="visual-cell"></div>
+            <div class="visual-cell"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="features-section">
+      <div class="section-header">
+        <h2>Why organisations <span>work with us</span></h2>
+        <p>Engineered for reliability, designed for scale</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card large">
+          <div class="feature-icon"><span>01</span></div>
+          <h3>Reduced Risk</h3>
+          <p>We deliver in stages. You see progress early and avoid big-bang surprises. Every sprint ships working code you can verify.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><span>02</span></div>
+          <h3>Security by Design</h3>
+          <p>Data protection and access controls built in from day one. Security isn't an afterthought.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><span>03</span></div>
+          <h3>Reliable Delivery</h3>
+          <p>Clear scope, fixed steps, regular check-ins. No scope creep, no surprise invoices.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><span>04</span></div>
+          <h3>Scales with You</h3>
+          <p>Start small, prove value, then roll out without rework. Architecture that grows.</p>
+        </div>
+        <div class="feature-card large">
+          <div class="feature-icon"><span>05</span></div>
+          <h3>Works With Your Tools</h3>
+          <p>We integrate with common meeting, messaging, and project platforms. Zero friction onboarding for your team.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><span>06</span></div>
+          <h3>Flexible Engagement</h3>
+          <p>Your stack, our cloud, or hybrid. Whatever fits policy and budget.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="process-section">
+      <div class="process-container">
+        <div class="section-header">
+          <h2>Development <span>Journey</span></h2>
+          <p>From idea to production in five proven stages</p>
+        </div>
+        <div class="process-grid">
+          <div class="process-step">
+            <div class="step-number">01</div>
+            <h3>Discovery</h3>
+            <p>Understand the problem, define success</p>
+          </div>
+          <div class="process-step">
+            <div class="step-number">02</div>
+            <h3>PoC</h3>
+            <p>Prove the concept with real data</p>
+          </div>
+          <div class="process-step">
+            <div class="step-number">03</div>
+            <h3>MVP</h3>
+            <p>Build minimum viable product</p>
+          </div>
+          <div class="process-step">
+            <div class="step-number">04</div>
+            <h3>Pilot</h3>
+            <p>Test with real users in production</p>
+          </div>
+          <div class="process-step">
+            <div class="step-number">05</div>
+            <h3>Full Launch</h3>
+            <p>Scale to production, handover docs</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="cta-section">
+      <h2>Ready to build?</h2>
+      <p>Stop planning, start shipping. Book a discovery call and let's discuss your AI project.</p>
+      <a href="https://outlook.office.com/bookwithme/user/f0762b9af6a94ed2add9818a4f3ca4e5@digitaltechnologypartner.ai/meetingtype/qc2lOXjEdkO6GkMS_jZJrQ2?anonymous" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><span>Book Discovery Call</span></a>
+    </section>
+  </main>
+  
+  <footer>
+    <div class="footer-content">
+      <div class="footer-text">© 2024 Digital Technology Partner</div>
+      <div class="footer-text">Engineered with precision</div>
+    </div>
+  </footer>
+</body>
+</html>

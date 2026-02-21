@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DTP Website - 5 Design Directions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,400;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@400;600;700&family=Satoshi:wght@400;500;700&family=Syne:wght@700;800&family=Clash+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #111;
+      color: #fff;
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .nav a {
+      color: #888;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav a:hover, .nav a.active { color: #fff; }
+
+    .option {
+      min-height: 100vh;
+      padding: 6rem 2rem 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .option-number {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 1rem;
+      opacity: 0.6;
+    }
+
+    .option-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .option-subtitle {
+      font-size: 1rem;
+      opacity: 0.7;
+      margin-bottom: 3rem;
+    }
+
+    .mockup {
+      width: 100%;
+      max-width: 1200px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.5);
+    }
+
+    .color-palette {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .color-swatch {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: rgba(255,255,255,0.05);
+      border-radius: 2rem;
+      font-size: 0.75rem;
+    }
+
+    .color-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+    }
+
+    /* OPTION 1: BRUTALIST INDUSTRIAL */
+    .option-1 { background: #0a0a0a; }
+    .option-1 .mockup {
+      background: linear-gradient(135deg, #0a0a0a 0%, #151515 100%);
+      border: 2px solid #ff3c00;
+    }
+    .option-1 .hero {
+      padding: 4rem 3rem;
+      position: relative;
+    }
+    .option-1 .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 300px;
+      height: 300px;
+      background: #ff3c00;
+      clip-path: polygon(50% 0, 100% 0, 100% 50%);
+      opacity: 0.15;
+    }
+    .option-1 h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 4rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      color: #f5f5f5;
+    }
+    .option-1 h1 span { color: #ff3c00; }
+    .option-1 p {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem;
+      color: #888;
+      max-width: 500px;
+      line-height: 1.6;
+    }
+    .option-1 .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background: #ff3c00;
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      border: none;
+    }
+    .option-1 .btn-outline {
+      background: transparent;
+      border: 1px solid #333;
+      color: #f5f5f5;
+    }
+    .option-1 .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #1a1a1a;
+      border-top: 2px solid #ff3c00;
+    }
+    .option-1 .feature {
+      background: #0a0a0a;
+      padding: 2rem;
+    }
+    .option-1 .feature h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: #f5f5f5;
+    }
+    .option-1 .feature p {
+      font-size: 0.875rem;
+      color: #666;
+    }
+
+    /* OPTION 2: ETHEREAL AURORA */
+    .option-2 { background: #0f172a; }
+    .option-2 .mockup {
+      background: #0f172a;
+      position: relative;
+      overflow: hidden;
+    }
+    .option-2 .aurora {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.4;
+    }
+    .option-2 .aurora-1 {
+      top: -200px;
+      right: -100px;
+      background: #22d3ee;
+      animation: float 8s ease-in-out infinite;
+    }
+    .option-2 .aurora-2 {
+      bottom: -150px;
+      left: -100px;
+      background: #a855f7;
+      animation: float 10s ease-in-out infinite reverse;
+    }
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(30px, -30px); }
+    }
+    .option-2 .hero {
+      padding: 4rem 3rem;
+      position: relative;
+      z-index: 1;
+    }
+    .option-2 h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #fff 0%, #22d3ee 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .option-2 p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.125rem;
+      color: #94a3b8;
+      max-width: 550px;
+      line-height: 1.7;
+    }
+    .option-2 .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%);
+      color: #0f172a;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 2rem;
+    }
+    .option-2 .btn-outline {
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      backdrop-filter: blur(10px);
+    }
+    .option-2 .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      padding: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+    .option-2 .card {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 1.5rem;
+      padding: 2rem;
+    }
+    .option-2 .card h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: #fff;
+    }
+    .option-2 .card p {
+      font-size: 0.875rem;
+      color: #94a3b8;
+    }
+
+    /* OPTION 3: TECHNICAL BLUEPRINT */
+    .option-3 { background: #0d1117; }
+    .option-3 .mockup {
+      background: #0d1117;
+      position: relative;
+    }
+    .option-3 .grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(56, 139, 253, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 139, 253, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .option-3 .hero {
+      padding: 4rem 3rem;
+      position: relative;
+      z-index: 1;
+    }
+    .option-3 h1 {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #f0f6fc;
+    }
+    .option-3 h1 span {
+      color: #39d353;
+    }
+    .option-3 p {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.9375rem;
+      color: #8b949e;
+      max-width: 520px;
+      line-height: 1.7;
+    }
+    .option-3 .code-block {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      margin-top: 2rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.8125rem;
+      color: #8b949e;
+    }
+    .option-3 .code-block .keyword { color: #ff7b72; }
+    .option-3 .code-block .string { color: #a5d6ff; }
+    .option-3 .code-block .function { color: #d2a8ff; }
+    .option-3 .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      background: #238636;
+      color: #fff;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.8125rem;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+    .option-3 .btn-outline {
+      background: transparent;
+      border: 1px solid #30363d;
+      color: #c9d1d9;
+    }
+    .option-3 .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid #30363d;
+    }
+    .option-3 .feature {
+      padding: 2rem;
+      border-right: 1px solid #30363d;
+    }
+    .option-3 .feature:last-child { border-right: none; }
+    .option-3 .feature-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(57, 211, 83, 0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      color: #39d353;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+    }
+    .option-3 .feature h3 {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #f0f6fc;
+    }
+    .option-3 .feature p {
+      font-size: 0.8125rem;
+      color: #8b949e;
+    }
+
+    /* OPTION 4: WARM MINIMALIST */
+    .option-4 { background: #fafaf9; }
+    .option-4 .mockup {
+      background: #fafaf9;
+    }
+    .option-4 .hero {
+      padding: 4rem 3rem;
+      position: relative;
+    }
+    .option-4 .hero::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 3rem;
+      right: 3rem;
+      height: 1px;
+      background: #e7e5e4;
+    }
+    .option-4 h1 {
+      font-family: 'Fraunces', serif;
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #1c1917;
+      line-height: 1.1;
+    }
+    .option-4 h1 span {
+      color: #d97706;
+    }
+    .option-4 p {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 1.125rem;
+      color: #78716c;
+      max-width: 520px;
+      line-height: 1.7;
+    }
+    .option-4 .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background: #1c1917;
+      color: #fafaf9;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      text-decoration: none;
+      border-radius: 2rem;
+    }
+    .option-4 .btn-outline {
+      background: transparent;
+      border: 1px solid #d6d3d1;
+      color: #1c1917;
+    }
+    .option-4 .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      padding: 3rem;
+    }
+    .option-4 .card {
+      padding: 2rem 0;
+      border-top: 2px solid #1c1917;
+    }
+    .option-4 .card-number {
+      font-family: 'Fraunces', serif;
+      font-size: 0.75rem;
+      color: #d97706;
+      margin-bottom: 1rem;
+    }
+    .option-4 .card h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: #1c1917;
+    }
+    .option-4 .card p {
+      font-size: 0.9375rem;
+      color: #78716c;
+    }
+
+    /* OPTION 5: KINETIC ENERGY */
+    .option-5 { background: #09090b; }
+    .option-5 .mockup {
+      background: #09090b;
+      position: relative;
+      overflow: hidden;
+    }
+    .option-5 .shape {
+      position: absolute;
+      border-radius: 50%;
+    }
+    .option-5 .shape-1 {
+      width: 400px;
+      height: 400px;
+      background: #f472b6;
+      top: -100px;
+      right: -100px;
+      opacity: 0.15;
+      animation: pulse 4s ease-in-out infinite;
+    }
+    .option-5 .shape-2 {
+      width: 300px;
+      height: 300px;
+      background: #fbbf24;
+      bottom: -50px;
+      left: 20%;
+      opacity: 0.1;
+      animation: pulse 5s ease-in-out infinite reverse;
+    }
+    .option-5 .shape-3 {
+      width: 200px;
+      height: 200px;
+      background: #22c55e;
+      top: 40%;
+      right: 10%;
+      opacity: 0.1;
+      animation: pulse 6s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    .option-5 .hero {
+      padding: 4rem 3rem;
+      position: relative;
+      z-index: 1;
+    }
+    .option-5 h1 {
+      font-family: 'Clash Display', sans-serif;
+      font-size: 4.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: #fff;
+      line-height: 1;
+    }
+    .option-5 h1 span {
+      background: linear-gradient(135deg, #f472b6 0%, #fbbf24 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .option-5 p {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 1.125rem;
+      color: #a1a1aa;
+      max-width: 500px;
+      line-height: 1.7;
+    }
+    .option-5 .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, #f472b6 0%, #ec4899 100%);
+      color: #fff;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 0.75rem;
+    }
+    .option-5 .btn-outline {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+    }
+    .option-5 .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      padding: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+    .option-5 .card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 1rem;
+      padding: 2rem;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .option-5 .card:hover {
+      transform: translateY(-8px);
+      background: rgba(255,255,255,0.06);
+    }
+    .option-5 .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      font-size: 1.25rem;
+    }
+    .option-5 .card:nth-child(1) .card-icon { background: rgba(244, 114, 182, 0.2); }
+    .option-5 .card:nth-child(2) .card-icon { background: rgba(251, 191, 36, 0.2); }
+    .option-5 .card:nth-child(3) .card-icon { background: rgba(34, 197, 94, 0.2); }
+    .option-5 .card h3 {
+      font-family: 'Clash Display', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: #fff;
+    }
+    .option-5 .card p {
+      font-size: 0.9375rem;
+      color: #a1a1aa;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .option-1 .features,
+      .option-2 .cards,
+      .option-3 .features,
+      .option-4 .cards,
+      .option-5 .cards {
+        grid-template-columns: 1fr;
+      }
+      .option-1 h1,
+      .option-2 h1,
+      .option-3 h1,
+      .option-4 h1,
+      .option-5 h1 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="#option-1">1. Brutalist Industrial</a>
+    <a href="#option-2">2. Ethereal Aurora</a>
+    <a href="#option-3">3. Technical Blueprint</a>
+    <a href="#option-4">4. Warm Minimalist</a>
+    <a href="#option-5">5. Kinetic Energy</a>
+  </nav>
+
+  <!-- OPTION 1 -->
+  <section id="option-1" class="option option-1">
+    <span class="option-number">Option 1 of 5</span>
+    <h2 class="option-title">Brutalist Industrial</h2>
+    <p class="option-subtitle">Bold, raw, confident aesthetic</p>
+    
+    <div class="mockup">
+      <div class="hero">
+        <h1>AI <span>Simplified</span></h1>
+        <p>We cut through the hype, build AI that works, and prove value through real results — fast, focused, and tailored to you.</p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="#" class="btn">Book a Call →</a>
+          <a href="#" class="btn btn-outline">Our Process</a>
+        </div>
+      </div>
+      <div class="features">
+        <div class="feature">
+          <h3>Fast Delivery</h3>
+          <p>Ship working AI in weeks, not months</p>
+        </div>
+        <div class="feature">
+          <h3>Proven Results</h3>
+          <p>Real business impact, measurable ROI</p>
+        </div>
+        <div class="feature">
+          <h3>Tailored Solutions</h3>
+          <p>Built for your specific needs</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-palette">
+      <div class="color-swatch"><div class="color-dot" style="background: #0a0a0a"></div>Deep Black</div>
+      <div class="color-swatch"><div class="color-dot" style="background: #ff3c00"></div>Burnt Orange</div>
+      <div class="color-swatch"><div class="color-dot" style="background: #f5f5f5"></div>Off White</div>
+      <div class="color-swatch"><div class="color-dot" style="background: #1a1a1a"></div>Card BG</div>
+    </div>
+  </section>
+
+  <!-- OPTION 2 -->
+  <section id="option-2" class="option option-2">
+    <span class="option-number">Option 2 of 5</span>
+    <h2 class="option-title">Ethereal Aurora</h2>
+    <p class="option-subtitle">Futuristic, calm, innovative</p>
+    
+    <div class="mockup">
+      <div class="aurora aurora-1"></div>
+      <div class="aurora aurora-2"></div>
+      <div class="hero">
+        <h1>AI Simplified</h1>
+        <p>We cut through the hype, build AI that works, and prove value through real results — fast, focused, and tailored to you.</p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="#" class="btn">Book a Discovery Call</a>
+          <a href="#" class="btn btn-outline">See How It Works</a>
+        </div>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <h3>Fast Delivery</h3>
+          <p>Ship working AI in weeks, not months</p>
+        </div>
+        <div class="card">
+          <h3>Proven Results</h3>
+          <p>Real business impact, measurable ROI</p>
+        </div>
+        <div class="card">
+          <h3>Tailored Solutions</h3>
+          <p>Built for your specific needs</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-palette">
+      <div class="color-swatch"><div class="color-dot" style="background: #0f172a"></div>Midnight Navy</div>
+      <div class="color-swatch"><div class="color-dot" style="background: #22d3ee"></div>Electric Cyan</div>
+      <div class="color-swatch"><div class="color-dot" style="background: #a855f7"></div>Soft Violet</div>
+      <div class="color-swatch"><div class="color-dot" style="background: #f0fdfa"></div>Mint White</div>
+    </div>
+  </section>
+
+  <!-- OPTION 3 -->
+  <section id="option-3" class="option option-3">
+    <span class="option-number">Option 3 of 5</span>
+    <h2 class="option-title">Technical Blueprint</h2>
+    <p class="option-subtitle">Developer-focused, precise, trustworthy</p>
+    
+    <div class="mockup">
+      <div class="grid-bg"></div>
+      <div class="hero">
+        <h1>AI <span>Simplified</span></h1>
+        <p>We cut through the hype, build AI that works, and prove value through real results — fast, focused, and tailored to you.</p>
+        <div class="code-block">
+          <span class="keyword">const</span> ai = <span class="keyword">await</span> dtp.<span class="function">build</span>({<br>
+          &nbsp;&nbsp;speed: <span class="string">"fast"</span>,<br>
+          &nbsp;&nbsp;results: <span class="string">"proven"</span>,<br>
+          &nbsp;&nbsp;tailored: <span class="keyword">true</span><br>
+          });
+        </div>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="#" class="btn">Get Started</a>
+          <a href="#" class="btn btn-outline">View Documentation</a>
+        </div>
+      </div>
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">&lt;/&gt;</div>
+          <h3>Fast Delivery</h3>
+          <p>Ship working AI in weeks</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">✓</div>
+          <h3>Proven Results</h3>
+          <p>Measurable ROI</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">⚙</div>
+          <h3>Tailored Solutions</h3>
+          <p>Built for your needs</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">◈</div>
+          <h3>Expert Team</h3>
+          <p>Deep expertise</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-palette">
+      <div class="color-swatch"><div class="color-dot" style="background: #0d1117"></div>GitHub Dark</div>
+      <div class="color-swatch"><div class="color-dot" style="background: #39d353"></div>Terminal Green</div>
+      <div class="color-swatch"><div class="color-dot" style="background: #58a6ff"></div>Link Blue</div>
+      <div class="color-swatch"><div class="color-dot" style="background: #161b22"></div>Panel BG</div>
+    </div>
+  </section>
+
+  <!-- OPTION 4 -->
+  <section id="option-4" class="option option-4">
+    <span class="option-number">Option 4 of 5</span>
+    <h2 class="option-title">Warm Minimalist</h2>
+    <p class="option-subtitle">Editorial, refined, human</p>
+    
+    <div class="mockup">
+      <div class="hero">
+        <h1>AI <span>Simplified</span></h1>
+        <p>We cut through the hype, build AI that works, and prove value through real results — fast, focused, and tailored to you.</p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="#" class="btn">Book a Discovery Call</a>
+          <a href="#" class="btn btn-outline">Our Process</a>
+        </div>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="card-number">01</div>
+          <h3>Fast Delivery</h3>
+          <p>Ship working AI in weeks, not months</p>
+        </div>
+        <div class="card">
+          <div class="card-number">02</div>
+          <h3>Proven Results</h3>
+          <p>Real business impact, measurable ROI</p>
+        </div>
+        <div class="card">
+          <div class="card-number">03</div>
+          <h3>Tailored Solutions</h3>
+          <p>Built for your specific needs</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-palette">
+      <div class="color-swatch"><div class="color-dot" style="background: #fafaf9"></div>Warm White</div>
+      <div class="color-swatch"><div class="color-dot" style="background: #1c1917"></div>Stone Black</div>
+      <div class="color-swatch"><div class="color-dot" style="background: #d97706"></div>Amber Accent</div>
+      <div class="color-swatch"><div class="color-dot" style="background: #78716c"></div>Warm Gray</div>
+    </div>
+  </section>
+
+  <!-- OPTION 5 -->
+  <section id="option-5" class="option option-5">
+    <span class="option-number">Option 5 of 5</span>
+    <h2 class="option-title">Kinetic Energy</h2>
+    <p class="option-subtitle">Bold, playful, memorable</p>
+    
+    <div class="mockup">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+      <div class="hero">
+        <h1>AI <span>Simplified</span></h1>
+        <p>We cut through the hype, build AI that works, and prove value through real results — fast, focused, and tailored to you.</p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="#" class="btn">Book a Discovery Call</a>
+          <a href="#" class="btn btn-outline">See How It Works</a>
+        </div>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">⚡</div>
+          <h3>Fast Delivery</h3>
+          <p>Ship working AI in weeks, not months</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">✓</div>
+          <h3>Proven Results</h3>
+          <p>Real business impact, measurable ROI</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">◆</div>
+          <h3>Tailored Solutions</h3>
+          <p>Built for your specific needs</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-palette">
+      <div class="color-swatch"><div class="color-dot" style="background: #18181b"></div>Zinc Black</div>
+      <div class="color-swatch"><div class="color-dot" style="background: #f472b6"></div>Hot Pink</div>
+      <div class="color-swatch"><div class="color-dot" style="background: #fbbf24"></div>Golden Yellow</div>
+      <div class="color-swatch"><div class="color-dot" style="background: #22c55e"></div>Lime Green</div>
+    </div>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,572 @@
+---
+// Option 2: Organic Glassmorphism
+// Frosted glass panels, fluid shapes, soft gradients, ethereal glow
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>DTP — Organic Glassmorphism</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=General+Sans:wght@400;500;600&family=Satoshi:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --deep-navy: #0f172a;
+      --violet: #8b5cf6;
+      --lavender: #c084fc;
+      --glow: rgba(139, 92, 246, 0.3);
+      --glass: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'General Sans', sans-serif;
+      background: var(--deep-navy);
+      color: white;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    .heading-font {
+      font-family: 'Satoshi', sans-serif;
+    }
+    
+    /* Background effects */
+    .bg-gradient {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(ellipse at 20% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(192, 132, 252, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    /* Glass card */
+    .glass {
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+    }
+    
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.5rem 2rem;
+    }
+    
+    nav {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 100px;
+      padding: 1rem 2rem;
+    }
+    
+    .logo {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .logo-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--violet);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.2); }
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-links a:hover {
+      color: var(--lavender);
+    }
+    
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 10rem 2rem 6rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 100px;
+      font-size: 0.85rem;
+      color: var(--lavender);
+      margin-bottom: 2rem;
+    }
+    
+    .hero h1 {
+      font-family: 'Satoshi', sans-serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, white 0%, var(--lavender) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin-bottom: 3rem;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.8;
+    }
+    
+    .hero-cta {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .btn {
+      font-family: 'General Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      border-radius: 100px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      border: none;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--violet) 0%, var(--lavender) 100%);
+      color: white;
+      box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 25px 50px rgba(139, 92, 246, 0.4);
+    }
+    
+    .btn-secondary {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      color: white;
+    }
+    
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--lavender);
+    }
+    
+    /* Features Section */
+    .features-section {
+      padding: 6rem 2rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    
+    .section-header h2 {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .section-header p {
+      color: rgba(255, 255, 255, 0.6);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .features-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    
+    .feature-card {
+      padding: 2.5rem;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--violet);
+      box-shadow: 0 30px 60px rgba(139, 92, 246, 0.2);
+    }
+    
+    .feature-card.large {
+      grid-column: span 2;
+    }
+    
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--violet) 0%, var(--lavender) 100%);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+    
+    .feature-card h3 {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    
+    .feature-card p {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    
+    /* Process Section */
+    .process-section {
+      padding: 6rem 2rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .process-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .process-timeline {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      margin-top: 4rem;
+    }
+    
+    .process-timeline::before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--violet), var(--lavender));
+      opacity: 0.3;
+    }
+    
+    .process-step {
+      flex: 1;
+      text-align: center;
+      position: relative;
+    }
+    
+    .step-circle {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1.5rem;
+      background: var(--glass);
+      border: 2px solid var(--violet);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--lavender);
+      position: relative;
+      z-index: 2;
+      transition: all 0.3s ease;
+    }
+    
+    .process-step:hover .step-circle {
+      background: var(--violet);
+      color: white;
+      box-shadow: 0 0 40px rgba(139, 92, 246, 0.5);
+    }
+    
+    .process-step h3 {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .process-step p {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.85rem;
+      max-width: 150px;
+      margin: 0 auto;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      padding: 8rem 2rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .cta-card {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 4rem;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(192, 132, 252, 0.05) 100%);
+    }
+    
+    .cta-card h2 {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .cta-card p {
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 2rem;
+    }
+    
+    /* Footer */
+    footer {
+      padding: 3rem 2rem;
+      border-top: 1px solid var(--glass-border);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .footer-text {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.4);
+    }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .feature-card.large {
+        grid-column: span 1;
+      }
+      .process-timeline {
+        flex-wrap: wrap;
+        gap: 2rem;
+      }
+      .process-timeline::before {
+        display: none;
+      }
+      .process-step {
+        flex: 0 0 calc(33.333% - 1rem);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      .process-step {
+        flex: 0 0 100%;
+      }
+      .cta-card {
+        padding: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-gradient"></div>
+  
+  <header>
+    <nav>
+      <a href="/" class="logo">
+        <span class="logo-dot"></span>
+        Digital Technology Partner
+      </a>
+      <ul class="nav-links">
+        <li><a href="/services">Approach</a></li>
+        <li><a href="/case-studies">Case Studies</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <section class="hero">
+      <div class="hero-badge">
+        ✨ AI Development Partner
+      </div>
+      <h1>AI Simplified</h1>
+      <p class="hero-subtitle">We cut through the hype, build AI that works, and prove value through real results — fast, focused, and tailored to you.</p>
+      <div class="hero-cta">
+        <a href="https://outlook.office.com/bookwithme/user/f0762b9af6a94ed2add9818a4f3ca4e5@digitaltechnologypartner.ai/meetingtype/qc2lOXjEdkO6GkMS_jZJrQ2?anonymous" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Book Discovery Call</a>
+        <a href="/services" class="btn btn-secondary">Our Process</a>
+      </div>
+    </section>
+    
+    <section class="features-section">
+      <div class="section-header">
+        <h2>Why organisations work with us</h2>
+        <p>Real engineering, beautiful solutions</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card glass large">
+          <div class="feature-icon">🛡️</div>
+          <h3>Reduced Risk</h3>
+          <p>We deliver in stages. You see progress early and avoid big-bang surprises. Every sprint ships working code you can verify.</p>
+        </div>
+        <div class="feature-card glass">
+          <div class="feature-icon">🔐</div>
+          <h3>Security by Design</h3>
+          <p>Data protection and access controls built in from day one. Security isn't an afterthought.</p>
+        </div>
+        <div class="feature-card glass">
+          <div class="feature-icon">✅</div>
+          <h3>Reliable Delivery</h3>
+          <p>Clear scope, fixed steps, regular check-ins. No scope creep, no surprise invoices.</p>
+        </div>
+        <div class="feature-card glass">
+          <div class="feature-icon">📈</div>
+          <h3>Scales with You</h3>
+          <p>Start small, prove value, then roll out without rework. Architecture that grows.</p>
+        </div>
+        <div class="feature-card glass large">
+          <div class="feature-icon">🔗</div>
+          <h3>Works With Your Tools</h3>
+          <p>We integrate with common meeting, messaging, and project platforms. Zero friction onboarding for your team.</p>
+        </div>
+        <div class="feature-card glass">
+          <div class="feature-icon">⚡</div>
+          <h3>Flexible Engagement</h3>
+          <p>Your stack, our cloud, or hybrid. Whatever fits policy and budget.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="process-section">
+      <div class="process-container">
+        <div class="section-header">
+          <h2>Development Journey</h2>
+          <p>From idea to production in five proven stages</p>
+        </div>
+        <div class="process-timeline">
+          <div class="process-step">
+            <div class="step-circle">1</div>
+            <h3>Discovery</h3>
+            <p>Understand the problem, define success</p>
+          </div>
+          <div class="process-step">
+            <div class="step-circle">2</div>
+            <h3>PoC</h3>
+            <p>Prove the concept with real data</p>
+          </div>
+          <div class="process-step">
+            <div class="step-circle">3</div>
+            <h3>MVP</h3>
+            <p>Build minimum viable product</p>
+          </div>
+          <div class="process-step">
+            <div class="step-circle">4</div>
+            <h3>Pilot</h3>
+            <p>Test with real users in production</p>
+          </div>
+          <div class="process-step">
+            <div class="step-circle">5</div>
+            <h3>Full Launch</h3>
+            <p>Scale to production, handover docs</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="cta-section">
+      <div class="cta-card glass">
+        <h2>Ready to build?</h2>
+        <p>Stop planning, start shipping. Book a discovery call and let's discuss your AI project.</p>
+        <a href="https://outlook.office.com/bookwithme/user/f0762b9af6a94ed2add9818a4f3ca4e5@digitaltechnologypartner.ai/meetingtype/qc2lOXjEdkO6GkMS_jZJrQ2?anonymous" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Book Discovery Call</a>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <div class="footer-content">
+      <div class="footer-text">© 2024 Digital Technology Partner</div>
+      <div class="footer-text">Crafted with care</div>
+    </div>
+  </footer>
+</body>
+</html>

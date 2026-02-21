@@ -4,300 +4,223 @@ import Header from '../components/Header.astro';
 ---
 
 <Layout title="Contact Us - Digital Technology Partner">
-  <div class="relative bg-gray-900 text-white">
-    <Header />
-    <main class="relative pt-24 sm:pt-32">
-      <!-- Hero Section -->
-      <div class="container mx-auto px-6 py-16">
-        <div class="text-center mb-16">
-          <h1 class="text-4xl font-bold tracking-tight sm:text-6xl mb-6">
-            Get in touch with
-            <span class="text-blue-400">DTP</span>
-          </h1>
-          <p class="text-lg leading-8 text-gray-300 max-w-3xl mx-auto">
-            We'd love to learn about your challenges and explore how AI can drive real transformation for your business.
-          </p>
-        </div>
+  <Header />
+  <main>
+    <!-- Hero -->
+    <section class="ma-hero">
+      <div class="ma-grid-bg"></div>
+      <div class="ma-scan-line"></div>
+      <div class="ma-container ma-hero-content">
+        <div class="ma-hero-tag">// contact</div>
+        <h1>Get in Touch<span class="ma-cursor">|</span></h1>
+        <p class="ma-hero-sub">We'd love to learn about your challenges and explore how AI can drive real transformation for your business.</p>
+      </div>
+    </section>
 
-        <!-- Main Content Grid -->
-        <div class="grid lg:grid-cols-2 gap-12 items-start">
-          <!-- Contact Form + Map (Left Column) -->
-          <div class="space-y-8 lg:order-2">
-            <!-- Address Card -->
-            <div class="info-card p-8">
-              <div class="flex items-start space-x-4">
-                <div class="flex-shrink-0">
-                  <div class="w-12 h-12 bg-blue-600/20 rounded-xl flex items-center justify-center icon-container">
-                    <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                    </svg>
-                  </div>
-                </div>
-                <div>
-                  <h3 class="text-xl font-semibold mb-2">Our Office</h3>
-                  <p class="text-gray-300 leading-relaxed">
-                    111 Gallowgate<br>
-                    Aberdeen<br>
-                    AB25 1BU<br>
-                    Scotland, United Kingdom
-                  </p>
+    <!-- Contact Details -->
+    <section class="ma-section">
+      <div class="ma-container">
+        <div class="contact-layout">
+          <!-- Left: CTA + Map -->
+          <div class="contact-left">
+            <!-- Book a Call CTA -->
+            <div class="ma-card contact-cta-card">
+              <div class="ma-card-line"></div>
+              <h3>Book a Discovery Call</h3>
+              <p>Ready to transform your business with AI? Let's discuss your project and explore how we can help.</p>
+              <a href="https://outlook.office.com/bookwithme/user/f0762b9af6a94ed2add9818a4f3ca4e5@digitaltechnologypartner.ai/meetingtype/qc2lOXjEdkO6GkMS_jZJrQ2?anonymous" target="_blank" rel="noopener noreferrer" class="ma-btn ma-btn-mint">Book a Discovery Call</a>
+            </div>
+
+            <!-- Map Section -->
+            <div class="ma-card contact-map-card">
+              <div class="ma-card-line"></div>
+              <h3>Find Us</h3>
+              <div class="map-placeholder">
+                <div class="map-placeholder-inner">
+                  <span class="map-icon">&#9906;</span>
+                  <p>111 Gallowgate, Aberdeen AB25 1BU</p>
                 </div>
               </div>
+              <div class="map-links">
+                <a href="https://maps.google.com/?q=111+Gallowgate,+Aberdeen+AB25+1BU" target="_blank" rel="noopener noreferrer" class="ma-btn ma-btn-outline map-link-btn">Google Maps →</a>
+                <a href="https://www.openstreetmap.org/?mlat=57.1497&mlon=-2.0943#map=16/57.1497/-2.0943" target="_blank" rel="noopener noreferrer" class="ma-btn ma-btn-outline map-link-btn">OpenStreetMap →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Address, Contact Methods, Getting Here -->
+          <div class="contact-right">
+            <!-- Office Address -->
+            <div class="ma-card">
+              <div class="ma-card-line"></div>
+              <span class="ma-section-tag">// our_office</span>
+              <h3>Our Office</h3>
+              <p class="contact-address">111 Gallowgate<br>Aberdeen<br>AB25 1BU<br>Scotland, United Kingdom</p>
             </div>
 
             <!-- Contact Methods -->
-            <div class="grid sm:grid-cols-2 gap-6">
-              <!-- Email -->
-              <div class="info-card p-6">
-                <div class="flex items-center space-x-3 mb-3">
-                  <div class="w-10 h-10 bg-green-600/20 rounded-lg flex items-center justify-center icon-container">
-                    <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 7.89a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                    </svg>
-                  </div>
-                  <h3 class="font-semibold">Email</h3>
-                </div>
-                <a href="mailto:Info@digitaltechnologypartner.ai" class="text-gray-300 hover:text-green-400 transition-colors text-sm break-all">
-                  Info@digitaltechnologypartner.ai
-                </a>
-              </div>
-
-              <!-- WhatsApp -->
-              <div class="info-card p-6">
-                <div class="flex items-center space-x-3 mb-3">
-                  <div class="w-10 h-10 bg-emerald-600/20 rounded-lg flex items-center justify-center icon-container">
-                    <svg class="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.309"/>
-                    </svg>
-                  </div>
-                  <h3 class="font-semibold">WhatsApp</h3>
-                </div>
-                <a href="https://wa.me/447769386204" class="text-gray-300 hover:text-emerald-400 transition-colors text-sm">
-                  +44 7769 386204
-                </a>
-              </div>
+            <div class="contact-methods">
+              <a href="mailto:Info@digitaltechnologypartner.ai" class="ma-card contact-method-card">
+                <div class="ma-card-line"></div>
+                <h4>Email</h4>
+                <span class="contact-method-val">Info@digitaltechnologypartner.ai</span>
+              </a>
+              <a href="https://wa.me/447769386204" class="ma-card contact-method-card">
+                <div class="ma-card-line"></div>
+                <h4>WhatsApp</h4>
+                <span class="contact-method-val">+44 7769 386204</span>
+              </a>
             </div>
-
 
             <!-- Getting Here -->
-            <div class="info-card p-8">
-              <h3 class="text-xl font-semibold mb-4">Getting Here</h3>
-              <div class="space-y-4">
-                <div class="flex items-start space-x-3">
-                  <div class="w-8 h-8 bg-yellow-600/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 icon-container">
-                    <svg class="w-4 h-4 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 class="font-medium text-gray-200">By Car</h4>
-                    <p class="text-gray-400 text-sm">Central Aberdeen location with nearby parking options. A96 and A90 access routes.</p>
-                  </div>
+            <div class="ma-card">
+              <div class="ma-card-line"></div>
+              <h3>Getting Here</h3>
+              <div class="getting-here-list">
+                <div class="getting-here-item">
+                  <h4>By Car</h4>
+                  <p>Central Aberdeen location with nearby parking options. A96 and A90 access routes.</p>
                 </div>
-                <div class="flex items-start space-x-3">
-                  <div class="w-8 h-8 bg-blue-600/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 icon-container">
-                    <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 class="font-medium text-gray-200">Public Transport</h4>
-                    <p class="text-gray-400 text-sm">Aberdeen Bus Station nearby. Regular services from across Scotland.</p>
-                  </div>
+                <div class="getting-here-item">
+                  <h4>Public Transport</h4>
+                  <p>Aberdeen Bus Station nearby. Regular services from across Scotland.</p>
                 </div>
-                <div class="flex items-start space-x-3">
-                  <div class="w-8 h-8 bg-purple-600/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 icon-container">
-                    <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 class="font-medium text-gray-200">By Air</h4>
-                    <p class="text-gray-400 text-sm">Aberdeen Airport 20 minutes away. Regular flights from major UK cities.</p>
-                  </div>
+                <div class="getting-here-item">
+                  <h4>By Air</h4>
+                  <p>Aberdeen Airport 20 minutes away. Regular flights from major UK cities.</p>
                 </div>
               </div>
-            </div>
-          </div>
-
-          <!-- Contact Information (Right Column) -->
-          <div class="space-y-8 lg:order-1">
-            <!-- Contact CTA -->
-            <div class="info-card p-8 text-center">
-              <h3 class="text-xl font-semibold mb-6">Get in touch</h3>
-              <p class="text-gray-300 mb-6">Ready to transform your business with AI? Let's discuss your project and explore how we can help.</p>
-              <a href="https://outlook.office.com/bookwithme/user/f0762b9af6a94ed2add9818a4f3ca4e5@digitaltechnologypartner.ai/meetingtype/qc2lOXjEdkO6GkMS_jZJrQ2?anonymous" target="_blank" rel="noopener noreferrer" class="get-demo-btn rounded-md bg-blue-600 px-4 py-3 text-sm font-semibold shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 relative overflow-hidden transition-all duration-250 ease-out">
-                <span class="relative z-10">Book a Discovery Call</span>
-              </a>
-            </div>
-
-            <!-- Map Container -->
-            <div class="info-card p-8">
-              <h3 class="text-xl font-semibold mb-4">Find Us</h3>
-              <div class="map-container relative overflow-hidden rounded-xl border border-white/10">
-                <div id="static-map" class="w-full h-80 bg-gray-800 relative cursor-pointer group">
-                  <!-- Static map placeholder -->
-                  <div class="absolute inset-0 flex items-center justify-center">
-                    <div class="text-center">
-                      <div class="w-16 h-16 bg-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-4 icon-container">
-                        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-1.447-.894L15 4m0 13V4m-6 3l6-3"/>
-                        </svg>
-                      </div>
-                      <p class="text-gray-300 font-medium">Click to view interactive map</p>
-                      <p class="text-gray-400 text-sm mt-1">111 Gallowgate, Aberdeen AB25 1BU</p>
-                    </div>
-                  </div>
-                  <!-- Map overlay -->
-                  <div id="map-overlay" class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div class="text-white text-center">
-                      <svg class="w-8 h-8 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                      </svg>
-                      <p class="text-sm font-medium">Open in Maps</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <!-- Map Actions -->
-              <div class="flex flex-wrap gap-3 mt-4">
-                <a href="https://maps.google.com/?q=111+Gallowgate,+Aberdeen+AB25+1BU" 
-                   target="_blank" 
-                   class="map-action-btn">
-                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                  </svg>
-                  <span>Google Maps</span>
-                </a>
-                <a href="https://www.openstreetmap.org/?mlat=57.1497&mlon=-2.0943#map=16/57.1497/-2.0943" 
-                   target="_blank" 
-                   class="map-action-btn">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-1.447-.894L15 4m0 13V4m-6 3l6-3"/>
-                  </svg>
-                  <span>OpenStreetMap</span>
-                </a>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Call to Action -->
-        <div class="mt-16 text-center">
-          <div class="info-card p-8">
-            <h2 class="text-2xl font-bold mb-4">Ready to Transform Your Business?</h2>
-            <p class="text-gray-300 mb-6 max-w-2xl mx-auto">
-              Let's discuss how AI solutions can drive growth and efficiency for your business. Get in touch today.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="mailto:Info@digitaltechnologypartner.ai" class="get-started-btn">
-                <span class="relative z-10 flex items-center justify-center">
-                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 7.89a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                  </svg>
-                  Send Email
-                </span>
-              </a>
-              <a href="https://wa.me/447769386204" class="get-started-btn">
-                 <span class="relative z-10 flex items-center justify-center">
-                  <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
-                  </svg>
-                  WhatsApp
-                </span>
-              </a>
             </div>
           </div>
         </div>
       </div>
-    </main>
-  </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="ma-cta">
+      <div class="ma-container ma-cta-inner">
+        <h2>Ready to Transform Your Business?</h2>
+        <p>Let's discuss how AI solutions can drive growth and efficiency for your business. Get in touch today.</p>
+        <div class="cta-actions">
+          <a href="mailto:Info@digitaltechnologypartner.ai" class="ma-btn ma-btn-outline">Send Email →</a>
+          <a href="https://wa.me/447769386204" class="ma-btn ma-btn-outline">WhatsApp →</a>
+        </div>
+      </div>
+    </section>
+  </main>
 </Layout>
 
 <style>
-  /* Glass-morphism info cards to match site */
-  .info-card {
-    background: linear-gradient(135deg, rgba(30, 41, 59, 0.75) 0%, rgba(15, 23, 42, 0.9) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 1rem;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-    transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
-  }
-
-  .info-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(59, 130, 246, 0.35);
-    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.25), 0 12px 24px rgba(0,0,0,0.4);
-  }
-
-  /* Icon container glow */
-  .icon-container {
-    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.25), inset 0 1px 0 rgba(255,255,255,0.15);
-  }
-
-  /* Map action buttons */
-  .map-action-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 0.75rem;
-    border-radius: 0.75rem;
-    color: #cbd5e1;
-    background: rgba(30, 41, 59, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    transition: all 200ms ease;
-  }
-
-  .map-action-btn:hover {
-    color: #ffffff;
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(37, 99, 235, 0.25) 100%);
-    border-color: rgba(59, 130, 246, 0.45);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 24px rgba(59, 130, 246, 0.25);
-  }
-
-  /* Submit / CTA buttons style parity with homepage */
-  .get-started-btn {
+  /* --- Hero --- */
+  .ma-hero {
     position: relative;
-    display: inline-flex;
+    padding: 11rem 0 6rem;
+    overflow: hidden;
+  }
+  .ma-hero-content { position: relative; z-index: 2; max-width: 720px; }
+  .ma-hero-tag {
+    font-family: var(--ma-font-mono);
+    font-size: 0.85rem;
+    color: var(--ma-mint);
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+  }
+  .ma-hero h1 { line-height: 1.05; margin-bottom: 1.5rem; letter-spacing: -0.03em; }
+  .ma-hero-sub {
+    font-size: 1.1rem;
+    color: var(--ma-text-dim);
+    max-width: 560px;
+    line-height: 1.7;
+  }
+
+  /* --- Contact Layout --- */
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+  .contact-left, .contact-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  /* --- CTA Card --- */
+  .contact-cta-card { text-align: center; }
+  .contact-cta-card h3 { margin-bottom: 0.75rem; }
+  .contact-cta-card p { font-size: 0.9rem; margin-bottom: 1.5rem; }
+
+  /* --- Map --- */
+  .contact-map-card h3 { margin-bottom: 1rem; }
+  .map-placeholder {
+    background: var(--ma-surface-alt);
+    border: 1px solid var(--ma-border);
+    border-radius: var(--ma-radius);
+    height: 200px;
+    display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0.75rem 1.25rem;
-    border-radius: 0.75rem;
-    color: #0b1220;
-    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8);
-    overflow: hidden;
-    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 1rem;
+  }
+  .map-placeholder-inner { text-align: center; }
+  .map-icon { font-size: 2rem; color: var(--ma-mint); display: block; margin-bottom: 0.5rem; }
+  .map-placeholder-inner p { font-size: 0.85rem; color: var(--ma-text-dim); }
+  .map-links { display: flex; gap: 0.75rem; }
+  .map-link-btn { font-size: 0.82rem; padding: 0.5rem 1rem; }
+
+  /* --- Address --- */
+  .ma-card h3 { margin-bottom: 0.5rem; }
+  .contact-address { font-size: 0.92rem; line-height: 1.8; color: var(--ma-text); }
+
+  /* --- Contact Methods --- */
+  .contact-methods { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .contact-method-card {
+    display: block;
+    text-decoration: none;
+  }
+  .contact-method-card h4 {
+    font-size: 0.85rem;
+    color: var(--ma-text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.35rem;
+  }
+  .contact-method-val {
+    font-size: 0.85rem;
+    color: var(--ma-mint);
+    word-break: break-all;
   }
 
-  .get-started-btn::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: linear-gradient(45deg, rgba(59, 130, 246, 0.12), rgba(147, 197, 253, 0.18));
-    opacity: 0;
-    transform: scale(0.85);
-    transition: opacity 150ms ease-in-out, transform 400ms ease-in-out;
-    z-index: 0;
+  /* --- Getting Here --- */
+  .getting-here-list { display: flex; flex-direction: column; gap: 1rem; margin-top: 0.75rem; }
+  .getting-here-item h4 {
+    font-size: 0.9rem;
+    color: var(--ma-white);
+    margin-bottom: 0.2rem;
+  }
+  .getting-here-item p {
+    font-size: 0.82rem;
+    color: var(--ma-text-dim);
+    line-height: 1.5;
   }
 
-  .get-started-btn:hover {
-    color: #ffffff;
-    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 15px 35px rgba(59, 130, 246, 0.35), 0 8px 20px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.3);
+  /* --- CTA --- */
+  .ma-cta {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, var(--ma-surface) 0%, var(--ma-bg) 100%);
+    border-top: 1px solid var(--ma-border);
   }
+  .ma-cta-inner { text-align: center; max-width: 600px; }
+  .ma-cta-inner h2 { margin-bottom: 1rem; }
+  .ma-cta-inner p { color: var(--ma-text-dim); margin-bottom: 2rem; font-size: 1.05rem; }
+  .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
-  .get-started-btn:hover::before { opacity: 1; transform: scale(1); }
-
-  .get-started-btn:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.7), 0 0 0 6px rgba(15, 23, 42, 0.9);
+  /* --- Responsive --- */
+  @media (max-width: 768px) {
+    .ma-hero { padding: 8rem 0 4rem; }
+    .contact-layout { grid-template-columns: 1fr; }
+    .contact-methods { grid-template-columns: 1fr; }
+    .map-links { flex-direction: column; }
   }
 </style>

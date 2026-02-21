@@ -1,162 +1,352 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
-import PlatformFeatures from '../components/PlatformFeatures.astro';
-import TestimonialCarousel from '../components/TestimonialCarousel.astro';
-import DevelopmentJourney from '../components/DevelopmentJourney.astro';
-import DeploymentOptions from '../components/DeploymentOptions.astro';
-import BusinessTransformation from '../components/BusinessTransformation.astro';
-import WhyChooseUs from '../components/WhyChooseUs.astro';
-import ContactCTA from '../components/ContactCTA.astro';
-import FAQMini from '../components/FAQMini.astro';
 ---
 
-<Layout title="DTP">
-  <div class="relative bg-gray-900 text-white">
-    <Header />
-    <main class="relative">
-      <!-- Block A: Hero -->
-      <div class="pt-24 sm:pt-32">
-        <div class="container mx-auto px-6 text-center">
-          <h1 class="text-4xl font-bold tracking-tight sm:text-6xl">
-            AI Simplified
-          </h1>
-          <p class="mt-6 text-lg leading-8 text-gray-300 max-w-2xl mx-auto">
-            We cut through the hype, build AI that works, and prove value through real results — fast, focused, and tailored to you.
-          </p>
-          <div class="mt-10 flex items-center justify-center gap-x-6">
-            <a href="https://outlook.office.com/bookwithme/user/f0762b9af6a94ed2add9818a4f3ca4e5@digitaltechnologypartner.ai/meetingtype/qc2lOXjEdkO6GkMS_jZJrQ2?anonymous" target="_blank" rel="noopener noreferrer" class="get-demo-btn rounded-md bg-blue-600 px-4 py-3 text-sm font-semibold shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 relative overflow-hidden transition-all duration-250 ease-out">
-              <span class="relative z-10">Book a Discovery Call</span>
-            </a>
-            <a href="/services" class="get-started-btn rounded-md bg-gray-800 border border-gray-600 px-3.5 py-2.5 text-sm font-semibold shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 relative overflow-hidden transition-all duration-250 ease-out">
-              <span class="relative z-10">See How Our Process Works <span aria-hidden="true" class="inline-block transition-transform duration-250 ease-out">→</span></span>
-            </a>
+<Layout title="DTP — AI that works, simplified.">
+  <Header />
+  <main>
+    <!-- Hero -->
+    <section class="ma-hero">
+      <div class="ma-grid-bg"></div>
+      <div class="ma-scan-line"></div>
+      <div class="ma-container ma-hero-content">
+        <div class="ma-hero-tag">&gt; digital_technology_partner.init()</div>
+        <h1>AI that works.<span class="ma-cursor">|</span></h1>
+        <p class="ma-hero-sub">We cut through the hype, build AI that delivers, and prove value through real results — fast, focused, and tailored to you.</p>
+        <div class="ma-hero-actions">
+          <a href="https://outlook.office.com/bookwithme/user/f0762b9af6a94ed2add9818a4f3ca4e5@digitaltechnologypartner.ai/meetingtype/qc2lOXjEdkO6GkMS_jZJrQ2?anonymous" target="_blank" rel="noopener noreferrer" class="ma-btn ma-btn-mint">Book a Discovery Call</a>
+          <a href="/services" class="ma-btn ma-btn-outline">See How We Work →</a>
+        </div>
+        <div class="ma-hero-stats">
+          <div class="ma-stat">
+            <span class="ma-stat-val">5</span>
+            <span class="ma-stat-label">Stage Process</span>
+          </div>
+          <div class="ma-stat-divider"></div>
+          <div class="ma-stat">
+            <span class="ma-stat-val">100%</span>
+            <span class="ma-stat-label">Accuracy Delivered</span>
+          </div>
+          <div class="ma-stat-divider"></div>
+          <div class="ma-stat">
+            <span class="ma-stat-val">0</span>
+            <span class="ma-stat-label">Missed Maintenance</span>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- Block B: Benefits Grid -->
-      <PlatformFeatures />
-      
-      <!-- Block C: Testimonials -->
-      <TestimonialCarousel />
-      
-      <!-- Block F: Use Cases (What we're asked to fix most often) -->
-      <BusinessTransformation />
-      
-      <!-- Block D: Development Journey (process) -->
-      <DevelopmentJourney />
-      
-      <!-- Inline FAQ preview under Use Cases -->
-      <FAQMini />
-      
-      <!-- Block E: Deployment Options -->
-      <DeploymentOptions />
-      
-      
-      <!-- Block J: Why choose us 3 icons -->
-      <WhyChooseUs />
-      
-      <!-- Contact CTA panel replacing Contact & Map on home -->
-      <ContactCTA />
-    </main>
-  </div>
+    <!-- Benefits -->
+    <section class="ma-section" id="benefits">
+      <div class="ma-container">
+        <div class="ma-section-header">
+          <span class="ma-section-tag">// capabilities</span>
+          <h2>Why organisations work with us</h2>
+        </div>
+        <div class="ma-grid-6">
+          <div class="ma-card"><div class="ma-card-line"></div><h3>Reduced Risk</h3><p>We deliver in stages. You see progress early and avoid big-bang surprises.</p></div>
+          <div class="ma-card"><div class="ma-card-line"></div><h3>Security by Design</h3><p>Data protection and access controls are built in from day one.</p></div>
+          <div class="ma-card"><div class="ma-card-line"></div><h3>Reliable Delivery</h3><p>Clear scope, fixed steps, and regular check-ins keep work on track.</p></div>
+          <div class="ma-card"><div class="ma-card-line"></div><h3>Scales with You</h3><p>Start small, prove value, then roll out without rework.</p></div>
+          <div class="ma-card"><div class="ma-card-line"></div><h3>Flexible Engagement</h3><p>On your stack, in our cloud, or a hybrid — whatever fits policy and cost.</p></div>
+          <div class="ma-card"><div class="ma-card-line"></div><h3>Works With Your Tools</h3><p>We integrate with common meeting, messaging, and project platforms.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="ma-section ma-section-alt">
+      <div class="ma-container">
+        <div class="ma-section-header">
+          <span class="ma-section-tag">// testimonials</span>
+          <h2>What clients say</h2>
+        </div>
+        <div class="ma-testimonials-grid">
+          <div class="ma-testimonial-card">
+            <div class="ma-quote-mark">"</div>
+            <blockquote>Digital Technology Partner completely transformed our quotation process. Their tailored AI solution helped us cut preparation time by 40% and eliminate errors. It's been a game-changer for our operations.</blockquote>
+            <cite>— Managing Director</cite>
+          </div>
+          <div class="ma-testimonial-card">
+            <div class="ma-quote-mark">"</div>
+            <blockquote>DTP revolutionised our workshop maintenance operations. Their WhatsApp-integrated solution automated our entire servicing schedule, ensuring every machine gets maintained on time.</blockquote>
+            <cite>— COO</cite>
+          </div>
+          <div class="ma-testimonial-card">
+            <div class="ma-quote-mark">"</div>
+            <blockquote>DTP transformed how I manage tasks across my two companies. Their AI solution captures every action item from our leadership meetings and distributes them to the right people via WhatsApp.</blockquote>
+            <cite>— CEO</cite>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="ma-section">
+      <div class="ma-container">
+        <div class="ma-section-header">
+          <span class="ma-section-tag">// use_cases</span>
+          <h2>What we're asked to fix most often</h2>
+        </div>
+        <div class="ma-use-grid">
+          <div class="ma-use-card">
+            <div class="ma-use-idx">01</div>
+            <h3>Operations Automation</h3>
+            <p>Remove manual steps, reduce errors, and speed up routine work with intelligent process automation.</p>
+            <div class="ma-use-tags"><span class="ma-tag">Python</span><span class="ma-tag">OCR</span><span class="ma-tag">Workflows</span></div>
+          </div>
+          <div class="ma-use-card">
+            <div class="ma-use-idx">02</div>
+            <h3>Data &amp; Reporting</h3>
+            <p>Bring data together and give teams clear dashboards, alerts, and actionable insights.</p>
+            <div class="ma-use-tags"><span class="ma-tag">Analytics</span><span class="ma-tag">Dashboards</span><span class="ma-tag">APIs</span></div>
+          </div>
+          <div class="ma-use-card">
+            <div class="ma-use-idx">03</div>
+            <h3>AI Assistants for Teams</h3>
+            <p>Turn meetings and messages into organised tasks, updates, and automated workflows.</p>
+            <div class="ma-use-tags"><span class="ma-tag">NLP</span><span class="ma-tag">Agents</span><span class="ma-tag">Integration</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="ma-section ma-section-alt" id="process">
+      <div class="ma-container">
+        <div class="ma-section-header">
+          <span class="ma-section-tag">// process</span>
+          <h2>Our 5-stage development process</h2>
+        </div>
+        <div class="ma-process">
+          <div class="ma-process-step"><div class="ma-process-num">01</div><div class="ma-process-content"><h3>Discovery</h3><p>Understand your challenge, map processes, identify highest-value opportunity.</p></div></div>
+          <div class="ma-process-step"><div class="ma-process-num">02</div><div class="ma-process-content"><h3>Proof of Concept</h3><p>Build a focused prototype to validate approach and demonstrate feasibility.</p></div></div>
+          <div class="ma-process-step"><div class="ma-process-num">03</div><div class="ma-process-content"><h3>MVP</h3><p>Develop a working product with core features ready for real-world testing.</p></div></div>
+          <div class="ma-process-step"><div class="ma-process-num">04</div><div class="ma-process-content"><h3>Pilot</h3><p>Deploy with a controlled group, gather feedback, refine before wider rollout.</p></div></div>
+          <div class="ma-process-step"><div class="ma-process-num">05</div><div class="ma-process-content"><h3>Full Launch</h3><p>Scale to production with monitoring, support, and continuous improvement.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Mini -->
+    <section class="ma-section">
+      <div class="ma-container" style="max-width:720px;">
+        <div class="ma-section-header">
+          <span class="ma-section-tag">// faq</span>
+          <h2>Common questions</h2>
+        </div>
+        <div>
+          <details class="ma-faq-item"><summary>How long does a typical engagement take?</summary><p>Discovery takes 1–2 weeks. A Proof of Concept typically follows in 4–6 weeks. The full timeline depends on scope, but our staged approach means you see results early.</p></details>
+          <details class="ma-faq-item"><summary>Do you work with existing systems?</summary><p>Yes. We integrate with your current tools, platforms, and data sources. We're stack-agnostic and work with whatever fits your infrastructure and policies.</p></details>
+          <details class="ma-faq-item"><summary>How is pricing structured?</summary><p>Each stage is priced independently so you can validate value before committing to the next. No big-bang contracts — you stay in control throughout.</p></details>
+        </div>
+        <div style="text-align:center;margin-top:2rem;">
+          <a href="/faq" class="ma-btn ma-btn-outline">View All FAQ →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="ma-cta">
+      <div class="ma-container ma-cta-inner">
+        <h2>Ready to see what AI can do<br/>for your business?</h2>
+        <p>Book a free discovery call. No obligation, no sales pitch.</p>
+        <a href="https://outlook.office.com/bookwithme/user/f0762b9af6a94ed2add9818a4f3ca4e5@digitaltechnologypartner.ai/meetingtype/qc2lOXjEdkO6GkMS_jZJrQ2?anonymous" target="_blank" rel="noopener noreferrer" class="ma-btn ma-btn-mint ma-btn-lg">Book a Discovery Call</a>
+      </div>
+    </section>
+  </main>
 </Layout>
 
 <style>
-  /* Enhanced hover effects inspired by Deepgram */
-  .get-demo-btn {
-    position: relative !important;
-    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) !important;
-    overflow: hidden !important;
-  }
-
-  .get-demo-btn::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    opacity: 0;
-    background: linear-gradient(45deg, rgba(59, 130, 246, 0.2), rgba(147, 197, 253, 0.2));
-    transition: opacity 150ms ease-in-out, transform 400ms ease-in-out;
-    border-radius: 6px;
-    transform: scale(0.8);
-  }
-
-  .get-demo-btn:hover {
-    color: #ffffff !important;
-    background-color: rgba(59, 130, 246, 0.9) !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 12px 30px rgba(59, 130, 246, 0.4), 0 6px 16px rgba(0, 0, 0, 0.2) !important;
-  }
-
-  .get-demo-btn:hover::before {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  .get-demo-btn:focus-visible {
-    outline: 2px solid #3b82f6 !important;
-    outline-offset: 3px !important;
-  }
-
-  .get-started-btn {
-    position: relative !important;
-    padding: 0.625rem 1.25rem !important;
-    border-radius: 6px !important;
-    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) !important;
-    overflow: hidden !important;
-  }
-
-  .get-started-btn::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    opacity: 0;
-    background: linear-gradient(45deg, rgba(255, 255, 255, 0.08), rgba(147, 197, 253, 0.12));
-    transition: opacity 150ms ease-in-out, transform 400ms ease-in-out;
-    border-radius: 6px;
-    transform: scale(0.8);
-  }
-
-  .get-started-btn:hover {
-    color: #93c5fd !important;
-    background-color: rgba(255, 255, 255, 0.08) !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 8px 20px rgba(147, 197, 253, 0.2) !important;
-  }
-
-  .get-started-btn:hover::before {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  .get-started-btn:hover span {
-    transform: translateX(6px) !important;
-  }
-
-  .get-started-btn:focus-visible {
-    outline: 2px solid #3b82f6 !important;
-    outline-offset: 3px !important;
-  }
-
-  /* Ensure text stays above background effects */
-  .get-demo-btn span,
-  .get-started-btn {
+  /* --- Hero --- */
+  .ma-hero {
     position: relative;
-    z-index: 10;
+    padding: 11rem 0 6rem;
+    overflow: hidden;
+  }
+  .ma-hero-content { position: relative; z-index: 2; max-width: 720px; }
+  .ma-hero-tag {
+    font-family: var(--ma-font-mono);
+    font-size: 0.85rem;
+    color: var(--ma-mint);
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+  }
+  .ma-hero h1 { line-height: 1.05; margin-bottom: 1.5rem; letter-spacing: -0.03em; }
+  .ma-hero-sub {
+    font-size: 1.1rem;
+    color: var(--ma-text-dim);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+  .ma-hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 4rem; }
+  .ma-hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--ma-border);
+  }
+  .ma-stat-val {
+    display: block;
+    font-family: var(--ma-font-display);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--ma-mint);
+  }
+  .ma-stat-label {
+    font-size: 0.8rem;
+    color: var(--ma-text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .ma-stat-divider {
+    width: 1px;
+    height: 40px;
+    background: var(--ma-border);
   }
 
-  /* Additional enhancement for arrow animation */
-  .get-started-btn span[aria-hidden="true"] {
-    display: inline-block;
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+  /* --- Benefits Grid --- */
+  .ma-grid-6 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .ma-card h3 { margin-bottom: 0.5rem; }
+  .ma-card p { font-size: 0.9rem; }
+
+  /* --- Testimonials --- */
+  .ma-testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .ma-testimonial-card {
+    background: var(--ma-surface);
+    border: 1px solid var(--ma-border);
+    border-radius: var(--ma-radius);
+    padding: 2rem;
+    position: relative;
+    transition: all 250ms ease;
+  }
+  .ma-testimonial-card:hover {
+    border-color: rgba(0, 229, 160, 0.3);
+    transform: translateY(-3px);
+  }
+  .ma-quote-mark {
+    font-family: var(--ma-font-display);
+    font-size: 4rem;
+    color: var(--ma-mint);
+    opacity: 0.15;
+    line-height: 1;
+    margin-bottom: -1rem;
+  }
+  .ma-testimonial-card blockquote {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: var(--ma-text);
+    margin-bottom: 1rem;
+  }
+  .ma-testimonial-card cite {
+    font-style: normal;
+    color: var(--ma-text-dim);
+    font-size: 0.85rem;
+  }
+
+  /* --- Use Cases --- */
+  .ma-use-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .ma-use-card {
+    background: var(--ma-surface);
+    border: 1px solid var(--ma-border);
+    border-radius: var(--ma-radius);
+    padding: 2rem;
+    transition: all 250ms ease;
+  }
+  .ma-use-card:hover {
+    border-color: rgba(0, 229, 160, 0.4);
+    transform: translateY(-3px);
+  }
+  .ma-use-idx {
+    font-family: var(--ma-font-display);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--ma-mint);
+    opacity: 0.2;
+    margin-bottom: 1rem;
+  }
+  .ma-use-card h3 { margin-bottom: 0.6rem; }
+  .ma-use-card p { font-size: 0.9rem; margin-bottom: 1.25rem; }
+  .ma-use-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+  /* --- Process --- */
+  .ma-process {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-left: 2px solid var(--ma-border);
+    margin-left: 1.5rem;
+  }
+  .ma-process-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.5rem 0 1.5rem 2rem;
+    position: relative;
+    transition: all 250ms ease;
+  }
+  .ma-process-step:hover { background: rgba(0, 229, 160, 0.03); }
+  .ma-process-step::before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    top: 2rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--ma-bg);
+    border: 2px solid var(--ma-border);
+    transition: all 250ms ease;
+  }
+  .ma-process-step:hover::before {
+    border-color: var(--ma-mint);
+    background: var(--ma-mint);
+    box-shadow: 0 0 12px rgba(0, 229, 160, 0.4);
+  }
+  .ma-process-num {
+    font-family: var(--ma-font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--ma-mint);
+    opacity: 0.25;
+    min-width: 40px;
+  }
+  .ma-process-content h3 { margin-bottom: 0.3rem; }
+  .ma-process-content p { font-size: 0.9rem; }
+
+  /* --- CTA --- */
+  .ma-cta {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, var(--ma-surface) 0%, var(--ma-bg) 100%);
+    border-top: 1px solid var(--ma-border);
+  }
+  .ma-cta-inner { text-align: center; max-width: 600px; }
+  .ma-cta-inner h2 { margin-bottom: 1rem; }
+  .ma-cta-inner p { color: var(--ma-text-dim); margin-bottom: 2rem; font-size: 1.05rem; }
+
+  /* --- Responsive --- */
+  @media (max-width: 768px) {
+    .ma-hero { padding: 8rem 0 4rem; }
+    .ma-grid-6,
+    .ma-use-grid,
+    .ma-testimonials-grid { grid-template-columns: 1fr; }
+    .ma-hero-stats { flex-direction: column; align-items: flex-start; }
+    .ma-stat-divider { width: 40px; height: 1px; }
+    .ma-process { margin-left: 0.5rem; }
   }
 </style>

@@ -1,0 +1,461 @@
+---
+// Option 1: Brutalist Tech
+// Raw, unpolished edges with stark contrast. Grid borders visible, no rounded corners.
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>DTP — Brutalist Tech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #0d0d0d;
+      --white: #f5f5f5;
+      --accent: #00ff88;
+      --alert: #ff3333;
+      --gray: #1a1a1a;
+      --border: #333333;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'IBM Plex Sans', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+    }
+    
+    .mono {
+      font-family: 'Space Mono', monospace;
+    }
+    
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--black);
+      border-bottom: 2px solid var(--border);
+      z-index: 100;
+    }
+    
+    nav {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-family: 'Space Mono', monospace;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+      border: 2px solid var(--white);
+      padding: 0.5rem 1rem;
+    }
+    
+    .logo:hover {
+      background: var(--white);
+      color: var(--black);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.5rem;
+      border: 1px solid transparent;
+    }
+    
+    .nav-links a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 2rem 4rem;
+      border-bottom: 2px solid var(--border);
+    }
+    
+    .hero-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    
+    .hero h1 {
+      font-family: 'Space Mono', monospace;
+      font-size: clamp(3rem, 10vw, 8rem);
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 2rem;
+    }
+    
+    .hero h1 span {
+      color: var(--accent);
+    }
+    
+    .hero-subtitle {
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin-bottom: 3rem;
+      color: #999;
+    }
+    
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      border: 2px solid;
+      transition: all 0.1s ease;
+      cursor: pointer;
+    }
+    
+    .btn-primary {
+      background: var(--accent);
+      color: var(--black);
+      border-color: var(--accent);
+    }
+    
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--accent);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      border-color: var(--white);
+    }
+    
+    .btn-secondary:hover {
+      background: var(--white);
+      color: var(--black);
+    }
+    
+    /* Grid Section */
+    .grid-section {
+      padding: 6rem 2rem;
+      border-bottom: 2px solid var(--border);
+    }
+    
+    .grid-header {
+      max-width: 1400px;
+      margin: 0 auto 4rem;
+    }
+    
+    .grid-header h2 {
+      font-family: 'Space Mono', monospace;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .grid-header p {
+      color: #999;
+      max-width: 600px;
+    }
+    
+    .features-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    
+    .feature-card {
+      border: 2px solid var(--border);
+      padding: 2rem;
+      min-height: 250px;
+      transition: all 0.1s ease;
+    }
+    
+    .feature-card:hover {
+      border-color: var(--accent);
+      background: rgba(0, 255, 136, 0.05);
+    }
+    
+    .feature-card.large {
+      grid-column: span 2;
+    }
+    
+    .feature-number {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    
+    .feature-card h3 {
+      font-family: 'Space Mono', monospace;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    
+    .feature-card p {
+      color: #999;
+      font-size: 0.9rem;
+    }
+    
+    /* Process Section */
+    .process-section {
+      padding: 6rem 2rem;
+      border-bottom: 2px solid var(--border);
+    }
+    
+    .process-header {
+      max-width: 1400px;
+      margin: 0 auto 4rem;
+    }
+    
+    .process-header h2 {
+      font-family: 'Space Mono', monospace;
+      font-size: 2rem;
+    }
+    
+    .process-steps {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0;
+    }
+    
+    .step {
+      flex: 1;
+      border: 2px solid var(--border);
+      padding: 2rem;
+      position: relative;
+    }
+    
+    .step-number {
+      font-family: 'Space Mono', monospace;
+      font-size: 3rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    
+    .step h3 {
+      font-family: 'Space Mono', monospace;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .step p {
+      color: #999;
+      font-size: 0.875rem;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      padding: 8rem 2rem;
+      text-align: center;
+      background: var(--gray);
+    }
+    
+    .cta-section h2 {
+      font-family: 'Space Mono', monospace;
+      font-size: 3rem;
+      margin-bottom: 2rem;
+    }
+    
+    .cta-section p {
+      color: #999;
+      max-width: 600px;
+      margin: 0 auto 3rem;
+    }
+    
+    /* Footer */
+    footer {
+      border-top: 2px solid var(--border);
+      padding: 3rem 2rem;
+    }
+    
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .footer-text {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      color: #666;
+    }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .feature-card.large {
+        grid-column: span 1;
+      }
+      .process-steps {
+        flex-direction: column;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 {
+        font-size: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="logo">DTP_</a>
+      <ul class="nav-links">
+        <li><a href="/services">Approach</a></li>
+        <li><a href="/case-studies">Case Studies</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>AI <span>Simplified</span></h1>
+        <p class="hero-subtitle mono">We cut through the hype, build AI that works, and prove value through real results — fast, focused, and tailored to you.</p>
+        <div class="hero-cta">
+          <a href="https://outlook.office.com/bookwithme/user/f0762b9af6a94ed2add9818a4f3ca4e5@digitaltechnologypartner.ai/meetingtype/qc2lOXjEdkO6GkMS_jZJrQ2?anonymous" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Book Discovery Call →</a>
+          <a href="/services" class="btn btn-secondary">Our Process</a>
+        </div>
+      </div>
+    </section>
+    
+    <section class="grid-section">
+      <div class="grid-header">
+        <h2>// Why organisations work with us</h2>
+        <p>Real engineering, no shortcuts. We build systems that last.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card large">
+          <div class="feature-number">001</div>
+          <h3>Reduced Risk</h3>
+          <p>We deliver in stages. You see progress early and avoid big-bang surprises. Every sprint ships working code.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-number">002</div>
+          <h3>Security by Design</h3>
+          <p>Data protection and access controls built in from day one. Not an afterthought.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-number">003</div>
+          <h3>Reliable Delivery</h3>
+          <p>Clear scope, fixed steps, regular check-ins. No scope creep, no surprise invoices.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-number">004</div>
+          <h3>Scales with You</h3>
+          <p>Start small, prove value, then roll out without rework. Architecture that grows.</p>
+        </div>
+        <div class="feature-card large">
+          <div class="feature-number">005</div>
+          <h3>Works With Your Tools</h3>
+          <p>We integrate with common meeting, messaging, and project platforms. Zero friction onboarding.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-number">006</div>
+          <h3>Flexible Engagement</h3>
+          <p>Your stack, our cloud, or hybrid. Whatever fits policy and budget.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="process-section">
+      <div class="process-header">
+        <h2>// Development Process</h2>
+      </div>
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-number">01</div>
+          <h3>Discovery</h3>
+          <p>Understand the problem, define success metrics, identify quick wins.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">02</div>
+          <h3>PoC</h3>
+          <p>Prove the concept works with real data. Validate assumptions fast.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">03</div>
+          <h3>MVP</h3>
+          <p>Build the minimum viable product. Ship early, iterate quickly.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">04</div>
+          <h3>Pilot</h3>
+          <p>Test with real users in production. Gather feedback, refine.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">05</div>
+          <h3>Full Launch</h3>
+          <p>Scale to production. Handover documentation and training.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="cta-section">
+      <h2>Ready to build?</h2>
+      <p>Stop planning, start shipping. Book a discovery call and let's discuss your AI project.</p>
+      <a href="https://outlook.office.com/bookwithme/user/f0762b9af6a94ed2add9818a4f3ca4e5@digitaltechnologypartner.ai/meetingtype/qc2lOXjEdkO6GkMS_jZJrQ2?anonymous" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Book Discovery Call →</a>
+    </section>
+  </main>
+  
+  <footer>
+    <div class="footer-content">
+      <div class="footer-text">© 2024 Digital Technology Partner</div>
+      <div class="footer-text">Built with precision</div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,22 +1,126 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
-import FAQ from '../components/FAQ.astro';
 ---
 
-<Layout title="FAQ - Voice AI Platform">
-  <div class="min-h-screen bg-gray-900 text-white">
-    <Header />
-    <main class="pt-24 sm:pt-32">
-      <div class="container mx-auto px-6 text-center mb-8">
-        <h1 class="text-4xl font-bold tracking-tight sm:text-6xl mb-6">
-          Frequently Asked Questions
-        </h1>
-        <p class="text-lg leading-8 text-gray-300 max-w-2xl mx-auto">
-          Find answers to common questions about our voice AI platform, pricing, and services.
-        </p>
+<Layout title="FAQ - Digital Technology Partner">
+  <Header />
+  <main>
+    <!-- Hero -->
+    <section class="ma-hero">
+      <div class="ma-grid-bg"></div>
+      <div class="ma-scan-line"></div>
+      <div class="ma-container ma-hero-content">
+        <div class="ma-hero-tag">// faq</div>
+        <h1>Frequently Asked Questions<span class="ma-cursor">|</span></h1>
+        <p class="ma-hero-sub">Find answers to common questions about our AI solutions, development process, and services.</p>
       </div>
-      <FAQ />
-    </main>
-  </div>
+    </section>
+
+    <!-- FAQ Items -->
+    <section class="ma-section">
+      <div class="ma-container" style="max-width:800px;">
+        <details class="ma-faq-item">
+          <summary>How do I get started with AI solutions?</summary>
+          <p>Getting started is easy. Book a free Discovery Call, and we'll discuss your challenges and goals. From there, we'll create a tailored roadmap to help you implement AI in your business.</p>
+        </details>
+        <details class="ma-faq-item">
+          <summary>How do you ensure data security?</summary>
+          <p>We prioritise security at every step. Our solutions include data encryption, secure storage, and access controls to protect your sensitive information.</p>
+        </details>
+        <details class="ma-faq-item">
+          <summary>Do you provide ongoing support and optimisation?</summary>
+          <p>We offer ongoing optimisation services to ensure your solution continues to deliver value as your business evolves. This includes updates, enhancements, and support tailored to your needs.</p>
+        </details>
+        <details class="ma-faq-item">
+          <summary>How do you measure success?</summary>
+          <p>We focus on measurable outcomes, such as time savings, error reduction, and cost efficiency. Before starting, we work with you to define success metrics and evaluate the results at each stage.</p>
+        </details>
+        <details class="ma-faq-item">
+          <summary>What's the typical project timeline?</summary>
+          <p>The timeline depends on the project's scope. A Proof of Concept typically takes 4–6 weeks, while a Minimum Viable Product might take 8–12 weeks. We provide a detailed project plan at the outset so you know what to expect.</p>
+        </details>
+        <details class="ma-faq-item">
+          <summary>What types of AI models do you use?</summary>
+          <p>We use a variety of AI models, including:</p>
+          <ul>
+            <li><strong>Predictive Models</strong> for forecasting trends and anticipating challenges</li>
+            <li><strong>Generative AI</strong> for creating reports and actionable insights</li>
+            <li><strong>Automation Tools</strong> to streamline repetitive tasks</li>
+          </ul>
+        </details>
+        <details class="ma-faq-item">
+          <summary>Do I need technical expertise to use your solutions?</summary>
+          <p>Not at all! Our solutions are designed to be user-friendly, with intuitive interfaces and clear instructions. We also provide training and support to ensure a smooth transition.</p>
+        </details>
+        <details class="ma-faq-item">
+          <summary>What industries do you specialise in?</summary>
+          <p>We specialise in helping small to medium-sized enterprises across industries such as energy, engineering, and manufacturing. If your business is looking to improve efficiency, reduce costs, or make smarter decisions with AI, we're here to help.</p>
+        </details>
+        <details class="ma-faq-item">
+          <summary>How do you create tailored solutions?</summary>
+          <p>We begin by understanding your specific challenges through detailed discussions and workshops. Using this insight, we design solutions that address your unique business goals, ensuring they deliver measurable results.</p>
+        </details>
+        <details class="ma-faq-item">
+          <summary>What are the benefits of automation?</summary>
+          <p>Automation enhances productivity by saving time and reducing manual effort. It also minimises the risk of human error, leading to more accurate results. Additionally, automating routine tasks frees up resources, allowing your team to focus on strategic initiatives.</p>
+        </details>
+        <details class="ma-faq-item">
+          <summary>What is your stage-gate process?</summary>
+          <p>Our stage-gate process is a step-by-step approach that ensures your solution is developed with minimal risk. We start with a Discovery Workshop, followed by a Proof of Concept, and then progress to building a Minimum Viable Product. At each stage, you have the opportunity to review progress and decide whether to proceed.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Have More Questions CTA -->
+    <section class="ma-section ma-section-alt">
+      <div class="ma-container" style="max-width:600px;">
+        <div class="faq-cta-card">
+          <h2>Have more questions?</h2>
+          <p>We'd love to hear from you. Curious minds drive innovation, and every great transformation starts with asking the right questions.</p>
+          <a href="https://outlook.office.com/bookwithme/user/f0762b9af6a94ed2add9818a4f3ca4e5@digitaltechnologypartner.ai/meetingtype/qc2lOXjEdkO6GkMS_jZJrQ2?anonymous" target="_blank" rel="noopener noreferrer" class="ma-btn ma-btn-mint ma-btn-lg">Book a Discovery Call</a>
+        </div>
+      </div>
+    </section>
+  </main>
 </Layout>
+
+<style>
+  /* --- Hero --- */
+  .ma-hero {
+    position: relative;
+    padding: 11rem 0 6rem;
+    overflow: hidden;
+  }
+  .ma-hero-content { position: relative; z-index: 2; max-width: 720px; }
+  .ma-hero-tag {
+    font-family: var(--ma-font-mono);
+    font-size: 0.85rem;
+    color: var(--ma-mint);
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+  }
+  .ma-hero h1 { line-height: 1.05; margin-bottom: 1.5rem; letter-spacing: -0.03em; }
+  .ma-hero-sub {
+    font-size: 1.1rem;
+    color: var(--ma-text-dim);
+    max-width: 560px;
+    line-height: 1.7;
+  }
+
+  /* --- CTA Card --- */
+  .faq-cta-card {
+    text-align: center;
+    background: var(--ma-surface);
+    border: 1px solid var(--ma-border);
+    border-radius: var(--ma-radius-lg);
+    padding: 3rem 2rem;
+  }
+  .faq-cta-card h2 { margin-bottom: 1rem; font-size: 1.6rem; }
+  .faq-cta-card p { color: var(--ma-text-dim); margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.7; }
+
+  /* --- Responsive --- */
+  @media (max-width: 768px) {
+    .ma-hero { padding: 8rem 0 4rem; }
+  }
+</style>

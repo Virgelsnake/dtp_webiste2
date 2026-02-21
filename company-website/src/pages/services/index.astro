@@ -1,100 +1,229 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
-import DevelopmentJourney from '../../components/DevelopmentJourney.astro';
-import CTABanner from '../../components/CTABanner.astro';
 ---
 
-<Layout title="Services - Digital Technology Partner">
-  <div class="bg-gray-900 text-white">
-    <Header />
-    <main class="relative">
-      <div class="pt-24 sm:pt-32">
-        <div class="container mx-auto px-6 text-center mb-8">
-          <h1 class="text-4xl font-bold tracking-tight sm:text-6xl mb-6">
-            Bespoke Digital Solutions
-          </h1>
-          <p class="text-lg leading-8 text-gray-300 max-w-3xl mx-auto">
-            Our development process follows a structured sequence designed to reduce risk and ensure reliable results. We begin by analysing your requirements and existing processes.
-          </p>
-        </div>
+<Layout title="Our Approach - Digital Technology Partner">
+  <Header />
+  <main>
+    <!-- Hero -->
+    <section class="ma-hero">
+      <div class="ma-grid-bg"></div>
+      <div class="ma-scan-line"></div>
+      <div class="ma-container ma-hero-content">
+        <div class="ma-hero-tag">// our_approach</div>
+        <h1>Bespoke Digital Solutions<span class="ma-cursor">|</span></h1>
+        <p class="ma-hero-sub">Our development process follows a structured sequence designed to reduce risk and ensure reliable results. We begin by analysing your requirements and existing processes.</p>
       </div>
-      
-      <DevelopmentJourney variant="detailed" />
-      
-      <section class="py-20 sm:py-32 bg-gray-900">
-        <div class="container mx-auto px-6">
-          <div class="max-w-3xl mx-auto text-center">
-            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-6">
-              Why Choose Our Approach?
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-              <div class="group">
-                <div class="flex justify-center mb-8">
-                  <div class="relative">
-                    <!-- Animated outer ring -->
-                    <div class="w-24 h-24 rounded-full border-2 border-blue-500/30 group-hover:animate-spin-slow"></div>
-                    <!-- Glowing middle ring -->
-                    <div class="absolute inset-2 w-20 h-20 rounded-full border border-blue-400/50 group-hover:animate-pulse"></div>
-                    <!-- Inner circle with icon -->
-                    <div class="absolute inset-4 w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center border border-blue-500/40">
-                      <svg class="w-8 h-8 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z"/>
-                      </svg>
-                    </div>
-                    <!-- Glowing effect -->
-                    <div class="absolute inset-0 w-24 h-24 rounded-full bg-blue-500/10 group-hover:animate-ping"></div>
-                  </div>
-                </div>
-                <h3 class="text-xl font-semibold text-white mb-4 text-center">Risk Reduction</h3>
-                <p class="text-gray-300 text-center">Structured validation at each stage minimizes project risk and ensures successful outcomes.</p>
-              </div>
-              <div class="group">
-                <div class="flex justify-center mb-8">
-                  <div class="relative">
-                    <!-- Animated outer ring -->
-                    <div class="w-24 h-24 rounded-full border-2 border-green-500/30 group-hover:animate-spin-slow"></div>
-                    <!-- Glowing middle ring -->
-                    <div class="absolute inset-2 w-20 h-20 rounded-full border border-green-400/50 group-hover:animate-pulse"></div>
-                    <!-- Inner circle with icon -->
-                    <div class="absolute inset-4 w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center border border-green-500/40">
-                      <svg class="w-8 h-8 text-green-400" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12,2L13.09,8.26L22,9L13.09,9.74L12,16L10.91,9.74L2,9L10.91,8.26L12,2Z"/>
-                      </svg>
-                    </div>
-                    <!-- Glowing effect -->
-                    <div class="absolute inset-0 w-24 h-24 rounded-full bg-green-500/10 group-hover:animate-ping"></div>
-                  </div>
-                </div>
-                <h3 class="text-xl font-semibold text-white mb-4 text-center">Proven Results</h3>
-                <p class="text-gray-300 text-center">Our methodology has been refined through numerous successful implementations across industries.</p>
-              </div>
-              <div class="group">
-                <div class="flex justify-center mb-8">
-                  <div class="relative">
-                    <!-- Animated outer ring -->
-                    <div class="w-24 h-24 rounded-full border-2 border-purple-500/30 group-hover:animate-spin-slow"></div>
-                    <!-- Glowing middle ring -->
-                    <div class="absolute inset-2 w-20 h-20 rounded-full border border-purple-400/50 group-hover:animate-pulse"></div>
-                    <!-- Inner circle with icon -->
-                    <div class="absolute inset-4 w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center border border-purple-500/40">
-                      <svg class="w-8 h-8 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M16,4C18.2,4 20,5.8 20,8S18.2,12 16,12 12,10.2 12,8 13.8,4 16,4M16,14C20.4,14 24,15.8 24,18V20H8V18C8,15.8 11.6,14 16,14M8.5,4C10.4,4 12,5.6 12,7.5S10.4,11 8.5,11 5,9.4 5,7.5 6.6,4 8.5,4M8.5,13C12.1,13 15,14.3 15,16V18H2V16C2,14.3 4.9,13 8.5,13Z"/>
-                      </svg>
-                    </div>
-                    <!-- Glowing effect -->
-                    <div class="absolute inset-0 w-24 h-24 rounded-full bg-purple-500/10 group-hover:animate-ping"></div>
-                  </div>
-                </div>
-                <h3 class="text-xl font-semibold text-white mb-4 text-center">Stakeholder Alignment</h3>
-                <p class="text-gray-300 text-center">Direct collaboration with stakeholders ensures solutions meet real business needs.</p>
-              </div>
+    </section>
+
+    <!-- Detailed 5-Stage Process -->
+    <section class="ma-section" id="process">
+      <div class="ma-container">
+        <div class="ma-section-header">
+          <span class="ma-section-tag">// development_process</span>
+          <h2>A simple, safe way to move from idea to impact</h2>
+        </div>
+        <div class="ma-process-detailed">
+          <div class="ma-process-detail-step">
+            <div class="ma-process-detail-num">01</div>
+            <div class="ma-process-detail-body">
+              <h3>Discovery</h3>
+              <p class="ma-process-detail-short">Understand the problem, users, and success measures. Agree the plan.</p>
+              <p class="ma-process-detail-full">The Discovery phase is focused on clearly defining the business challenges, success measures, and system requirements. We work directly with stakeholders to map existing processes, identify inefficiencies, and establish clear objectives for the solution. This includes reviewing data needs, security considerations, and user expectations. The outcome is a documented framework that ensures the solution is designed to align with business priorities and deliver measurable improvements.</p>
+            </div>
+          </div>
+          <div class="ma-process-detail-step">
+            <div class="ma-process-detail-num">02</div>
+            <div class="ma-process-detail-body">
+              <h3>Proof of Concept (PoC)</h3>
+              <p class="ma-process-detail-short">Test the core idea quickly to prove feasibility and value.</p>
+              <p class="ma-process-detail-full">The Proof of Concept (PoC) stage produces a working prototype to validate that the proposed solution is both feasible and effective. The prototype demonstrates core functionality and user interactions, while aligning with existing processes and data structures. This step confirms the technical approach, highlights potential challenges, and provides stakeholders with a tangible demonstration of how the system will operate before full-scale development begins.</p>
+            </div>
+          </div>
+          <div class="ma-process-detail-step">
+            <div class="ma-process-detail-num">03</div>
+            <div class="ma-process-detail-body">
+              <h3>Minimum Viable Product (MVP)</h3>
+              <p class="ma-process-detail-short">Build the essential features so real users can do real work.</p>
+              <p class="ma-process-detail-full">The Minimum Viable Product (MVP) stage delivers a production-ready version of the software containing all essential features and capabilities. It includes secure user access, core business workflows, structured data handling, and automated functions. The system is designed for daily operational use, allowing teams to complete key tasks effectively while establishing a solid foundation for future enhancements and scaling.</p>
+            </div>
+          </div>
+          <div class="ma-process-detail-step">
+            <div class="ma-process-detail-num">04</div>
+            <div class="ma-process-detail-body">
+              <h3>Pilot Programme</h3>
+              <p class="ma-process-detail-short">Run in a controlled setting, collect feedback, and refine.</p>
+              <p class="ma-process-detail-full">The Pilot Programme involves deploying the system with a select group of users in their operational environment. This phase validates stability, performance, and usability under real conditions. User activity and system behaviour are closely monitored, and structured feedback is collected to identify refinements. The pilot ensures the system is fully optimised and reliable before expanding to a wider rollout.</p>
+            </div>
+          </div>
+          <div class="ma-process-detail-step">
+            <div class="ma-process-detail-num">05</div>
+            <div class="ma-process-detail-body">
+              <h3>Full Launch</h3>
+              <p class="ma-process-detail-short">Roll out with training, support, and a roadmap for improvements.</p>
+              <p class="ma-process-detail-full">The Full Launch stage introduces the solution across the entire organisation. It includes structured rollout planning, user training, and ongoing support to ensure smooth adoption. System performance and user engagement are monitored, and updates are applied as required. This stage transitions the solution from controlled testing to full-scale use, delivering measurable business impact.</p>
             </div>
           </div>
         </div>
-      </section>
-      
-      <CTABanner />
-    </main>
-  </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Our Approach -->
+    <section class="ma-section ma-section-alt">
+      <div class="ma-container">
+        <div class="ma-section-header">
+          <span class="ma-section-tag">// why_us</span>
+          <h2>Why Choose Our Approach?</h2>
+        </div>
+        <div class="ma-why-grid">
+          <div class="ma-card">
+            <div class="ma-card-line"></div>
+            <div class="ma-why-icon">&#10003;</div>
+            <h3>Risk Reduction</h3>
+            <p>Structured validation at each stage minimizes project risk and ensures successful outcomes.</p>
+          </div>
+          <div class="ma-card">
+            <div class="ma-card-line"></div>
+            <div class="ma-why-icon">&#9733;</div>
+            <h3>Proven Results</h3>
+            <p>Our methodology has been refined through numerous successful implementations across industries.</p>
+          </div>
+          <div class="ma-card">
+            <div class="ma-card-line"></div>
+            <div class="ma-why-icon">&#9825;</div>
+            <h3>Stakeholder Alignment</h3>
+            <p>Direct collaboration with stakeholders ensures solutions meet real business needs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="ma-cta">
+      <div class="ma-container ma-cta-inner">
+        <h2>Ready to see what AI can do<br/>for your business?</h2>
+        <p>Book a free discovery call. No obligation, no sales pitch.</p>
+        <a href="https://outlook.office.com/bookwithme/user/f0762b9af6a94ed2add9818a4f3ca4e5@digitaltechnologypartner.ai/meetingtype/qc2lOXjEdkO6GkMS_jZJrQ2?anonymous" target="_blank" rel="noopener noreferrer" class="ma-btn ma-btn-mint ma-btn-lg">Book a Discovery Call</a>
+      </div>
+    </section>
+  </main>
 </Layout>
+
+<style>
+  /* --- Hero --- */
+  .ma-hero {
+    position: relative;
+    padding: 11rem 0 6rem;
+    overflow: hidden;
+  }
+  .ma-hero-content { position: relative; z-index: 2; max-width: 720px; }
+  .ma-hero-tag {
+    font-family: var(--ma-font-mono);
+    font-size: 0.85rem;
+    color: var(--ma-mint);
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+  }
+  .ma-hero h1 { line-height: 1.05; margin-bottom: 1.5rem; letter-spacing: -0.03em; }
+  .ma-hero-sub {
+    font-size: 1.1rem;
+    color: var(--ma-text-dim);
+    max-width: 560px;
+    line-height: 1.7;
+  }
+
+  /* --- Detailed Process Timeline --- */
+  .ma-process-detailed {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-left: 2px solid var(--ma-border);
+    margin-left: 1.5rem;
+  }
+  .ma-process-detail-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 2rem 0 2rem 2rem;
+    position: relative;
+    transition: all 250ms ease;
+  }
+  .ma-process-detail-step:hover { background: rgba(0, 229, 160, 0.03); }
+  .ma-process-detail-step::before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    top: 2.5rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--ma-bg);
+    border: 2px solid var(--ma-border);
+    transition: all 250ms ease;
+  }
+  .ma-process-detail-step:hover::before {
+    border-color: var(--ma-mint);
+    background: var(--ma-mint);
+    box-shadow: 0 0 12px rgba(0, 229, 160, 0.4);
+  }
+  .ma-process-detail-num {
+    font-family: var(--ma-font-display);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--ma-mint);
+    opacity: 0.2;
+    min-width: 48px;
+    line-height: 1;
+    padding-top: 0.15rem;
+  }
+  .ma-process-detail-body { flex: 1; }
+  .ma-process-detail-body h3 { margin-bottom: 0.4rem; }
+  .ma-process-detail-short {
+    font-size: 0.95rem;
+    color: var(--ma-text);
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+  }
+  .ma-process-detail-full {
+    font-size: 0.88rem;
+    color: var(--ma-text-dim);
+    line-height: 1.75;
+    max-width: 640px;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--ma-border);
+  }
+
+  /* --- Why Choose Grid --- */
+  .ma-why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .ma-why-icon {
+    font-size: 1.8rem;
+    color: var(--ma-mint);
+    margin-bottom: 1rem;
+    opacity: 0.7;
+  }
+  .ma-card h3 { margin-bottom: 0.5rem; }
+  .ma-card p { font-size: 0.9rem; }
+
+  /* --- CTA --- */
+  .ma-cta {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, var(--ma-surface) 0%, var(--ma-bg) 100%);
+    border-top: 1px solid var(--ma-border);
+  }
+  .ma-cta-inner { text-align: center; max-width: 600px; }
+  .ma-cta-inner h2 { margin-bottom: 1rem; }
+  .ma-cta-inner p { color: var(--ma-text-dim); margin-bottom: 2rem; font-size: 1.05rem; }
+
+  /* --- Responsive --- */
+  @media (max-width: 768px) {
+    .ma-hero { padding: 8rem 0 4rem; }
+    .ma-why-grid { grid-template-columns: 1fr; }
+    .ma-process-detailed { margin-left: 0.5rem; }
+    .ma-process-detail-step { padding: 1.5rem 0 1.5rem 1.5rem; }
+  }
+</style>

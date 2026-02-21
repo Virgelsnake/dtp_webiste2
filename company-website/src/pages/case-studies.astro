@@ -4,589 +4,377 @@ import Header from '../components/Header.astro';
 ---
 
 <Layout title="Case Studies - Digital Technology Partner" description="Discover how DTP has helped businesses transform through AI and digital solutions. Real results from our Discovery → PoC → MVP → Pilot → Full Launch process.">
-  <div class="relative bg-gray-900 text-white">
-    <Header />
-    <main class="relative">
-      <!-- Hero Section -->
-      <div class="pt-24 sm:pt-32 pb-16">
-        <div class="container mx-auto px-6 text-center">
-          <h1 class="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl bg-gradient-to-r from-white via-blue-100 to-blue-200 bg-clip-text text-transparent">
-            Case Studies
-          </h1>
-          <p class="mt-6 text-lg sm:text-xl leading-relaxed text-gray-200 max-w-4xl mx-auto font-light">
-            Real transformations. Real results. See how we've helped businesses across industries turn ideas into successful digital solutions through our proven development process.
-          </p>
-        </div>
+  <Header />
+  <main>
+    <!-- Hero -->
+    <section class="ma-hero">
+      <div class="ma-grid-bg"></div>
+      <div class="ma-scan-line"></div>
+      <div class="ma-container ma-hero-content">
+        <div class="ma-hero-tag">// case_studies</div>
+        <h1>Case Studies<span class="ma-cursor">|</span></h1>
+        <p class="ma-hero-sub">Real transformations. Real results. See how we've helped businesses across industries turn ideas into successful digital solutions through our proven development process.</p>
       </div>
+    </section>
 
-      <!-- Case Studies Grid -->
-      <div class="py-8 sm:py-16">
-        <div class="container mx-auto px-4 sm:px-6">
-          <div class="grid gap-8 sm:gap-16 lg:gap-24">
-            
-            <!-- Case Study 1: Protective Coating Automation -->
-            <div class="case-study-card">
-              <div class="case-study-header mb-12">
-                <div class="case-study-badge">Manufacturing</div>
-                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mt-6 mb-6 leading-tight bg-gradient-to-r from-white to-gray-100 bg-clip-text text-transparent">
-                  Automating Surface Area Calculations for Protective Coating Applications
-                </h2>
-                <p class="text-gray-200 text-base sm:text-lg lg:text-xl leading-relaxed font-light">
-                  A specialist protective coating company was spending significant time manually analyzing PDF engineering drawings to calculate surface areas for quotations. This manual process was time-consuming and error-prone, creating bottlenecks in their competitive quotation process.
-                </p>
-              </div>
-              
-              <div class="grid lg:grid-cols-2 gap-12 mb-12">
-                <div class="challenge-section">
-                  <h3 class="text-2xl font-bold mb-6 text-blue-300 flex items-center">
-                    <span class="w-2 h-8 bg-blue-400 rounded-full mr-4"></span>
-                    The Challenge
-                  </h3>
-                  <ul class="text-gray-200 space-y-4 text-lg leading-relaxed">
-                    <li class="flex items-start">
-                      <span class="w-2 h-2 bg-blue-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                      Manual identification of fabricated structures from PDF drawings
-                    </li>
-                    <li class="flex items-start">
-                      <span class="w-2 h-2 bg-blue-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                      Complex mathematical calculations for various geometric shapes
-                    </li>
-                    <li class="flex items-start">
-                      <span class="w-2 h-2 bg-blue-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                      Time-consuming quotation process affecting competitiveness
-                    </li>
-                    <li class="flex items-start">
-                      <span class="w-2 h-2 bg-blue-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                      Risk of human error in critical pricing calculations
-                    </li>
-                  </ul>
-                </div>
+    <!-- Case Studies -->
+    <section class="ma-section">
+      <div class="ma-container">
+        <div class="cs-list">
 
-                <div class="solution-section">
-                  <h3 class="text-2xl font-bold mb-6 text-green-300 flex items-center">
-                    <span class="w-2 h-8 bg-green-400 rounded-full mr-4"></span>
-                    Our Solution
-                  </h3>
-                  <div class="grid grid-cols-1 gap-4">
-                    <div class="solution-item">
-                      <strong class="text-white text-base sm:text-lg">Interactive PDF Processing</strong>
-                      <p class="text-gray-200 mt-2 text-sm sm:text-base leading-relaxed">OCR-enabled tagging interface for direct element selection</p>
-                    </div>
-                    <div class="solution-item">
-                      <strong class="text-white text-base sm:text-lg">Automated Calculations</strong>
-                      <p class="text-gray-200 mt-2 text-sm sm:text-base leading-relaxed">Pre-defined formulas for CHS/SHS, I-Beams, RSA, and more</p>
-                    </div>
-                    <div class="solution-item">
-                      <strong class="text-white text-base sm:text-lg">Multi-tenant Architecture</strong>
-                      <p class="text-gray-200 mt-2 text-sm sm:text-base leading-relaxed">MongoDB backend with React frontend for secure data management</p>
-                    </div>
-                    <div class="solution-item">
-                      <strong class="text-white text-base sm:text-lg">Export Integration</strong>
-                      <p class="text-gray-200 mt-2 text-sm sm:text-base leading-relaxed">Automated Excel report generation for quotation workflow</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="results-section mb-12">
-                <h3 class="text-2xl font-bold mb-8 text-center text-white">Business Impact</h3>
-                <div class="results-grid">
-                  <div class="result-item">
-                    <div class="result-number">Hours → Minutes</div>
-                    <div class="result-label">Processing Time Reduction</div>
-                  </div>
-                  <div class="result-item">
-                    <div class="result-number">100%</div>
-                    <div class="result-label">Calculation Accuracy</div>
-                  </div>
-                  <div class="result-item">
-                    <div class="result-number">Faster</div>
-                    <div class="result-label">Quote Turnaround</div>
-                  </div>
-                </div>
-              </div>
+          <!-- Case Study 1: Protective Coating Automation -->
+          <article class="cs-card">
+            <div class="cs-header">
+              <span class="ma-tag">Manufacturing</span>
+              <h2>Automating Surface Area Calculations for Protective Coating Applications</h2>
+              <p>A specialist protective coating company was spending significant time manually analyzing PDF engineering drawings to calculate surface areas for quotations. This manual process was time-consuming and error-prone, creating bottlenecks in their competitive quotation process.</p>
+            </div>
 
-              <div class="tech-stack">
-                <h4 class="text-lg font-semibold text-gray-300 mb-4">Technology Stack</h4>
-                <div class="flex flex-wrap gap-3">
-                  <span class="tech-tag">Python</span>
-                  <span class="tech-tag">Flask/FastAPI</span>
-                  <span class="tech-tag">React</span>
-                  <span class="tech-tag">MongoDB</span>
-                  <span class="tech-tag">OCR</span>
+            <div class="cs-grid">
+              <div class="cs-col">
+                <h3>The Challenge</h3>
+                <ul>
+                  <li>Manual identification of fabricated structures from PDF drawings</li>
+                  <li>Complex mathematical calculations for various geometric shapes</li>
+                  <li>Time-consuming quotation process affecting competitiveness</li>
+                  <li>Risk of human error in critical pricing calculations</li>
+                </ul>
+              </div>
+              <div class="cs-col">
+                <h3>Our Solution</h3>
+                <div class="cs-solutions">
+                  <div class="cs-solution-item"><strong>Interactive PDF Processing</strong><p>OCR-enabled tagging interface for direct element selection</p></div>
+                  <div class="cs-solution-item"><strong>Automated Calculations</strong><p>Pre-defined formulas for CHS/SHS, I-Beams, RSA, and more</p></div>
+                  <div class="cs-solution-item"><strong>Multi-tenant Architecture</strong><p>MongoDB backend with React frontend for secure data management</p></div>
+                  <div class="cs-solution-item"><strong>Export Integration</strong><p>Automated Excel report generation for quotation workflow</p></div>
                 </div>
               </div>
             </div>
 
-            <!-- Case Study 2: Manufacturing Maintenance AI -->
-            <div class="case-study-card">
-              <div class="case-study-header mb-12">
-                <div class="case-study-badge">Manufacturing</div>
-                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mt-6 mb-6 leading-tight bg-gradient-to-r from-white to-gray-100 bg-clip-text text-transparent">
-                  Transforming Manufacturing Maintenance Through Intelligent Messaging
-                </h2>
-                <p class="text-gray-200 text-base sm:text-lg lg:text-xl leading-relaxed font-light">
-                  A window and door manufacturer needed to systematically manage machine maintenance across their production floor. Engineers worked directly with machinery and rarely accessed desktop systems, creating a communication gap for critical maintenance tasks.
-                </p>
+            <div class="cs-impact">
+              <h3>Business Impact</h3>
+              <div class="cs-impact-grid">
+                <div class="cs-impact-item"><div class="cs-impact-val">Hours → Minutes</div><div class="cs-impact-label">Processing Time Reduction</div></div>
+                <div class="cs-impact-item"><div class="cs-impact-val">100%</div><div class="cs-impact-label">Calculation Accuracy</div></div>
+                <div class="cs-impact-item"><div class="cs-impact-val">Faster</div><div class="cs-impact-label">Quote Turnaround</div></div>
               </div>
-              
-              <div class="grid lg:grid-cols-2 gap-12 mb-12">
-                <div class="challenge-section">
-                  <h3 class="text-2xl font-bold mb-6 text-blue-300 flex items-center">
-                    <span class="w-2 h-8 bg-blue-400 rounded-full mr-4"></span>
-                    The Challenge
-                  </h3>
-                  <ul class="text-gray-200 space-y-4 text-lg leading-relaxed">
-                    <li class="flex items-start">
-                      <span class="w-2 h-2 bg-blue-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                      No systematic reminders for scheduled maintenance
-                    </li>
-                    <li class="flex items-start">
-                      <span class="w-2 h-2 bg-blue-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                      Engineers worked on production floor, not at computers
-                    </li>
-                    <li class="flex items-start">
-                      <span class="w-2 h-2 bg-blue-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                      Missed maintenance windows causing potential equipment failures
-                    </li>
-                    <li class="flex items-start">
-                      <span class="w-2 h-2 bg-blue-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                      Lack of management visibility on maintenance completion
-                    </li>
-                  </ul>
-                </div>
+            </div>
 
-                <div class="solution-section">
-                  <h3 class="text-2xl font-bold mb-6 text-green-300 flex items-center">
-                    <span class="w-2 h-8 bg-green-400 rounded-full mr-4"></span>
-                    Our Solution
-                  </h3>
-                  <div class="grid grid-cols-1 gap-4">
-                    <div class="solution-item">
-                      <strong class="text-white text-lg">Messaging-Native Interface</strong>
-                      <p class="text-gray-200 mt-2 leading-relaxed">AI agent integrated with existing mobile messaging platforms</p>
-                    </div>
-                    <div class="solution-item">
-                      <strong class="text-white text-lg">Natural Language Processing</strong>
-                      <p class="text-gray-200 mt-2 leading-relaxed">Text, voice-to-text, and voice note processing capabilities</p>
-                    </div>
-                    <div class="solution-item">
-                      <strong class="text-white text-lg">Visual Documentation</strong>
-                      <p class="text-gray-200 mt-2 leading-relaxed">Mobile camera integration for maintenance evidence capture</p>
-                    </div>
-                    <div class="solution-item">
-                      <strong class="text-white text-lg">Meeting Integration</strong>
-                      <p class="text-gray-200 mt-2 leading-relaxed">Automatic task extraction from meeting transcriptions</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="results-section mb-12">
-                <h3 class="text-2xl font-bold mb-8 text-center text-white">Business Impact</h3>
-                <div class="results-grid">
-                  <div class="result-item">
-                    <div class="result-number">Zero</div>
-                    <div class="result-label">Missed Maintenance</div>
-                  </div>
-                  <div class="result-item">
-                    <div class="result-number">Real-time</div>
-                    <div class="result-label">Management Visibility</div>
-                  </div>
-                  <div class="result-item">
-                    <div class="result-number">No Training</div>
-                    <div class="result-label">Required for Engineers</div>
-                  </div>
-                </div>
-              </div>
+            <div class="cs-tech">
+              <h4>Technology Stack</h4>
+              <div class="cs-tech-tags"><span class="ma-tag">Python</span><span class="ma-tag">Flask/FastAPI</span><span class="ma-tag">React</span><span class="ma-tag">MongoDB</span><span class="ma-tag">OCR</span></div>
+            </div>
+          </article>
 
-              <div class="tech-stack">
-                <h4 class="text-lg font-semibold text-gray-300 mb-4">Technology Stack</h4>
-                <div class="flex flex-wrap gap-3">
-                  <span class="tech-tag">AI Agent</span>
-                  <span class="tech-tag">NLP</span>
-                  <span class="tech-tag">Cloud APIs</span>
-                  <span class="tech-tag">Mobile Integration</span>
-                  <span class="tech-tag">Voice Processing</span>
+          <!-- Case Study 2: Manufacturing Maintenance AI -->
+          <article class="cs-card">
+            <div class="cs-header">
+              <span class="ma-tag">Manufacturing</span>
+              <h2>Transforming Manufacturing Maintenance Through Intelligent Messaging</h2>
+              <p>A window and door manufacturer needed to systematically manage machine maintenance across their production floor. Engineers worked directly with machinery and rarely accessed desktop systems, creating a communication gap for critical maintenance tasks.</p>
+            </div>
+
+            <div class="cs-grid">
+              <div class="cs-col">
+                <h3>The Challenge</h3>
+                <ul>
+                  <li>No systematic reminders for scheduled maintenance</li>
+                  <li>Engineers worked on production floor, not at computers</li>
+                  <li>Missed maintenance windows causing potential equipment failures</li>
+                  <li>Lack of management visibility on maintenance completion</li>
+                </ul>
+              </div>
+              <div class="cs-col">
+                <h3>Our Solution</h3>
+                <div class="cs-solutions">
+                  <div class="cs-solution-item"><strong>Messaging-Native Interface</strong><p>AI agent integrated with existing mobile messaging platforms</p></div>
+                  <div class="cs-solution-item"><strong>Natural Language Processing</strong><p>Text, voice-to-text, and voice note processing capabilities</p></div>
+                  <div class="cs-solution-item"><strong>Visual Documentation</strong><p>Mobile camera integration for maintenance evidence capture</p></div>
+                  <div class="cs-solution-item"><strong>Meeting Integration</strong><p>Automatic task extraction from meeting transcriptions</p></div>
                 </div>
               </div>
             </div>
 
-            <!-- Case Study 3: Infrastructure AI Partnership -->
-            <div class="case-study-card">
-              <div class="case-study-header mb-12">
-                <div class="case-study-badge">Infrastructure</div>
-                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mt-6 mb-6 leading-tight bg-gradient-to-r from-white to-gray-100 bg-clip-text text-transparent">
-                  Delivering AI Expertise as Technical Partner in Infrastructure Analytics
-                </h2>
-                <p class="text-gray-200 text-base sm:text-lg lg:text-xl leading-relaxed font-light">
-                  A specialist technology consultancy needed advanced AI and machine learning expertise for their infrastructure client project. They required a trusted technical partner to deliver production-ready AI solutions while maintaining client relationships.
-                </p>
+            <div class="cs-impact">
+              <h3>Business Impact</h3>
+              <div class="cs-impact-grid">
+                <div class="cs-impact-item"><div class="cs-impact-val">Zero</div><div class="cs-impact-label">Missed Maintenance</div></div>
+                <div class="cs-impact-item"><div class="cs-impact-val">Real-time</div><div class="cs-impact-label">Management Visibility</div></div>
+                <div class="cs-impact-item"><div class="cs-impact-val">No Training</div><div class="cs-impact-label">Required for Engineers</div></div>
               </div>
-              
-              <div class="grid lg:grid-cols-2 gap-12 mb-12">
-                <div class="challenge-section">
-                  <h3 class="text-2xl font-bold mb-6 text-blue-300 flex items-center">
-                    <span class="w-2 h-8 bg-blue-400 rounded-full mr-4"></span>
-                    The Partnership Need
-                  </h3>
-                  <ul class="text-gray-200 space-y-4 text-lg leading-relaxed">
-                    <li class="flex items-start">
-                      <span class="w-2 h-2 bg-blue-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                      Client required sophisticated root cause analysis capabilities
-                    </li>
-                    <li class="flex items-start">
-                      <span class="w-2 h-2 bg-blue-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                      Needed AI-enhanced reporting within existing monitoring platform
-                    </li>
-                    <li class="flex items-start">
-                      <span class="w-2 h-2 bg-blue-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                      Consultancy lacked specialized AI/ML expertise
-                    </li>
-                    <li class="flex items-start">
-                      <span class="w-2 h-2 bg-blue-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                      Required rapid integration with existing project team
-                    </li>
-                  </ul>
-                </div>
+            </div>
 
-                <div class="solution-section">
-                  <h3 class="text-2xl font-bold mb-6 text-green-300 flex items-center">
-                    <span class="w-2 h-8 bg-green-400 rounded-full mr-4"></span>
-                    Our Technical Contributions
-                  </h3>
-                  <div class="grid grid-cols-1 gap-4">
-                    <div class="solution-item">
-                      <strong class="text-white text-lg">Vector Database Architecture</strong>
-                      <p class="text-gray-200 mt-2 leading-relaxed">Designed efficient indexing for natural language queries</p>
-                    </div>
-                    <div class="solution-item">
-                      <strong class="text-white text-lg">ML Pipeline Development</strong>
-                      <p class="text-gray-200 mt-2 leading-relaxed">Built classification algorithms for predictive root cause analysis</p>
-                    </div>
-                    <div class="solution-item">
-                      <strong class="text-white text-lg">Integration Strategy</strong>
-                      <p class="text-gray-200 mt-2 leading-relaxed">Seamless data parsing pipelines with existing platform APIs</p>
-                    </div>
-                    <div class="solution-item">
-                      <strong class="text-white text-lg">Conversational AI Framework</strong>
-                      <p class="text-gray-200 mt-2 leading-relaxed">Natural language processing for technical query transformation</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="results-section mb-12">
-                <h3 class="text-2xl font-bold mb-8 text-center text-white">Business Impact</h3>
-                <div class="results-grid">
-                  <div class="result-item">
-                    <div class="result-number">Expanded</div>
-                    <div class="result-label">Service Capabilities</div>
-                  </div>
-                  <div class="result-item">
-                    <div class="result-number">Accelerated</div>
-                    <div class="result-label">Project Delivery</div>
-                  </div>
-                  <div class="result-item">
-                    <div class="result-number">Enhanced</div>
-                    <div class="result-label">Client Value</div>
-                  </div>
-                </div>
-              </div>
+            <div class="cs-tech">
+              <h4>Technology Stack</h4>
+              <div class="cs-tech-tags"><span class="ma-tag">AI Agent</span><span class="ma-tag">NLP</span><span class="ma-tag">Cloud APIs</span><span class="ma-tag">Mobile Integration</span><span class="ma-tag">Voice Processing</span></div>
+            </div>
+          </article>
 
-              <div class="partnership-model mb-8 p-6 bg-gradient-to-r from-gray-700/40 to-gray-800/40 rounded-xl border border-gray-600/40 backdrop-blur-sm">
-                <h4 class="text-xl font-bold text-blue-300 mb-3 flex items-center">
-                  <span class="w-2 h-6 bg-blue-400 rounded-full mr-3"></span>
-                  Partnership Model
-                </h4>
-                <p class="text-gray-200 text-lg leading-relaxed">Technical subcontracting that allowed our client to maintain project ownership and client relationships while accessing deep AI/ML expertise when needed.</p>
-              </div>
+          <!-- Case Study 3: Infrastructure AI Partnership -->
+          <article class="cs-card">
+            <div class="cs-header">
+              <span class="ma-tag">Infrastructure</span>
+              <h2>Delivering AI Expertise as Technical Partner in Infrastructure Analytics</h2>
+              <p>A specialist technology consultancy needed advanced AI and machine learning expertise for their infrastructure client project. They required a trusted technical partner to deliver production-ready AI solutions while maintaining client relationships.</p>
+            </div>
 
-              <div class="tech-stack">
-                <h4 class="text-lg font-semibold text-gray-300 mb-4">Technology Stack</h4>
-                <div class="flex flex-wrap gap-3">
-                  <span class="tech-tag">Vector Databases</span>
-                  <span class="tech-tag">Machine Learning</span>
-                  <span class="tech-tag">Generative AI</span>
-                  <span class="tech-tag">NLP</span>
-                  <span class="tech-tag">API Integration</span>
+            <div class="cs-grid">
+              <div class="cs-col">
+                <h3>The Partnership Need</h3>
+                <ul>
+                  <li>Client required sophisticated root cause analysis capabilities</li>
+                  <li>Needed AI-enhanced reporting within existing monitoring platform</li>
+                  <li>Consultancy lacked specialized AI/ML expertise</li>
+                  <li>Required rapid integration with existing project team</li>
+                </ul>
+              </div>
+              <div class="cs-col">
+                <h3>Our Technical Contributions</h3>
+                <div class="cs-solutions">
+                  <div class="cs-solution-item"><strong>Vector Database Architecture</strong><p>Designed efficient indexing for natural language queries</p></div>
+                  <div class="cs-solution-item"><strong>ML Pipeline Development</strong><p>Built classification algorithms for predictive root cause analysis</p></div>
+                  <div class="cs-solution-item"><strong>Integration Strategy</strong><p>Seamless data parsing pipelines with existing platform APIs</p></div>
+                  <div class="cs-solution-item"><strong>Conversational AI Framework</strong><p>Natural language processing for technical query transformation</p></div>
                 </div>
               </div>
             </div>
 
-          </div>
+            <div class="cs-impact">
+              <h3>Business Impact</h3>
+              <div class="cs-impact-grid">
+                <div class="cs-impact-item"><div class="cs-impact-val">Expanded</div><div class="cs-impact-label">Service Capabilities</div></div>
+                <div class="cs-impact-item"><div class="cs-impact-val">Accelerated</div><div class="cs-impact-label">Project Delivery</div></div>
+                <div class="cs-impact-item"><div class="cs-impact-val">Enhanced</div><div class="cs-impact-label">Client Value</div></div>
+              </div>
+            </div>
+
+            <div class="cs-partnership">
+              <h4>Partnership Model</h4>
+              <p>Technical subcontracting that allowed our client to maintain project ownership and client relationships while accessing deep AI/ML expertise when needed.</p>
+            </div>
+
+            <div class="cs-tech">
+              <h4>Technology Stack</h4>
+              <div class="cs-tech-tags"><span class="ma-tag">Vector Databases</span><span class="ma-tag">Machine Learning</span><span class="ma-tag">Generative AI</span><span class="ma-tag">NLP</span><span class="ma-tag">API Integration</span></div>
+            </div>
+          </article>
+
         </div>
       </div>
+    </section>
 
-      <!-- CTA Section -->
-      <div class="py-16 bg-gray-800/50">
-        <div class="container mx-auto px-6 text-center">
-          <h2 class="text-3xl font-bold mb-6">Ready to Transform Your Business?</h2>
-          <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            See how our proven 5-stage process can deliver real results for your organisation.
-          </p>
-          <div class="flex items-center justify-center gap-x-6">
-            <a href="https://outlook.office.com/bookwithme/user/f0762b9af6a94ed2add9818a4f3ca4e5@digitaltechnologypartner.ai/meetingtype/qc2lOXjEdkO6GkMS_jZJrQ2?anonymous" target="_blank" rel="noopener noreferrer" class="get-demo-btn rounded-md bg-blue-600 px-4 py-3 text-sm font-semibold shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 relative overflow-hidden transition-all duration-250 ease-out">
-              <span class="relative z-10">Book a Discovery Call</span>
-            </a>
-          </div>
-        </div>
+    <!-- CTA -->
+    <section class="ma-cta">
+      <div class="ma-container ma-cta-inner">
+        <h2>Ready to Transform Your Business?</h2>
+        <p>See how our proven 5-stage process can deliver real results for your organisation.</p>
+        <a href="https://outlook.office.com/bookwithme/user/f0762b9af6a94ed2add9818a4f3ca4e5@digitaltechnologypartner.ai/meetingtype/qc2lOXjEdkO6GkMS_jZJrQ2?anonymous" target="_blank" rel="noopener noreferrer" class="ma-btn ma-btn-mint ma-btn-lg">Book a Discovery Call</a>
       </div>
-
-    </main>
-  </div>
+    </section>
+  </main>
 </Layout>
 
 <style>
-  /* Case Study Styling */
-  .case-study-card {
-    @apply bg-gradient-to-br from-gray-800/40 via-gray-800/30 to-gray-900/40 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-16 border border-gray-700/50;
-    transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* --- Hero --- */
+  .ma-hero {
     position: relative;
+    padding: 11rem 0 6rem;
     overflow: hidden;
   }
+  .ma-hero-content { position: relative; z-index: 2; max-width: 720px; }
+  .ma-hero-tag {
+    font-family: var(--ma-font-mono);
+    font-size: 0.85rem;
+    color: var(--ma-mint);
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+  }
+  .ma-hero h1 { line-height: 1.05; margin-bottom: 1.5rem; letter-spacing: -0.03em; }
+  .ma-hero-sub {
+    font-size: 1.1rem;
+    color: var(--ma-text-dim);
+    max-width: 600px;
+    line-height: 1.7;
+  }
 
-  .case-study-card::before {
+  /* --- Case Study List --- */
+  .cs-list { display: flex; flex-direction: column; gap: 3rem; }
+
+  /* --- Case Study Card --- */
+  .cs-card {
+    background: var(--ma-surface);
+    border: 1px solid var(--ma-border);
+    border-radius: var(--ma-radius-lg);
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .cs-card::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent);
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--ma-mint), transparent);
     opacity: 0;
-    transition: opacity 400ms ease;
+    transition: opacity 350ms ease;
   }
-
-  .case-study-card:hover {
-    @apply bg-gradient-to-br from-gray-800/60 via-gray-800/50 to-gray-900/60 border-gray-600/60;
-    transform: translateY(-8px);
-    box-shadow: 0 32px 64px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(59, 130, 246, 0.1);
+  .cs-card:hover {
+    border-color: var(--ma-mint);
+    transform: translateY(-4px);
+    box-shadow: 0 0 0 1px var(--ma-mint), 0 24px 48px rgba(0, 229, 160, 0.08);
   }
+  .cs-card:hover::before { opacity: 1; }
 
-  .case-study-card:hover::before {
-    opacity: 1;
+  /* --- Header --- */
+  .cs-header { margin-bottom: 2rem; }
+  .cs-header .ma-tag { margin-bottom: 1rem; display: inline-block; }
+  .cs-header h2 { font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 1rem; }
+  .cs-header p { font-size: 0.95rem; color: var(--ma-text-dim); line-height: 1.7; max-width: 700px; }
+
+  /* --- 2-Col Grid --- */
+  .cs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-bottom: 2rem; }
+  .cs-col h3 {
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+    color: var(--ma-mint);
+    font-weight: 600;
   }
-
-  .case-study-header {
-    @apply text-center lg:text-left;
+  .cs-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
   }
-
-  .case-study-badge {
-    @apply inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600/30 to-blue-500/20 text-blue-200 rounded-full text-base font-bold border border-blue-500/40 backdrop-blur-sm;
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
-  }
-
-  /* Challenge and Solution Sections */
-  .challenge-section, .solution-section {
-    @apply mb-12;
-  }
-
-  .challenge-section h3, .solution-section h3 {
-    @apply text-2xl font-bold mb-6;
-    transition: all 300ms ease;
-  }
-
-  .challenge-section ul {
-    @apply text-gray-200 space-y-4 text-lg;
-  }
-
-  .solution-item {
-    @apply p-4 sm:p-5 bg-gradient-to-r from-gray-700/30 to-gray-800/20 rounded-lg sm:rounded-xl border border-gray-600/30 backdrop-blur-sm;
-    transition: all 300ms ease;
-  }
-
-  .solution-item:hover {
-    @apply bg-gradient-to-r from-gray-700/40 to-gray-800/30 border-gray-600/50;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  }
-
-  .solution-item strong {
-    @apply text-white text-lg font-bold;
-  }
-
-  .solution-item p {
-    @apply text-gray-200 mt-2 leading-relaxed;
-  }
-
-  /* Technology Stack */
-  .tech-stack {
-    @apply mt-8;
-  }
-
-  .tech-tag {
-    @apply px-3 sm:px-4 py-1 sm:py-2 bg-gradient-to-r from-blue-600/30 to-blue-500/20 text-blue-200 rounded-full text-xs sm:text-sm font-semibold border border-blue-500/40 backdrop-blur-sm;
-    transition: all 300ms ease;
-    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
-  }
-
-  .tech-tag:hover {
-    @apply bg-gradient-to-r from-blue-600/40 to-blue-500/30 text-blue-100 border-blue-400/60;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
-  }
-
-  /* Partnership Model */
-  .partnership-model {
-    @apply mb-8 p-6 rounded-xl border backdrop-blur-sm;
-    transition: all 300ms ease;
-  }
-
-  .partnership-model:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  }
-
-  .placeholder-content {
-    @apply text-center;
-  }
-
-  .placeholder-icon {
-    @apply text-6xl mb-4;
-  }
-
-  .placeholder-text {
-    @apply text-gray-400 font-medium;
-  }
-
-  .results-section {
-    @apply mb-12;
-  }
-
-  .results-grid {
-    @apply grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8;
-  }
-
-  .result-item {
-    @apply text-center p-4 sm:p-6 bg-gradient-to-b from-gray-700/40 to-gray-800/30 rounded-xl sm:rounded-2xl border border-gray-600/40 backdrop-blur-sm;
-    transition: all 300ms ease;
-  }
-
-  .result-item:hover {
-    @apply bg-gradient-to-b from-gray-700/50 to-gray-800/40 border-gray-600/60;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-
-  @media (min-width: 640px) {
-    .result-item:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-    }
-  }
-
-  .result-number {
-    @apply text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent mb-2 sm:mb-3;
-  }
-
-  .result-label {
-    @apply text-sm sm:text-base font-medium text-gray-200;
-  }
-
-  .process-timeline {
-    @apply mt-8;
-  }
-
-  .timeline-steps {
-    @apply space-y-4;
-  }
-
-  .timeline-step {
-    @apply flex items-start gap-4;
-  }
-
-  .step-number {
-    @apply flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-semibold;
-  }
-
-  .step-content {
-    @apply text-gray-300 pt-1;
-  }
-
-  /* Enhanced hover effects matching homepage */
-  .get-demo-btn {
-    position: relative !important;
-    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) !important;
-    overflow: hidden !important;
-  }
-
-  .get-demo-btn::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    opacity: 0;
-    background: linear-gradient(45deg, rgba(59, 130, 246, 0.2), rgba(147, 197, 253, 0.2));
-    transition: opacity 150ms ease-in-out, transform 400ms ease-in-out;
-    border-radius: 6px;
-    transform: scale(0.8);
-  }
-
-  .get-demo-btn:hover {
-    color: #ffffff !important;
-    background-color: rgba(59, 130, 246, 0.9) !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 12px 30px rgba(59, 130, 246, 0.4), 0 6px 16px rgba(0, 0, 0, 0.2) !important;
-  }
-
-  .get-demo-btn:hover::before {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  .get-started-btn {
-    position: relative !important;
-    padding: 0.625rem 1.25rem !important;
-    border-radius: 6px !important;
-    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) !important;
-    overflow: hidden !important;
-  }
-
-  .get-started-btn::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    opacity: 0;
-    background: linear-gradient(45deg, rgba(255, 255, 255, 0.08), rgba(147, 197, 253, 0.12));
-    transition: opacity 150ms ease-in-out, transform 400ms ease-in-out;
-    border-radius: 6px;
-    transform: scale(0.8);
-  }
-
-  .get-started-btn:hover {
-    color: #93c5fd !important;
-    background-color: rgba(255, 255, 255, 0.08) !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 8px 20px rgba(147, 197, 253, 0.2) !important;
-  }
-
-  .get-started-btn:hover::before {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  .get-started-btn:hover span {
-    transform: translateX(6px) !important;
-  }
-
-  /* Ensure text stays above background effects */
-  .get-demo-btn span,
-  .get-started-btn {
+  .cs-col li {
+    font-size: 0.9rem;
+    color: var(--ma-text);
+    padding-left: 1.2rem;
     position: relative;
-    z-index: 10;
+    line-height: 1.6;
+  }
+  .cs-col li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--ma-mint);
+    opacity: 0.5;
   }
 
-  /* Arrow animation */
-  .get-started-btn span[aria-hidden="true"] {
-    display: inline-block;
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+  /* --- Solution Items --- */
+  .cs-solutions { display: flex; flex-direction: column; gap: 0.75rem; }
+  .cs-solution-item {
+    background: var(--ma-surface-alt);
+    border: 1px solid var(--ma-border);
+    border-radius: var(--ma-radius);
+    padding: 1rem 1.25rem;
+    transition: all 250ms ease;
+  }
+  .cs-solution-item:hover {
+    border-color: rgba(0, 229, 160, 0.3);
+    transform: translateY(-1px);
+  }
+  .cs-solution-item strong {
+    color: var(--ma-white);
+    font-size: 0.92rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+  .cs-solution-item p {
+    font-size: 0.82rem;
+    color: var(--ma-text-dim);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* --- Impact --- */
+  .cs-impact { margin-bottom: 2rem; }
+  .cs-impact h3 {
+    text-align: center;
+    margin-bottom: 1.25rem;
+    font-size: 1.05rem;
+  }
+  .cs-impact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .cs-impact-item {
+    text-align: center;
+    padding: 1.25rem 1rem;
+    background: var(--ma-surface-alt);
+    border: 1px solid var(--ma-border);
+    border-radius: var(--ma-radius);
+    transition: all 250ms ease;
+  }
+  .cs-impact-item:hover {
+    border-color: rgba(0, 229, 160, 0.3);
+    transform: translateY(-2px);
+  }
+  .cs-impact-val {
+    font-family: var(--ma-font-display);
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: 700;
+    color: var(--ma-mint);
+    margin-bottom: 0.35rem;
+  }
+  .cs-impact-label {
+    font-size: 0.78rem;
+    color: var(--ma-text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  /* --- Partnership Callout --- */
+  .cs-partnership {
+    background: var(--ma-surface-alt);
+    border: 1px solid var(--ma-border);
+    border-left: 3px solid var(--ma-mint);
+    border-radius: var(--ma-radius);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .cs-partnership h4 {
+    color: var(--ma-mint);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+  .cs-partnership p {
+    font-size: 0.9rem;
+    color: var(--ma-text-dim);
+    line-height: 1.65;
+  }
+
+  /* --- Tech Stack --- */
+  .cs-tech h4 {
+    font-size: 0.85rem;
+    color: var(--ma-text-dim);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .cs-tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+  /* --- CTA --- */
+  .ma-cta {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, var(--ma-surface) 0%, var(--ma-bg) 100%);
+    border-top: 1px solid var(--ma-border);
+  }
+  .ma-cta-inner { text-align: center; max-width: 600px; }
+  .ma-cta-inner h2 { margin-bottom: 1rem; }
+  .ma-cta-inner p { color: var(--ma-text-dim); margin-bottom: 2rem; font-size: 1.05rem; }
+
+  /* --- Responsive --- */
+  @media (max-width: 768px) {
+    .ma-hero { padding: 8rem 0 4rem; }
+    .cs-card { padding: 1.5rem; }
+    .cs-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .cs-impact-grid { grid-template-columns: 1fr; }
   }
 </style>

@@ -1,0 +1,548 @@
+---
+// Option 4: Luxury Editorial
+// Generous whitespace, refined typography, editorial layouts, subtle animations
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>DTP — Luxury Editorial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white: #fafafa;
+      --off-white: #f5f5f4;
+      --charcoal: #1c1917;
+      --gold: #d4af37;
+      --stone: #78716c;
+      --light-stone: #a8a29e;
+      --border: #e7e5e4;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Crimson Pro', Georgia, serif;
+      background: var(--white);
+      color: var(--charcoal);
+      line-height: 1.8;
+    }
+    
+    .serif {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+    
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+    
+    nav {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1.5rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    
+    .logo span {
+      color: var(--gold);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+    }
+    
+    .nav-links a {
+      color: var(--stone);
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-links a:hover {
+      color: var(--charcoal);
+    }
+    
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 10rem 4rem 6rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .hero-label {
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2rem;
+    }
+    
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 500;
+      line-height: 1.1;
+      margin-bottom: 2rem;
+      max-width: 900px;
+      letter-spacing: -0.02em;
+    }
+    
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    
+    .hero-subtitle {
+      font-size: 1.35rem;
+      max-width: 600px;
+      margin-bottom: 3rem;
+      color: var(--stone);
+      line-height: 1.9;
+    }
+    
+    .hero-cta {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 1rem 2.5rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: 1px solid;
+    }
+    
+    .btn-primary {
+      background: var(--charcoal);
+      color: var(--white);
+      border-color: var(--charcoal);
+    }
+    
+    .btn-primary:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: var(--charcoal);
+      border-color: var(--charcoal);
+    }
+    
+    .btn-secondary:hover {
+      background: var(--charcoal);
+      color: var(--white);
+    }
+    
+    /* Divider */
+    .divider {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 4rem;
+    }
+    
+    .divider-line {
+      height: 1px;
+      background: var(--border);
+    }
+    
+    /* Features Section */
+    .features-section {
+      padding: 8rem 4rem;
+      background: var(--off-white);
+    }
+    
+    .section-header {
+      max-width: 1400px;
+      margin: 0 auto 5rem;
+      text-align: center;
+    }
+    
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.75rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+    
+    .section-header p {
+      color: var(--stone);
+      font-size: 1.1rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .features-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+    
+    .feature-card {
+      background: var(--white);
+      padding: 3rem;
+      border: 1px solid var(--border);
+      transition: all 0.4s ease;
+    }
+    
+    .feature-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    }
+    
+    .feature-card.large {
+      grid-column: span 2;
+    }
+    
+    .feature-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      line-height: 1;
+    }
+    
+    .feature-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    
+    .feature-card p {
+      color: var(--stone);
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+    
+    /* Process Section */
+    .process-section {
+      padding: 8rem 4rem;
+    }
+    
+    .process-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .process-timeline {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 5rem;
+      position: relative;
+    }
+    
+    .process-timeline::before {
+      content: '';
+      position: absolute;
+      top: 2rem;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: var(--border);
+    }
+    
+    .process-step {
+      flex: 1;
+      text-align: center;
+      position: relative;
+      padding: 0 1rem;
+    }
+    
+    .step-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      line-height: 60px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      background: var(--white);
+      position: relative;
+      z-index: 2;
+      transition: all 0.3s ease;
+    }
+    
+    .process-step:hover .step-number {
+      background: var(--gold);
+      color: var(--white);
+    }
+    
+    .process-step h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+    
+    .process-step p {
+      color: var(--stone);
+      font-size: 0.95rem;
+      max-width: 180px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      padding: 10rem 4rem;
+      background: var(--charcoal);
+      text-align: center;
+    }
+    
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    
+    .cta-section p {
+      color: var(--light-stone);
+      max-width: 500px;
+      margin: 0 auto 3rem;
+      font-size: 1.15rem;
+    }
+    
+    .cta-section .btn-primary {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--charcoal);
+    }
+    
+    .cta-section .btn-primary:hover {
+      background: var(--white);
+      border-color: var(--white);
+    }
+    
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 3rem 4rem;
+    }
+    
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .footer-text {
+      font-size: 0.85rem;
+      color: var(--stone);
+      letter-spacing: 0.05em;
+    }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .feature-card.large {
+        grid-column: span 1;
+      }
+      .process-timeline {
+        flex-wrap: wrap;
+        gap: 3rem;
+      }
+      .process-timeline::before {
+        display: none;
+      }
+      .process-step {
+        flex: 0 0 calc(33.333% - 2rem);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      nav {
+        padding: 1.5rem 2rem;
+      }
+      .nav-links {
+        display: none;
+      }
+      .hero {
+        padding: 8rem 2rem 4rem;
+      }
+      .features-section,
+      .process-section {
+        padding: 4rem 2rem;
+      }
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      .process-step {
+        flex: 0 0 100%;
+      }
+      .cta-section {
+        padding: 6rem 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="logo">Digital Technology <span>Partner</span></a>
+      <ul class="nav-links">
+        <li><a href="/services">Approach</a></li>
+        <li><a href="/case-studies">Case Studies</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <section class="hero">
+      <div class="hero-label">AI Development Partner</div>
+      <h1>AI <em>Simplified</em></h1>
+      <p class="hero-subtitle">We cut through the hype, build AI that works, and prove value through real results — fast, focused, and tailored to you.</p>
+      <div class="hero-cta">
+        <a href="https://outlook.office.com/bookwithme/user/f0762b9af6a94ed2add9818a4f3ca4e5@digitaltechnologypartner.ai/meetingtype/qc2lOXjEdkO6GkMS_jZJrQ2?anonymous" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Book Discovery Call</a>
+        <a href="/services" class="btn btn-secondary">Our Process</a>
+      </div>
+    </section>
+    
+    <div class="divider">
+      <div class="divider-line"></div>
+    </div>
+    
+    <section class="features-section">
+      <div class="section-header">
+        <h2>Why organisations work with us</h2>
+        <p>Trusted expertise, proven results</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card large">
+          <div class="feature-number">I</div>
+          <h3>Reduced Risk</h3>
+          <p>We deliver in stages. You see progress early and avoid big-bang surprises. Every sprint ships working code you can verify.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-number">II</div>
+          <h3>Security by Design</h3>
+          <p>Data protection and access controls built in from day one. Security isn't an afterthought.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-number">III</div>
+          <h3>Reliable Delivery</h3>
+          <p>Clear scope, fixed steps, regular check-ins. No scope creep, no surprise invoices.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-number">IV</div>
+          <h3>Scales with You</h3>
+          <p>Start small, prove value, then roll out without rework. Architecture that grows.</p>
+        </div>
+        <div class="feature-card large">
+          <div class="feature-number">V</div>
+          <h3>Works With Your Tools</h3>
+          <p>We integrate with common meeting, messaging, and project platforms. Zero friction onboarding for your team.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-number">VI</div>
+          <h3>Flexible Engagement</h3>
+          <p>Your stack, our cloud, or hybrid. Whatever fits policy and budget.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="process-section">
+      <div class="process-container">
+        <div class="section-header">
+          <h2>Development Journey</h2>
+          <p>From idea to production in five proven stages</p>
+        </div>
+        <div class="process-timeline">
+          <div class="process-step">
+            <div class="step-number">1</div>
+            <h3>Discovery</h3>
+            <p>Understand the problem, define success</p>
+          </div>
+          <div class="process-step">
+            <div class="step-number">2</div>
+            <h3>PoC</h3>
+            <p>Prove the concept with real data</p>
+          </div>
+          <div class="process-step">
+            <div class="step-number">3</div>
+            <h3>MVP</h3>
+            <p>Build minimum viable product</p>
+          </div>
+          <div class="process-step">
+            <div class="step-number">4</div>
+            <h3>Pilot</h3>
+            <p>Test with real users in production</p>
+          </div>
+          <div class="process-step">
+            <div class="step-number">5</div>
+            <h3>Full Launch</h3>
+            <p>Scale to production, handover docs</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="cta-section">
+      <h2>Ready to build?</h2>
+      <p>Stop planning, start shipping. Book a discovery call and let's discuss your AI project.</p>
+      <a href="https://outlook.office.com/bookwithme/user/f0762b9af6a94ed2add9818a4f3ca4e5@digitaltechnologypartner.ai/meetingtype/qc2lOXjEdkO6GkMS_jZJrQ2?anonymous" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Book Discovery Call</a>
+    </section>
+  </main>
+  
+  <footer>
+    <div class="footer-content">
+      <div class="footer-text">© 2024 Digital Technology Partner</div>
+      <div class="footer-text">Crafted with intention</div>
+    </div>
+  </footer>
+</body>
+</html>
