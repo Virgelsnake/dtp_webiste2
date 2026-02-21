@@ -58,6 +58,13 @@ import Header from '../components/Header.astro';
 
     <!-- Testimonials -->
     <section class="ma-section mesh-testimonials">
+      <!-- Scroll trigger points positioned in this section -->
+      <div class="scroll-trigger-point" data-trigger="1"></div>
+      <div class="scroll-trigger-point" data-trigger="2"></div>
+      <div class="scroll-trigger-point" data-trigger="3"></div>
+      <div class="scroll-trigger-point" data-trigger="4"></div>
+      <div class="scroll-trigger-point" data-trigger="5"></div>
+      
       <div class="gradient-mesh-bg mesh-testimonials-bg"></div>
       <div class="ma-container">
         <div class="ma-section-header">
@@ -120,13 +127,6 @@ import Header from '../components/Header.astro';
 
     <!-- Three-Column Scroll-Triggered Process Section -->
     <section class="ma-section three-col-process-section" id="process">
-      <!-- Scroll trigger points positioned at strategic intervals -->
-      <div class="scroll-trigger-point" data-trigger="1"></div>
-      <div class="scroll-trigger-point" data-trigger="2"></div>
-      <div class="scroll-trigger-point" data-trigger="3"></div>
-      <div class="scroll-trigger-point" data-trigger="4"></div>
-      <div class="scroll-trigger-point" data-trigger="5"></div>
-      
       <div class="ma-container">
         <div class="three-col-wrapper">
           
@@ -872,11 +872,11 @@ import Header from '../components/Header.astro';
     z-index: 0;
   }
 
-  .scroll-trigger-point:nth-of-type(1) { top: 5vh; }
-  .scroll-trigger-point:nth-of-type(2) { top: 15vh; }
-  .scroll-trigger-point:nth-of-type(3) { top: 25vh; }
-  .scroll-trigger-point:nth-of-type(4) { top: 35vh; }
-  .scroll-trigger-point:nth-of-type(5) { top: 45vh; }
+  .scroll-trigger-point:nth-of-type(1) { top: 40vh; }
+  .scroll-trigger-point:nth-of-type(2) { top: 50vh; }
+  .scroll-trigger-point:nth-of-type(3) { top: 60vh; }
+  .scroll-trigger-point:nth-of-type(4) { top: 70vh; }
+  .scroll-trigger-point:nth-of-type(5) { top: 80vh; }
 
   .three-col-wrapper {
     display: grid;
@@ -1215,23 +1215,19 @@ import Header from '../components/Header.astro';
     };
     
     const handleScroll = () => {
-      const rect = section.getBoundingClientRect();
-      const sectionTop = rect.top;
-      const sectionHeight = rect.height;
-      const viewportHeight = window.innerHeight;
-      
-      // Calculate scroll progress: 0 when section enters viewport, 1 when it exits
-      const scrollProgress = Math.max(0, Math.min(1, (viewportHeight - sectionTop) / (sectionHeight + viewportHeight)));
-      
-      // Map to 5 steps spanning the scroll range
-      let newStep = 1;
-      if (scrollProgress >= 0.18) newStep = 5;
-      else if (scrollProgress >= 0.15) newStep = 4;
-      else if (scrollProgress >= 0.12) newStep = 3;
-      else if (scrollProgress >= 0.09) newStep = 2;
-      else newStep = 1;
-      
-      activateStep(newStep);
+      const triggerPoints = document.querySelectorAll('.scroll-trigger-point');
+      let newActiveStep = 1; // Default to step 1
+
+      // Find the last trigger point that has passed the top of the viewport
+      triggerPoints.forEach((point, index) => {
+        const rect = point.getBoundingClientRect();
+        // If the trigger point's top is at or above the top of the viewport
+        if (rect.top <= 0) {
+          newActiveStep = index + 1;
+        }
+      });
+
+      activateStep(newActiveStep);
     };
     
     // Initial check
