@@ -1,0 +1,86 @@
+#!/usr/bin/env python3
+"""
+Generate a newsroom draft markdown file from a shortlisted topic id.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import re
+from datetime import datetime
+from pathlib import Path
+
+
+def slugify(value: str) -> str:
+    value = value.lower().strip()
+    value = re.sub(r"[^a-z0-9\s-]", "", value)
+    value = re.sub(r"\s+", "-", value)
+    return re.sub(r"-+", "-", value)
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="Generate draft article from shortlist topic")
+    parser.add_argument("--shortlist", required=True, help="Path to shortlist JSON")
+    parser.add_argument("--topic-id", required=True, help="Topic id, e.g. topic-01")
+    parser.add_argument("--author", default="Digital Technology Partner")
+    args = parser.parse_args()
+
+    shortlist_path = Path(args.shortlist)
+    if not shortlist_path.exists():
+        raise SystemExit(f"Shortlist not found: {shortlist_path}")
+
+    payload = json.loads(shortlist_path.read_text(encoding="utf-8"))
+    topic = next((t for t in payload.get("topics", []) if t.get("id") == args.topic_id), None)
+
+    if topic is None:
+        raise SystemExit(f"Topic id not found: {args.topic_id}")
+
+    today = datetime.now().strftime("%Y-%m-%d")
+    slug = f"{today}-{slugify(topic['title'])[:72]}"
+
+    out_dir = Path("src/content/news")
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out_file = out_dir / f"{slug}.md"
+
+    markdown = f"""---
+title: \"{topic['title']}\"
+description: \"Draft generated from newsroom shortlist.\"
+pubDate: {today}
+author: \"{args.author}\"
+category: \"{topic['category']}\"
+tags:
+  - newsroom
+  - ai-assisted
+approved: false
+source: \"{topic['source']}\"
+---
+
+## Why this topic matters
+
+Add practical context for operators and decision-makers.
+
+## What is changing now
+
+- Change 1
+- Change 2
+- Change 3
+
+## What to do next
+
+1. Action one
+2. Action two
+3. Action three
+
+---
+
+*AI-assisted draft. Human review and approval required before publish.*
+"""
+
+    out_file.write_text(markdown, encoding="utf-8")
+    print(f"Draft created: {out_file}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

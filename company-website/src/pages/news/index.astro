@@ -1,0 +1,78 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+
+const approvedNews = await getCollection('news', ({ data }) => data.approved === true);
+
+const news = approvedNews.sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
+);
+---
+
+<Layout
+  title="Newsroom | Digital Technology Partner"
+  description="AI-assisted, human-approved insights on digital transformation, automation, and operations."
+>
+  <Header />
+
+  <main class="ma-section">
+    <div class="ma-container">
+      <div class="ma-section-header">
+        <span class="ma-section-tag">// newsroom</span>
+        <h1>Newsroom</h1>
+        <p style="max-width: 760px; color: var(--ma-text-secondary);">
+          Practical insights for operators, founders, and delivery teams. Every article is AI-assisted and
+          <strong> human-approved</strong> before publish.
+        </p>
+      </div>
+
+      {
+        news.length === 0 ? (
+          <div class="ma-benefit-card" style="margin-top: 2rem;">
+            <h3>No approved articles yet</h3>
+            <p>Drafts are in review. Check back soon.</p>
+          </div>
+        ) : (
+          <section style="display:grid; gap:1.25rem; margin-top: 2rem;">
+            {news.map((article) => (
+              <article class="ma-benefit-card" style="position: relative; overflow:hidden;">
+                <div class="ma-card-line" />
+
+                <div style="display:flex; gap:.75rem; align-items:center; flex-wrap:wrap; margin-bottom:.5rem;">
+                  <span class="ma-tag">{article.data.category}</span>
+                  <time style="font-size:.9rem; color:var(--ma-text-tertiary)">
+                    {article.data.pubDate.toLocaleDateString('en-GB', {
+                      day: '2-digit',
+                      month: 'short',
+                      year: 'numeric',
+                    })}
+                  </time>
+                  {article.data.approvedBy && (
+                    <span style="font-size:.8rem; color:var(--ma-text-tertiary)">
+                      Approved by {article.data.approvedBy}
+                    </span>
+                  )}
+                </div>
+
+                <h2 style="font-size:1.5rem; line-height:1.25; margin-bottom:.5rem;">
+                  <a href={`/news/${article.slug}`} style="text-decoration:none; color:inherit;">
+                    {article.data.title}
+                  </a>
+                </h2>
+
+                <p style="color: var(--ma-text-secondary); margin-bottom:1rem;">{article.data.description}</p>
+
+                <div style="display:flex; gap:.5rem; flex-wrap: wrap;">
+                  {article.data.tags.slice(0, 4).map((tag) => (
+                    <span class="ma-tag" style="opacity:.9">#{tag}</span>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </section>
+        )
+      }
+    </div>
+  </main>
+</Layout>

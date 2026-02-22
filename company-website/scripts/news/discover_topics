@@ -1,0 +1,96 @@
+#!/usr/bin/env python3
+"""
+Discover daily newsroom topics (manual + cron friendly).
+Outputs an 8-topic shortlist JSON file.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+from datetime import datetime
+from pathlib import Path
+
+TOPIC_POOL = [
+    {
+        "title": "How Aberdeen Operators Can Cut Decommissioning Documentation Time with AI",
+        "category": "Automation",
+        "source": "Energy transition operations trend",
+    },
+    {
+        "title": "Knowledge Retention Playbook for Field Teams Facing Workforce Contraction",
+        "category": "Operations",
+        "source": "Workforce planning trend",
+    },
+    {
+        "title": "Why AI Pilots Fail in Mid-Market Ops Teams (and How to Avoid It)",
+        "category": "Strategy",
+        "source": "Delivery postmortems",
+    },
+    {
+        "title": "Netlify Governance Checklist for Regulated Client Websites",
+        "category": "Digital Transformation",
+        "source": "Web delivery governance",
+    },
+    {
+        "title": "The KPI Stack Every AI-Assisted Ops Team Needs",
+        "category": "Operations",
+        "source": "Client reporting requirements",
+    },
+    {
+        "title": "AI-Assisted, Human-Approved: The Content Operating Model Clients Trust",
+        "category": "Strategy",
+        "source": "Editorial workflow design",
+    },
+    {
+        "title": "Practical Automation Opportunities in Scottish Manufacturing Ops",
+        "category": "Automation",
+        "source": "Regional operations trend",
+    },
+    {
+        "title": "What CTOs Actually Need from AI Vendors in 2026",
+        "category": "AI",
+        "source": "Buyer conversations",
+    },
+]
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="Generate an 8-topic newsroom shortlist")
+    parser.add_argument("--date", help="Date for shortlist (YYYY-MM-DD). Defaults to today.")
+    args = parser.parse_args()
+
+    date_key = args.date or datetime.now().strftime("%Y-%m-%d")
+
+    out_dir = Path("src/content/news/shortlists")
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out_file = out_dir / f"{date_key}-topics.json"
+
+    payload = {
+        "date": date_key,
+        "generatedAt": datetime.now().isoformat(),
+        "count": 8,
+        "topics": [
+            {
+                "id": f"topic-{index+1:02d}",
+                "title": t["title"],
+                "category": t["category"],
+                "source": t["source"],
+                "status": "shortlisted",
+            }
+            for index, t in enumerate(TOPIC_POOL[:8])
+        ],
+        "notes": "Workflow: shortlist -> Steve pick -> generate_draft -> PR preview -> merge publish",
+    }
+
+    out_file.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    print(f"Wrote shortlist: {out_file}")
+    print("\nTop 8 topics:")
+    for topic in payload["topics"]:
+        print(f"- {topic['id']}: {topic['title']}")
+
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
