@@ -45,9 +45,27 @@ const testimonialsCollection = defineCollection({
   }),
 });
 
+const newsCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    pubDate: z.date(),
+    updatedDate: z.date().optional(),
+    author: z.string().default('Digital Technology Partner'),
+    category: z.enum(['AI', 'Digital Transformation', 'Automation', 'Operations', 'Strategy']),
+    tags: z.array(z.string()).default([]),
+    approved: z.boolean().default(false),
+    approvedBy: z.string().optional(),
+    approvedAt: z.date().optional(),
+    source: z.string().optional(),
+  }),
+});
+
 export const collections = {
-  'blog': blogCollection,
+  blog: blogCollection,
   'case-studies': caseStudiesCollection,
-  'services': servicesCollection,
-  'testimonials': testimonialsCollection,
+  services: servicesCollection,
+  testimonials: testimonialsCollection,
+  news: newsCollection,
 };

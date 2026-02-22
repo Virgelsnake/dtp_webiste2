@@ -1,0 +1,86 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+
+export async function getStaticPaths() {
+  const approvedNews = await getCollection('news', ({ data }) => data.approved === true);
+
+  return approvedNews.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<Layout title={`${entry.data.title} | DTP Newsroom`} description={entry.data.description}>
+  <Header />
+
+  <main class="ma-section">
+    <article class="ma-container" style="max-width: 820px;">
+      <header style="margin-bottom:2rem;">
+        <div style="display:flex; gap:.75rem; align-items:center; flex-wrap:wrap; margin-bottom:1rem;">
+          <span class="ma-tag">{entry.data.category}</span>
+          <time style="font-size:.9rem; color:var(--ma-text-tertiary)">
+            {entry.data.pubDate.toLocaleDateString('en-GB', {
+              day: '2-digit',
+              month: 'short',
+              year: 'numeric',
+            })}
+          </time>
+        </div>
+
+        <h1 style="font-size: clamp(2rem, 4vw, 3rem); line-height:1.1; margin-bottom:1rem;">{entry.data.title}</h1>
+        <p style="font-size:1.1rem; color:var(--ma-text-secondary); max-width: 70ch;">{entry.data.description}</p>
+
+        {entry.data.approvedBy && (
+          <p style="margin-top:1rem; font-size:.85rem; color:var(--ma-text-tertiary);">
+            Human-approved by {entry.data.approvedBy}
+            {entry.data.approvedAt ? ` on ${entry.data.approvedAt.toLocaleDateString('en-GB')}` : ''}
+          </p>
+        )}
+      </header>
+
+      <section class="news-article-content">
+        <Content />
+      </section>
+
+      <footer style="margin-top:3rem; border-top:1px solid rgba(255,255,255,.1); padding-top:1.25rem;">
+        <a href="/news" class="ma-btn ma-btn-outline">← Back to Newsroom</a>
+      </footer>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .news-article-content :global(h2) {
+    margin: 2rem 0 .75rem;
+    font-size: 1.6rem;
+  }
+
+  .news-article-content :global(h3) {
+    margin: 1.5rem 0 .5rem;
+    font-size: 1.25rem;
+  }
+
+  .news-article-content :global(p),
+  .news-article-content :global(li) {
+    color: var(--ma-text-secondary);
+    line-height: 1.75;
+  }
+
+  .news-article-content :global(ul) {
+    padding-left: 1.25rem;
+    margin: 1rem 0;
+  }
+
+  .news-article-content :global(blockquote) {
+    border-left: 3px solid var(--ma-mint);
+    padding-left: 1rem;
+    color: var(--ma-text-primary);
+    margin: 1.25rem 0;
+  }
+</style>
