@@ -8,7 +8,9 @@ tags:
   - netlify
   - governance
   - webops
-approved: false
+approved: true
+approvedBy: "Steve"
+approvedAt: 2026-02-23
 source: "Internal newsroom topic shortlist"
 ---
 
