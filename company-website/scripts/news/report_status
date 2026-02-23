@@ -1,0 +1,50 @@
+#!/usr/bin/env python3
+"""
+Newsroom status report: draft/approved counts + duplicate title check.
+"""
+
+from __future__ import annotations
+
+from pathlib import Path
+import re
+
+
+def main() -> int:
+    news_dir = Path('src/content/news')
+    files = sorted(news_dir.glob('*.md'))
+
+    approved = 0
+    titles: dict[str, list[str]] = {}
+
+    for f in files:
+        text = f.read_text(encoding='utf-8')
+        tm = re.search(r'^title:\s*"([^"]+)"', text, re.MULTILINE)
+        am = re.search(r'^approved:\s*(true|false)', text, re.MULTILINE)
+
+        title = tm.group(1).strip() if tm else f.stem
+        titles.setdefault(title, []).append(f.name)
+        if am and am.group(1) == 'true':
+            approved += 1
+
+    draft = len(files) - approved
+    duplicates = {k: v for k, v in titles.items() if len(v) > 1}
+
+    print('DTP Newsroom Status')
+    print('===================')
+    print(f'Total articles : {len(files)}')
+    print(f'Approved      : {approved}')
+    print(f'Drafts        : {draft}')
+    print(f'Duplicates    : {len(duplicates)} title(s)')
+
+    if duplicates:
+        print('\nDuplicate titles:')
+        for title, names in duplicates.items():
+            print(f'- {title}')
+            for n in names:
+                print(f'  - {n}')
+
+    return 0
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())
