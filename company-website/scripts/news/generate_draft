@@ -19,11 +19,22 @@ def slugify(value: str) -> str:
     return re.sub(r"-+", "-", value)
 
 
+def existing_titles(news_dir: Path) -> set[str]:
+    titles: set[str] = set()
+    for md in news_dir.glob('*.md'):
+        text = md.read_text(encoding='utf-8')
+        m = re.search(r'^title:\s*"([^"]+)"', text, re.MULTILINE)
+        if m:
+            titles.add(m.group(1).strip().lower())
+    return titles
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Generate draft article from shortlist topic")
     parser.add_argument("--shortlist", required=True, help="Path to shortlist JSON")
     parser.add_argument("--topic-id", required=True, help="Topic id, e.g. topic-01")
     parser.add_argument("--author", default="Digital Technology Partner")
+    parser.add_argument("--allow-duplicate", action="store_true", help="Allow duplicate title generation")
     args = parser.parse_args()
 
     shortlist_path = Path(args.shortlist)
@@ -41,7 +52,19 @@ def main() -> int:
 
     out_dir = Path("src/content/news")
     out_dir.mkdir(parents=True, exist_ok=True)
+
+    titles = existing_titles(out_dir)
+    topic_title = topic['title'].strip()
+    if topic_title.lower() in titles and not args.allow_duplicate:
+        raise SystemExit(
+            f"Duplicate title blocked: '{topic_title}'. Use --allow-duplicate to override."
+        )
+
     out_file = out_dir / f"{slug}.md"
+    if out_file.exists() and not args.allow_duplicate:
+        raise SystemExit(
+            f"Duplicate slug blocked: {out_file.name}. Use --allow-duplicate to override."
+        )
 
     markdown = f"""---
 title: \"{topic['title']}\"

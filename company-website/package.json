@@ -10,7 +10,9 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.astro",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx,.astro --fix",
     "format": "prettier --write \"src/**/*.{astro,html,js,jsx,ts,tsx,css,md}\"",
-    "type-check": "astro check"
+    "type-check": "astro check",
+    "news:status": "./scripts/news/report_status",
+    "news:validate": "./scripts/news/validate_approved"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
