@@ -5,7 +5,7 @@ Project Name: DTP Automated Newsroom
 Scope: Consolidate docs, harden workflow, and productize offer
 
 **Status:** Phases A-D Complete | 7-Day Live Run In Progress
-**Last Updated:** 2026-02-24 08:35 GMT (by Gideon)
+**Last Updated:** 2026-02-24 09:10 GMT (by Gideon)
 
 ---
 
@@ -56,7 +56,7 @@ Scope: Consolidate docs, harden workflow, and productize offer
 - [x] E1. Schedule 7-day daily cron runs (09:00 UK)
   - Dates: 2026-02-24 to 2026-03-02
 - [~] E2. Execute daily run and publish at least one additional approved article each day where quality threshold is met
-  - Day 1 (24 Feb): Pending
+  - Day 1 (24 Feb): ✅ "When 'Vibe Coding' Goes Wrong: The Hidden Risks of AI Experiments in Enterprise Environments"
 - [~] E3. Capture outcomes as mini case-study notes
   - Template: `case-studies/dtp-newsroom-2026-02-23.md`
 - [ ] E4. Compile 7-day evidence bundle
