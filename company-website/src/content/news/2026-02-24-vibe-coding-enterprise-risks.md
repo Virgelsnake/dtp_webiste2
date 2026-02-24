@@ -1,9 +1,18 @@
 ---
 title: "When 'Vibe Coding' Goes Wrong: The Hidden Risks of AI Experiments in Enterprise Environments"
 description: "How casual AI development practices are creating governance nightmares for IT leaders—and what to do about it"
-date: 2026-02-24
-author: Digital Technology Partner
-source: research
+pubDate: 2026-02-24
+author: "Digital Technology Partner"
+category: "AI"
+tags:
+  - vibe-coding
+  - ai-governance
+  - enterprise-risk
+  - shadow-ai
+approved: true
+approvedBy: "Steve"
+approvedAt: 2026-02-24
+source: "research"
 ---
 
 # When "Vibe Coding" Goes Wrong: The Hidden Risks of AI Experiments in Enterprise Environments
