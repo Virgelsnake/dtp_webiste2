@@ -60,3 +60,18 @@ Deploy site as normal. `/news` shows approved entries only.
 - Drafts remain hidden until approved.
 - Keep claims tied to source context.
 - Maintain British English spelling in all output.
+
+---
+
+## ⚠️ Process Fix: Deploy Triggers (2026-02-24)
+
+**Issue:** Adding text to files (like README) to trigger Netlify builds causes artifacts in production.
+
+**Solution - Use these methods instead:**
+1. **Push legitimate content changes** (articles, fixes, updates)
+2. **Netlify dashboard**: "Trigger deploy" → "Clear cache and deploy site"
+3. **Empty commit**: `git commit --allow-empty -m "trigger: deploy"` then push
+
+**Why it matters:** Edited files become part of the deployed site. README artifacts were appearing on the live site.
+
+**Agent discipline:** Gideon must never modify non-content files (README, configs, etc.) to trigger builds.
