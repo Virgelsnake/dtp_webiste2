@@ -75,3 +75,30 @@ Deploy site as normal. `/news` shows approved entries only.
 **Why it matters:** Edited files become part of the deployed site. README artifacts were appearing on the live site.
 
 **Agent discipline:** Gideon must never modify non-content files (README, configs, etc.) to trigger builds.
+
+---
+
+## ⚠️ Process Fix: Article Structure (2026-02-24)
+
+**Issue:** Article content included an H1 heading (`# Title`) that duplicated the frontmatter title, causing the title to appear twice on the rendered page.
+
+**Solution:**
+- **Frontmatter** `title:` is rendered by the template as the page H1
+- **Content body** should start with `##` (H2) or descriptive text, never `#` (H1)
+- **Description/subtitle** can be italicized text below frontmatter
+
+**Template for new articles:**
+```markdown
+---
+title: "Article Title Here"
+description: "Subtitle or teaser"
+---
+
+*Optional italicized intro paragraph*
+
+## First Section Heading
+
+Content starts here...
+```
+
+**Agent discipline:** Check for duplicate titles before committing. If template renders frontmatter title, do not add H1 in content.
