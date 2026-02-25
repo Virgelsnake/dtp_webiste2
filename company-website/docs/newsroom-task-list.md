@@ -5,7 +5,7 @@ Project Name: DTP Automated Newsroom
 Scope: Consolidate docs, harden workflow, and productize offer
 
 **Status:** Phases A-D Complete | 7-Day Live Run In Progress
-**Last Updated:** 2026-02-24 10:05 GMT (by Gideon)
+**Last Updated:** 2026-02-24 09:10 GMT (by Gideon)
 
 ---
 
@@ -55,17 +55,11 @@ Scope: Consolidate docs, harden workflow, and productize offer
 ## Phase E — Live Validation 🔄 IN PROGRESS
 - [x] E1. Schedule 7-day daily cron runs (09:00 UK)
   - Dates: 2026-02-24 to 2026-03-02
-  - ✅ Cron job scheduled: `ai.withagency.newsroom-daily` (launchctl)
-  - ✅ Script: `/scripts/newsroom_daily_run.sh`
 - [~] E2. Execute daily run and publish at least one additional approved article each day where quality threshold is met
-  - Day 1 (24 Feb): ✅ "When 'Vibe Coding' Goes Wrong..." — DEPLOYED to production
-  - Day 2 (25 Feb): ⏳ Awaiting 09:00 GMT cron run (topic selection needed)
-  - Days 3-7 (26 Feb - 2 Mar): Scheduled for daily execution
+  - Day 1 (24 Feb): ✅ "When 'Vibe Coding' Goes Wrong: The Hidden Risks of AI Experiments in Enterprise Environments"
 - [~] E3. Capture outcomes as mini case-study notes
   - Template: `case-studies/dtp-newsroom-2026-02-23.md`
-  - In-progress: Collecting metrics daily
 - [ ] E4. Compile 7-day evidence bundle
-  - Scheduled for completion: 2026-03-03
 
 ## Phase F — Release Readiness ⏳ PENDING
 - [ ] F1. Finalise marketing positioning from live DTP outcomes
