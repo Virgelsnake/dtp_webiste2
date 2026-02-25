@@ -90,3 +90,4 @@ The enterprises that benefit most will be those that use consulting partnerships
 ---
 
 *At Digital Technology Partner, we help organisations build internal AI capabilities that reduce long-term dependence on external advisory firms. If your AI strategy relies entirely on consulting partnerships, we should talk about building sustainable operational expertise.*
+
