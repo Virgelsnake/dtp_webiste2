@@ -9,6 +9,7 @@ tags:
   - enterprise-ai
   - workflow-automation
   - digital-transformation
+approved: true
 ---
 
 OpenAI is making a strategic move that could reshape how artificial intelligence spreads through enterprises. The company is partnering with top-tier consulting firms to embed AI capabilities directly into corporate workflows — bypassing traditional IT procurement channels and changing who controls adoption decisions inside large organisations.
