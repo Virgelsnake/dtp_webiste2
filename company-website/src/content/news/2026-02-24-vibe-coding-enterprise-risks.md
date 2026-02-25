@@ -15,11 +15,6 @@ approvedAt: 2026-02-24
 source: "research"
 ---
 
-# When "Vibe Coding" Goes Wrong: The Hidden Risks of AI Experiments in Enterprise Environments
-
-*How casual AI development practices are creating governance nightmares for IT leaders—and what to do about it*
-
----
 
 ## The Scenario That Keeps CIOs Awake at Night
 
