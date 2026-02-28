@@ -12,7 +12,11 @@ import { initBenefitsAnimations } from './benefits';
 import { initTestimonialsAnimations } from './testimonials';
 import { initUseCasesAnimations } from './use-cases';
 import { initProcessAnimations } from './process';
+import { initCaseStudiesAnimations } from './case-studies';
 import { initFaqAnimations } from './faq';
+import { initCTAAnimations } from './cta';
+import { initSectionHeadersAnimations } from './section-headers';
+import { initCustomCursor } from './custom-cursor';
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -37,11 +41,15 @@ export function initAnimations(): void {
   // Use requestAnimationFrame to ensure DOM is ready
   requestAnimationFrame(() => {
     initHeroAnimations();
+    initSectionHeadersAnimations();
     initBenefitsAnimations();
     initTestimonialsAnimations();
     initUseCasesAnimations();
     initProcessAnimations();
+    initCaseStudiesAnimations();
     initFaqAnimations();
+    initCTAAnimations();
+    initCustomCursor();
     
     console.log('✅ All animations initialized');
   });
