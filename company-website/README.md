@@ -75,3 +75,4 @@ npm run dev
 - Icons live in `public/` and are linked in `src/layouts/Layout.astro`.
 - Browsers cache favicons aggressively; use hard reload or add a query string (e.g. `?v=2`) if needed.
 # Preview enabled
+# Deploy Trigger
