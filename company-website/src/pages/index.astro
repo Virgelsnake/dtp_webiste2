@@ -275,6 +275,21 @@ import Header from '../components/Header.astro';
       </div>
     </section>
   </main>
+
+<!-- Animation Scripts -->
+<script>
+  // Initialize all animations when DOM is ready
+  document.addEventListener('DOMContentLoaded', async () => {
+    try {
+      // Dynamic import for GSAP animations
+      const { initAnimations } = await import('../scripts/animations/index.ts');
+      initAnimations();
+    } catch (error) {
+      console.error('Failed to initialize animations:', error);
+    }
+  });
+</script>
+
 <script>
   // S11: Results Ticker - Count up/down animation for hero stats (simultaneous)
   document.addEventListener('DOMContentLoaded', () => {

@@ -1,0 +1,50 @@
+---
+// src/components/animations/ScrollProgress.astro
+// Global scroll progress indicator
+---
+
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<style>
+  .scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #00E5A0, #00B8D4);
+    width: 0%;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+
+  .scroll-progress.visible {
+    opacity: 1;
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  // Only run on client
+  document.addEventListener('DOMContentLoaded', () => {
+    const progressBar = document.getElementById('scroll-progress');
+    if (!progressBar) return;
+
+    // Show progress bar after scrolling past hero
+    ScrollTrigger.create({
+      trigger: 'main',
+      start: 'top top',
+      end: 'bottom bottom',
+      onUpdate: (self) => {
+        progressBar.style.width = `${self.progress * 100}%`;
+      },
+      onEnter: () => progressBar.classList.add('visible'),
+      onLeave: () => progressBar.classList.remove('visible'),
+      onEnterBack: () => progressBar.classList.add('visible'),
+      onLeaveBack: () => progressBar.classList.remove('visible'),
+    });
+  });
+</script>
