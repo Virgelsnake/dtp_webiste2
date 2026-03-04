@@ -1,0 +1,54 @@
+Wrote shortlist: src/content/news/shortlists/2026-02-26-topics.json
+
+Top 8 topics:
+- topic-01: How Aberdeen Operators Can Cut Decommissioning Documentation Time with AI
+- topic-02: Knowledge Retention Playbook for Field Teams Facing Workforce Contraction
+- topic-03: Why AI Pilots Fail in Mid-Market Ops Teams (and How to Avoid It)
+- topic-04: Netlify Governance Checklist for Regulated Client Websites
+- topic-05: The KPI Stack Every AI-Assisted Ops Team Needs
+- topic-06: AI-Assisted, Human-Approved: The Content Operating Model Clients Trust
+- topic-07: Practical Automation Opportunities in Scottish Manufacturing Ops
+- topic-08: What CTOs Actually Need from AI Vendors in 2026
+Avoid It)",
+      "category": "Strategy",
+      "source": "Delivery postmortems",
+      "status": "shortlisted"
+    },
+    {
+      "id": "topic-04",
+      "title": "Netlify Governance Checklist for Regulated Client Websites",
+      "category": "Digital Transformation",
+      "source": "Web delivery governance",
+      "status": "shortlisted"
+    },
+    {
+      "id": "topic-05",
+      "title": "The KPI Stack Every AI-Assisted Ops Team Needs",
+      "category": "Operations",
+      "source": "Client reporting requirements",
+      "status": "shortlisted"
+    },
+    {
+      "id": "topic-06",
+      "title": "AI-Assisted, Human-Approved: The Content Operating Model Clients Trust",
+      "category": "Strategy",
+      "source": "Editorial workflow design",
+      "status": "shortlisted"
+    },
+    {
+      "id": "topic-07",
+      "title": "Practical Automation Opportunities in Scottish Manufacturing Ops",
+      "category": "Automation",
+      "source": "Regional operations trend",
+      "status": "shortlisted"
+    },
+    {
+      "id": "topic-08",
+      "title": "What CTOs Actually Need from AI Vendors in 2026",
+      "category": "AI",
+      "source": "Buyer conversations",
+      "status": "shortlisted"
+    }
+  ],
+  "notes": "Workflow: shortlist -> Steve pick -> generate_draft -> PR preview -> merge publish"
+}

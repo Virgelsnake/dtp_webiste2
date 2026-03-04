@@ -25,7 +25,7 @@ fi
 
 # Run discover_topics script (or fallback to template)
 if [ -f "$SCRIPTS_DIR/discover_topics" ]; then
-    "$SCRIPTS_DIR/discover_topics" --date "$TODAY" > "$SHORTLIST_FILE" 2>> "$LOG_FILE" || echo "discover_topics failed, using fallback" >> "$LOG_FILE"
+    (cd "$REPO_DIR" && "$SCRIPTS_DIR/discover_topics" --date "$TODAY" >> "$LOG_FILE" 2>&1) || echo "discover_topics failed, using fallback" >> "$LOG_FILE"
 else
     echo "[$(date)] discover_topics script not found, using fallback shortlist generation" | tee -a "$LOG_FILE"
     # Fallback: create a minimal shortlist for Steve to select from
