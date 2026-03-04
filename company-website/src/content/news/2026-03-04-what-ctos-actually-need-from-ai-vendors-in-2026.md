@@ -7,7 +7,9 @@ category: "AI"
 tags:
   - newsroom
   - ai-assisted
-approved: false
+approved: true
+approvedBy: "Steve"
+approvedAt: 2026-03-04
 source: "Buyer conversations"
 ---
 
