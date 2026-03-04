@@ -29,6 +29,15 @@ def main() -> int:
             if not field(text, required):
                 problems.append(f'{md.name}: missing {required}')
 
+        if 'Draft generated from newsroom shortlist.' in text:
+            problems.append(f'{md.name}: default draft description still present')
+
+        if '*AI-assisted draft. Human review and approval required before publish.*' in text:
+            problems.append(f'{md.name}: draft footer still present')
+
+        if '## Why this matters to Digital Technology Partner' not in text:
+            problems.append(f'{md.name}: missing DTP context section')
+
     if problems:
         print('Approved article validation FAILED:')
         for p in problems:

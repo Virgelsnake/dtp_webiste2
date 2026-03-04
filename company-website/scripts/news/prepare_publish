@@ -1,0 +1,84 @@
+#!/usr/bin/env python3
+"""
+Prepare a newsroom article for publish:
+- remove draft boilerplate
+- ensure description is not the default draft text
+- inject DTP context section if missing
+"""
+
+from __future__ import annotations
+
+import argparse
+import re
+from pathlib import Path
+
+DEFAULT_DESCRIPTION = "Draft generated from newsroom shortlist."
+DTP_SECTION_TITLE = "## Why this matters to Digital Technology Partner"
+DTP_SECTION_BODY = (
+    "We help mid‑market teams move from AI pilots to measurable outcomes by making integration, "
+    "governance, and delivery boring and repeatable. If you want AI that survives production "
+    "scrutiny, we build the operating model that gets you there."
+)
+DRAFT_FOOTER = "*AI-assisted draft. Human review and approval required before publish.*"
+
+
+def load_frontmatter(text: str) -> dict[str, str]:
+    m = re.search(r"^---\n(.*?)\n---\n", text, re.DOTALL)
+    if not m:
+        return {}
+    fm = m.group(1)
+    out: dict[str, str] = {}
+    for line in fm.splitlines():
+        if ":" not in line:
+            continue
+        key, value = line.split(":", 1)
+        out[key.strip()] = value.strip().strip('"')
+    return out
+
+
+def replace_description(text: str, title: str) -> str:
+    replacement = f"{title} — practical guidance for technology leaders in 2026."
+    pattern = r'^description:\s*"[^"]*"'
+    return re.sub(pattern, f'description: "{replacement}"', text, flags=re.MULTILINE)
+
+
+def remove_draft_footer(text: str) -> str:
+    # remove trailing footer block if present
+    text = re.sub(r"\n---\n\n\*AI-assisted draft\. Human review and approval required before publish\.\*\n?", "\n", text)
+    # also remove standalone footer if present
+    text = text.replace(DRAFT_FOOTER, "").strip() + "\n"
+    return text
+
+
+def ensure_dtp_section(text: str) -> str:
+    if DTP_SECTION_TITLE in text:
+        return text
+    return text.rstrip() + f"\n\n{DTP_SECTION_TITLE}\n\n{DTP_SECTION_BODY}\n"
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="Prepare newsroom article for publish")
+    parser.add_argument("--file", required=True, help="Path to article markdown")
+    args = parser.parse_args()
+
+    path = Path(args.file)
+    if not path.exists():
+        raise SystemExit(f"File not found: {path}")
+
+    text = path.read_text(encoding="utf-8")
+    fm = load_frontmatter(text)
+    title = fm.get("title", path.stem)
+
+    if DEFAULT_DESCRIPTION in text:
+        text = replace_description(text, title)
+
+    text = remove_draft_footer(text)
+    text = ensure_dtp_section(text)
+
+    path.write_text(text, encoding="utf-8")
+    print(f"Prepared for publish: {path}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
