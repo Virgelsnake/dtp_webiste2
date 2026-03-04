@@ -1,0 +1,74 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+
+const allNews = await getCollection('news');
+const news = allNews.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+---
+
+<Layout
+  title="Newsroom Preview | Digital Technology Partner"
+  description="Internal preview of newsroom drafts and approved articles."
+>
+  <Header />
+
+  <main class="ma-section">
+    <div class="ma-container">
+      <div class="ma-section-header">
+        <span class="ma-section-tag">// newsroom preview</span>
+        <h1>Newsroom Preview</h1>
+        <p style="color:var(--ma-text-secondary); max-width: 70ch;">
+          Internal preview of drafts and approved articles. Drafts are labelled.
+        </p>
+      </div>
+
+      {
+        news.length === 0 ? (
+          <div class="ma-benefit-card" style="margin-top: 2rem;">
+            <h3>No articles yet</h3>
+            <p>Add a draft to see it here.</p>
+          </div>
+        ) : (
+          <div class="news-grid" style="margin-top:2rem;">
+            {news.map((article) => (
+              <article class="news-card">
+                <div class="ma-card-line" />
+                <div class="news-card-meta">
+                  <span class="ma-tag">{article.data.category}</span>
+                  <span class="news-date">
+                    {article.data.pubDate.toLocaleDateString('en-GB', {
+                      day: '2-digit',
+                      month: 'short',
+                      year: 'numeric',
+                    })}
+                  </span>
+                  {article.data.approved !== true && (
+                    <span class="ma-tag" style="background: rgba(255,193,7,.15); color:#ffc107;">Draft</span>
+                  )}
+                </div>
+                <h3><a href={`/news/preview/${article.slug}`}>{article.data.title}</a></h3>
+                <p>{article.data.description}</p>
+              </article>
+            ))}
+          </div>
+        )
+      }
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .news-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+  .news-card { position:relative; background:var(--ma-surface); border:1px solid var(--ma-border); border-radius:var(--ma-radius-lg); padding:1.1rem; overflow:hidden; }
+  .news-card h3 { margin:.35rem 0 .5rem; line-height:1.25; }
+  .news-card h3 a { color:inherit; text-decoration:none; }
+  .news-card h3 a:hover { color:var(--ma-mint); }
+  .news-card p { color:var(--ma-text-secondary); margin:0; }
+  .news-card-meta { display:flex; gap:.6rem; align-items:center; margin-bottom:.35rem; flex-wrap:wrap; }
+  .news-date { font-size:.78rem; color:var(--ma-text-tertiary); }
+
+  @media (max-width: 720px) {
+    .news-grid { grid-template-columns:1fr; }
+  }
+</style>
