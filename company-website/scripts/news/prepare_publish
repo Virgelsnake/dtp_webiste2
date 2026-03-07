@@ -20,6 +20,7 @@ DTP_SECTION_BODY = (
     "scrutiny, we build the operating model that gets you there."
 )
 DRAFT_FOOTER = "*AI-assisted draft. Human review and approval required before publish.*"
+APPROVAL_LINE_PATTERN = r"^\s*Human-?approved by .*?$"
 
 
 def load_frontmatter(text: str) -> dict[str, str]:
@@ -46,8 +47,10 @@ def remove_draft_footer(text: str) -> str:
     # remove trailing footer block if present
     text = re.sub(r"\n---\n\n\*AI-assisted draft\. Human review and approval required before publish\.\*\n?", "\n", text)
     # also remove standalone footer if present
-    text = text.replace(DRAFT_FOOTER, "").strip() + "\n"
-    return text
+    text = text.replace(DRAFT_FOOTER, "")
+    # remove any approval line accidentally left in body text
+    text = re.sub(APPROVAL_LINE_PATTERN, "", text, flags=re.MULTILINE)
+    return text.strip() + "\n"
 
 
 def ensure_dtp_section(text: str) -> str:
