@@ -41,6 +41,3 @@ The latest generation of models (Opus 4.6, Gemini 3.1 Pro, GPT 5.3) can run auto
 
 We help teams move from “chat prompting” to **repeatable delivery** by turning AI work into explicit specs, validated steps, and measurable outputs. That’s how you make autonomous agents safe enough for real operations.
 
----
-
-*AI-assisted draft. Human review and approval required before publish.*

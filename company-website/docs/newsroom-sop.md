@@ -41,6 +41,8 @@ In article frontmatter set:
 - `approvedAt: YYYY-MM-DD`
 - `source: "<source url or note>"`
 
+Also **remove any approval/disclaimer lines from the article body** (e.g., “Human‑approved…” or “AI‑assisted draft…”). Those must never ship in published content.
+
 ### 8) Validate governance
 ```bash
 npm run news:validate
