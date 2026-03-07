@@ -36,12 +36,6 @@ const { Content } = await render(entry);
         <h1 style="font-size: clamp(2rem, 4vw, 3rem); line-height:1.1; margin-bottom:1rem;">{entry.data.title}</h1>
         <p style="font-size:1.1rem; color:var(--ma-text-secondary); max-width: 70ch;">{entry.data.description}</p>
 
-        {entry.data.approvedBy && (
-          <p style="margin-top:1rem; font-size:.85rem; color:var(--ma-text-tertiary);">
-            Human-approved by {entry.data.approvedBy}
-            {entry.data.approvedAt ? ` on ${entry.data.approvedAt.toLocaleDateString('en-GB')}` : ''}
-          </p>
-        )}
       </header>
 
       <section class="news-article-content">
