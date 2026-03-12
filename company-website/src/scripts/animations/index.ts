@@ -16,7 +16,7 @@ import { initCaseStudiesAnimations } from './case-studies';
 import { initFaqAnimations } from './faq';
 import { initCTAAnimations } from './cta';
 import { initSectionHeadersAnimations } from './section-headers';
-import { initCustomCursor } from './custom-cursor';
+// NOTE: Custom cursor disabled - removed initCustomCursor import
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -49,7 +49,7 @@ export function initAnimations(): void {
     initCaseStudiesAnimations();
     initFaqAnimations();
     initCTAAnimations();
-    initCustomCursor();
+    // initCustomCursor(); // DISABLED: Custom cursor removed
     
     console.log('✅ All animations initialized');
   });
