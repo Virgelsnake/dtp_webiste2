@@ -47,7 +47,7 @@
     </div>
     <div class="cg-container cg-hero-content">
       <div class="cg-pill">Aberdeen-based AI consultancy</div>
-      <h1>AI that works, simplified.</h1>
+      <h1><span class="typewriter-text"></span><span class="cursor">|</span></h1>
       <p class="cg-hero-sub">We cut through the hype, build AI that delivers, and prove value through real results — fast, focused, and tailored to you.</p>
       <div class="cg-hero-actions">
         <a href="https://outlook.office.com/bookwithme/user/f0762b9af6a94ed2add9818a4f3ca4e5@digitaltechnologypartner.ai/meetingtype/qc2lOXjEdkO6GkMS_jZJrQ2?anonymous" target="_blank" rel="noopener noreferrer" class="cg-btn cg-btn-primary">Book a Discovery Call</a>
@@ -290,6 +290,22 @@
     <a href="/design-v4">← Prev</a>
     <a href="/design-v1">V1 →</a>
   </div>
+  <script>
+    const text = "AIthatworks.";
+    const typewriterElement = document.querySelector('.typewriter-text');
+    let i = 0;
+
+    function typeWriter() {
+      if (typewriterElement && i < text.length) {
+        typewriterElement.textContent += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 120);
+      }
+    }
+
+    // Start typing after a brief delay
+    setTimeout(typeWriter, 500);
+  </script>
 </body>
 </html>
 
@@ -507,6 +523,22 @@
     color: var(--cg-navy);
     letter-spacing: -0.03em;
     margin-bottom: 1.5rem;
+  }
+
+  .typewriter-text {
+    display: inline;
+  }
+
+  .cursor {
+    display: inline;
+    color: #22c55e;
+    font-weight: 400;
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
   }
 
   .cg-hero-sub {
