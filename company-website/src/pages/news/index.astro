@@ -98,8 +98,8 @@ const [featured, ...rest] = news;
   .news-layout { display:grid; grid-template-columns: 220px 1fr; gap:1.25rem; align-items:start; }
   .news-sidebar { position:sticky; top:6rem; background:var(--ma-surface); border:1px solid var(--ma-border); border-radius:var(--ma-radius-lg); padding:1rem; }
   .news-sidebar h3 { font-size:.95rem; margin-bottom:.8rem; }
-  .news-tag-list { display:flex; flex-direction:column; gap:.45rem; }
-  .news-tag-btn { text-align:left; background:transparent; border:1px solid transparent; color:var(--ma-text-dim); padding:.45rem .65rem; border-radius:8px; cursor:pointer; }
+  .news-tag-list { display:flex; flex-direction:column; gap:.5rem; }
+  .news-tag-btn { text-align:left; background:transparent; border:1px solid transparent; color:var(--ma-text-dim); padding:.75rem 1rem; min-height:44px; border-radius:8px; cursor:pointer; }
   .news-tag-btn:hover { border-color:var(--ma-border); color:var(--ma-text); }
   .news-tag-btn.active { color:var(--ma-mint); background:var(--ma-mint-dim); border-color:rgba(0,229,160,.25); }
 

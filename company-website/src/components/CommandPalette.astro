@@ -11,7 +11,7 @@
         <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/>
       </svg>
       <input 
-        type="text" 
+        type="search" 
         id="cmd-input" 
         class="cmd-input" 
         placeholder="Search pages, FAQ, case studies..."
@@ -327,8 +327,8 @@
   }
 
   .cmd-close {
-    width: 32px;
-    height: 32px;
+    width: 44px; /* WCAG touch target minimum */
+    height: 44px; /* WCAG touch target minimum */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -471,5 +471,33 @@
 
   .cmd-results::-webkit-scrollbar-thumb:hover {
     background: var(--ma-text-dim);
+  }
+
+  /* Mobile optimization for CommandPalette */
+  @media (max-width: 640px) {
+    .cmd-palette {
+      padding-top: 5vh; /* Less top padding on mobile */
+    }
+
+    .cmd-palette-container {
+      margin: 0 0.5rem;
+      max-height: 70vh; /* Prevent keyboard overlap */
+    }
+
+    .cmd-palette-header {
+      padding: 0.875rem 1rem;
+    }
+
+    .cmd-results {
+      max-height: 50vh;
+    }
+
+    .cmd-result {
+      padding: 1rem;
+    }
+
+    .cmd-shortcut-hint {
+      display: none; /* Hide keyboard hints on mobile */
+    }
   }
 </style>
