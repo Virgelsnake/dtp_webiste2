@@ -140,54 +140,37 @@ const getColorClasses = (color: string) => {
     </div>
 
     {variant === 'minimal' ? (
-      <!-- Minimal version for homepage - Vertical layout -->
-      <div class="max-w-7xl mx-auto">
-        <div class="relative">
-          {journeySteps.map((step, index) => {
-            const colorClasses = getColorClasses(step.color);
-            return (
-              <div class="relative mb-16 last:mb-0">
-                <div class="grid grid-cols-3 gap-8 items-center group">
-                  <!-- Left side: Step title -->
-                  <div class="text-right">
-                    <h3 class="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-                      {step.title}
-                    </h3>
+      <!-- Minimal version for homepage - Scroll-triggered horizontal timeline -->
+      <div class="max-w-7xl mx-auto" id="journey-container">
+        <div class="journey-scroll-wrapper">
+          <!-- Left side: Horizontal timeline with numbered circles -->
+          <div class="journey-timeline-left">
+            <div class="journey-timeline-track">
+              {journeySteps.map((step, index) => (
+                <div class="journey-step-wrapper" data-step={step.id}>
+                  <div class="journey-step-circle" data-step-circle={step.id}>
+                    <span class="journey-step-number">{step.id}</span>
                   </div>
-                  
-                  <!-- Center: Icon (matching Business Transformation size) -->
-                  <div class="flex justify-center relative">
-                    <div class="relative">
-                      <!-- Animated outer ring -->
-                      <div class={`w-24 h-24 rounded-full border-2 ${colorClasses.border} group-hover:animate-spin-slow transition-all duration-300`}></div>
-                      <!-- Glowing middle ring -->
-                      <div class={`absolute inset-2 w-20 h-20 rounded-full border ${colorClasses.glow} group-hover:animate-pulse`}></div>
-                      <!-- Inner circle with icon -->
-                      <div class={`absolute inset-4 w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center border ${colorClasses.inner}`}>
-                        <svg class={`w-8 h-8 ${colorClasses.icon}`} fill="currentColor" viewBox="0 0 24 24">
-                          <Fragment set:html={getIcon(step.icon)} />
-                        </svg>
-                      </div>
-                      <!-- Glowing effect -->
-                      <div class={`absolute inset-0 w-24 h-24 rounded-full ${colorClasses.bg} group-hover:animate-ping opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
-                    </div>
-                    
-                    <!-- Connecting line (except for last item) -->
-                    {index < journeySteps.length - 1 && (
-                      <div class="absolute left-1/2 top-24 w-0.5 h-16 bg-gradient-to-b from-blue-500/50 to-blue-500/20 transform -translate-x-0.5"></div>
-                    )}
-                  </div>
-                  
-                  <!-- Right side: Description only -->
-                  <div class="text-left">
-                    <p class="text-gray-300 leading-relaxed">
-                      {step.description}
-                    </p>
-                  </div>
+                  <div class="journey-step-label">{step.shortTitle}</div>
+                  {index < journeySteps.length - 1 && (
+                    <div class="journey-connector"></div>
+                  )}
                 </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Right side: Step descriptions (only one visible at a time) -->
+          <div class="journey-content-right">
+            <div class="journey-progress-bar"></div>
+            {journeySteps.map((step) => (
+              <div class="journey-step-content" data-step-content={step.id}>
+                <div class="journey-step-badge">{step.stepName}</div>
+                <h3 class="journey-step-title">{step.title}</h3>
+                <p class="journey-step-description">{step.fullDescription}</p>
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </div>
     ) : (
@@ -249,18 +232,187 @@ const getColorClasses = (color: string) => {
 </section>
 
 <style>
-  .journey-card {
-    background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
-    border-radius: 1.5rem;
-    padding: 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
+  /* Scroll-triggered timeline layout */
+  .journey-scroll-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    min-height: 600px;
   }
 
-  /* Accordion shells reuse card visuals */
+  /* Left side: Horizontal timeline */
+  .journey-timeline-left {
+    position: sticky;
+    top: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .journey-timeline-track {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    position: relative;
+  }
+
+  .journey-step-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  .journey-step-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(30, 41, 59, 0.8);
+    border: 2px solid rgba(100, 116, 139, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 2;
+  }
+
+  .journey-step-circle.active {
+    background: linear-gradient(135deg, rgba(34, 211, 238, 0.2), rgba(59, 130, 246, 0.2));
+    border-color: rgba(34, 211, 238, 0.8);
+    box-shadow: 0 0 30px rgba(34, 211, 238, 0.4), 0 0 60px rgba(34, 211, 238, 0.2);
+    transform: scale(1.15);
+  }
+
+  .journey-step-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: rgba(148, 163, 184, 0.5);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .journey-step-circle.active .journey-step-number {
+    color: rgba(34, 211, 238, 1);
+    text-shadow: 0 0 20px rgba(34, 211, 238, 0.8);
+  }
+
+  .journey-step-label {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: rgba(148, 163, 184, 0.7);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.5s ease;
+    white-space: nowrap;
+  }
+
+  .journey-step-circle.active ~ .journey-step-label {
+    color: rgba(34, 211, 238, 1);
+    font-weight: 600;
+  }
+
+  .journey-connector {
+    width: 80px;
+    height: 2px;
+    background: rgba(100, 116, 139, 0.3);
+    position: relative;
+    transition: all 0.5s ease;
+  }
+
+  .journey-connector::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, rgba(34, 211, 238, 0.8), rgba(59, 130, 246, 0.8));
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .journey-connector.active::after {
+    width: 100%;
+  }
+
+  /* Right side: Content area */
+  .journey-content-right {
+    position: relative;
+    min-height: 500px;
+  }
+
+  .journey-progress-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: rgba(100, 116, 139, 0.2);
+    border-radius: 2px;
+    --progress: 0%;
+  }
+
+  .journey-progress-bar::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: var(--progress, 0%);
+    background: linear-gradient(180deg, rgba(34, 211, 238, 0.8), rgba(59, 130, 246, 0.8));
+    border-radius: 2px;
+    transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .journey-step-content {
+    padding-left: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+  }
+
+  .journey-step-content.active {
+    opacity: 1;
+    transform: translateY(0);
+    position: relative;
+    pointer-events: auto;
+  }
+
+  .journey-step-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: rgba(34, 211, 238, 0.1);
+    border: 1px solid rgba(34, 211, 238, 0.3);
+    border-radius: 2rem;
+    color: rgba(34, 211, 238, 1);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+  }
+
+  .journey-step-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .journey-step-description {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: rgba(203, 213, 225, 0.9);
+  }
+
+  /* Accordion styles for detailed variant */
   .journey-accordion {
     background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
     border-radius: 1.5rem;
@@ -284,28 +436,6 @@ const getColorClasses = (color: string) => {
     padding: 0 2rem 2rem 2rem;
   }
 
-  .journey-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.15), transparent 50%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .journey-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(59, 130, 246, 0.5);
-    box-shadow: 0 20px 40px -12px rgba(59, 130, 246, 0.25), 0 15px 25px -5px rgba(0, 0, 0, 0.4);
-  }
-
-  .journey-card:hover::before {
-    opacity: 1;
-  }
-
   @keyframes spin-slow {
     from {
       transform: rotate(0deg);
@@ -319,31 +449,140 @@ const getColorClasses = (color: string) => {
     animation: spin-slow 8s linear infinite;
   }
 
-  /* Mobile breakpoint for minimal variant - convert 3-column to single column */
-  @media (max-width: 768px) {
-    .grid-cols-3 {
-      grid-template-columns: 1fr !important;
-      gap: 1rem !important;
-      text-align: center !important;
+  /* Mobile responsive */
+  @media (max-width: 1024px) {
+    .journey-scroll-wrapper {
+      grid-template-columns: 1fr;
+      gap: 3rem;
     }
-    
-    .grid-cols-3 > div:first-child {
-      text-align: center !important;
-      order: 2;
+
+    .journey-timeline-left {
+      position: relative;
+      top: 0;
     }
-    
-    .grid-cols-3 > div:nth-child(2) {
-      order: 1;
+
+    .journey-timeline-track {
+      justify-content: center;
     }
-    
-    .grid-cols-3 > div:last-child {
-      text-align: center !important;
-      order: 3;
+
+    .journey-step-circle {
+      width: 60px;
+      height: 60px;
     }
-    
-    /* Hide horizontal connecting lines on mobile, show vertical */
-    .grid-cols-3 .absolute.left-1\/2.top-24 {
-      display: block;
+
+    .journey-step-number {
+      font-size: 1.5rem;
+    }
+
+    .journey-connector {
+      width: 40px;
+    }
+
+    .journey-progress-bar {
+      display: none;
+    }
+
+    .journey-step-content {
+      padding-left: 0;
     }
   }
 </style>
+
+<script>
+  function initJourneyScroll() {
+    const container = document.getElementById('journey-container');
+    if (!container) return;
+
+    const circles = container.querySelectorAll('[data-step-circle]');
+    const contents = container.querySelectorAll('[data-step-content]');
+    const connectors = container.querySelectorAll('.journey-connector');
+    const progressBar = container.querySelector('.journey-progress-bar');
+
+    let currentStep = 1;
+    const totalSteps = circles.length;
+
+    function updateStep(step: number) {
+      if (step === currentStep) return;
+      currentStep = step;
+
+      // Update circles
+      circles.forEach((circle, index) => {
+        const stepNum = index + 1;
+        if (stepNum === step) {
+          circle.classList.add('active');
+        } else {
+          circle.classList.remove('active');
+        }
+      });
+
+      // Update connectors
+      connectors.forEach((connector, index) => {
+        const stepNum = index + 1;
+        if (stepNum < step) {
+          connector.classList.add('active');
+        } else {
+          connector.classList.remove('active');
+        }
+      });
+
+      // Update content visibility
+      contents.forEach((content) => {
+        const contentStep = parseInt(content.getAttribute('data-step-content') || '0');
+        if (contentStep === step) {
+          content.classList.add('active');
+        } else {
+          content.classList.remove('active');
+        }
+      });
+
+      // Update progress bar
+      if (progressBar) {
+        const progress = ((step - 1) / (totalSteps - 1)) * 100;
+        (progressBar as HTMLElement).style.setProperty('--progress', `${progress}%`);
+      }
+    }
+
+    function handleScroll() {
+      if (!container) return;
+      
+      const rect = container.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const containerTop = rect.top;
+      const containerHeight = rect.height;
+
+      // Calculate scroll progress through the container
+      const scrollStart = windowHeight * 0.5;
+      const scrollEnd = windowHeight * 0.2;
+      
+      if (containerTop > scrollStart) {
+        updateStep(1);
+        return;
+      }
+
+      if (containerTop < -containerHeight + scrollEnd) {
+        updateStep(totalSteps);
+        return;
+      }
+
+      // Calculate which step should be active based on scroll position
+      const scrollProgress = (scrollStart - containerTop) / (containerHeight + scrollStart - scrollEnd);
+      const step = Math.min(Math.max(1, Math.ceil(scrollProgress * totalSteps)), totalSteps);
+      
+      updateStep(step);
+    }
+
+    // Initialize with step 1
+    updateStep(1);
+
+    // Add scroll listener
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial check
+  }
+
+  // Initialize on page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initJourneyScroll);
+  } else {
+    initJourneyScroll();
+  }
+</script>

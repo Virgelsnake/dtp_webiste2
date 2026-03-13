@@ -1096,21 +1096,18 @@ import HeroTypewriter from '../components/HeroTypewriter.astro';
   }
 
   .step-description {
-    position: absolute;
-    inset: 2.5rem;
+    display: none;
     opacity: 0;
     transform: translateY(30px) scale(0.98);
-    transition: all 450ms cubic-bezier(0.34, 1.56, 0.64, 1);
-    display: flex;
+    transition: opacity 450ms cubic-bezier(0.34, 1.56, 0.64, 1), transform 450ms cubic-bezier(0.34, 1.56, 0.64, 1);
     flex-direction: column;
     pointer-events: none;
   }
 
   .step-description.active {
+    display: flex;
     opacity: 1;
     transform: translateY(0) scale(1);
-    position: relative;
-    inset: auto;
     pointer-events: auto;
   }
 
@@ -1270,19 +1267,40 @@ import HeroTypewriter from '../components/HeroTypewriter.astro';
     };
     
     const handleScroll = () => {
-      const triggerPoints = document.querySelectorAll('.scroll-trigger-point');
-      let newActiveStep = 1; // Default to step 1
-
-      // Find the last trigger point that has passed the top of the viewport
-      triggerPoints.forEach((point, index) => {
-        const rect = point.getBoundingClientRect();
-        // If the trigger point's top is at or above the top of the viewport
-        if (rect.top <= 0) {
-          newActiveStep = index + 1;
-        }
-      });
-
-      activateStep(newActiveStep);
+      const rect = section.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const sectionTop = rect.top;
+      const sectionHeight = rect.height;
+      
+      // Calculate scroll progress through the section
+      // Start activating when section enters viewport (60% from top)
+      const scrollStart = windowHeight * 0.6;
+      // End when section center is at viewport center (50% from top)
+      const scrollEnd = windowHeight * 0.5;
+      
+      // Before section enters trigger zone, show step 1
+      if (sectionTop > scrollStart) {
+        activateStep(1);
+        return;
+      }
+      
+      // After section exits trigger zone, show step 5
+      if (sectionTop < -sectionHeight + scrollEnd) {
+        activateStep(5);
+        return;
+      }
+      
+      // Calculate progress through the section (0 to 1)
+      const scrollProgress = (scrollStart - sectionTop) / (sectionHeight + scrollStart - scrollEnd);
+      
+      // Map progress to steps 1-5
+      // Each step gets 20% of the scroll range
+      const stepFloat = 1 + (scrollProgress * 4); // 1.0 to 5.0
+      const newActiveStep = Math.min(Math.max(1, Math.ceil(stepFloat)), 5);
+      
+      if (newActiveStep !== currentStep) {
+        activateStep(newActiveStep);
+      }
     };
     
     // Initial check
