@@ -36,7 +36,25 @@ function initTextReveal(): void {
 
   if (!headline) return;
 
-  // Create timeline for hero entrance
+  // Skip if HeroTypewriter component is present (it handles its own animation)
+  if (headline.querySelector('.typewriter-headline') || document.querySelector('.typewriter-tag')) {
+    console.log('ℹ️ HeroTypewriter detected, skipping GSAP text reveal');
+    // Still animate subheadline and actions
+    if (subheadline) {
+      gsap.fromTo(subheadline, 
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.6, delay: 1.5 }
+      );
+    }
+    if (actions) {
+      const buttons = actions.querySelectorAll('.ma-btn');
+      gsap.fromTo(buttons,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.5, stagger: 0.1, delay: 1.8 }
+      );
+    }
+    return;
+  }
   const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
   // Split headline into words for stagger

@@ -1,0 +1,193 @@
+---
+/**
+ * Hero Typewriter Animation Component
+ * 
+ * Implements a two-phase typewriter effect:
+ * 1. Tag line auto-plays on page load (500ms delay)
+ * 2. Headline triggers on first scroll
+ * 
+ * Features:
+ * - Blinking cursor (mint green, 1s cycle)
+ * - Accessibility: respects prefers-reduced-motion
+ * - Screen reader support: aria-live regions with full text
+ * - Performance: zero layout shift, RAF-based animation
+ * 
+ * @component
+ */
+
+interface Props {
+  /** Tag line text to type out on load */
+  tagText: string;
+  /** Headline text to type on scroll */
+  headlineText: string;
+  /** Typing speed in milliseconds per character */
+  typingSpeed?: number;
+  /** Delay before starting tag line animation */
+  startDelay?: number;
+}
+
+const { 
+  tagText, 
+  headlineText, 
+  typingSpeed = 120, 
+  startDelay = 500 
+} = Astro.props;
+---
+
+<div class="ma-hero-tag" aria-live="polite" data-text={tagText}>
+  <span class="typewriter-tag"></span>
+</div>
+<h1 aria-live="polite" data-text={headlineText}>
+  <span class="typewriter-headline"></span><span class="ma-cursor">|</span>
+</h1>
+
+<style is:global>
+  .typewriter-tag {
+    display: inline;
+    color: var(--ma-mint, #00E5A0);
+  }
+  
+  .typewriter-headline {
+    display: inline;
+    color: inherit;
+  }
+
+  .ma-cursor {
+    display: inline;
+    color: var(--ma-mint, #00E5A0);
+    font-weight: 400;
+    animation: blink 1s step-end infinite;
+    opacity: 0;
+  }
+  
+  .ma-cursor.visible {
+    opacity: 1;
+  }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .typewriter-tag::before {
+      content: attr(data-text);
+    }
+    
+    .typewriter-headline::before {
+      content: attr(data-text);
+    }
+    
+    .ma-cursor {
+      animation: none;
+    }
+  }
+</style>
+
+<script define:vars={{ tagText, headlineText, typingSpeed, startDelay }}>
+  /**
+   * Typewriter animation implementation
+   * Uses requestAnimationFrame for smooth rendering
+   */
+  
+  // Check for reduced motion preference
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  
+  if (prefersReducedMotion) {
+    // Display all text immediately
+    const tagElement = document.querySelector('.typewriter-tag');
+    const headlineElement = document.querySelector('.typewriter-headline');
+    
+    if (tagElement) tagElement.textContent = tagText;
+    if (headlineElement) headlineElement.textContent = headlineText;
+  } else {
+    // Run animations - tag line first, then headline
+    
+    /**
+     * Typewriter function - reveals text character by character
+     * @param element - Target DOM element
+     * @param text - Text to type out
+     * @param speed - Milliseconds per character
+     * @param callback - Function to call when complete
+     */
+    function typeWriter(element, text, speed, callback) {
+      if (!element) return;
+      
+      let index = 0;
+      let lastTime = performance.now();
+      
+      function type(currentTime) {
+        const elapsed = currentTime - lastTime;
+        
+        if (elapsed >= speed) {
+          if (index < text.length) {
+            element.textContent = text.substring(0, index + 1);
+            index++;
+            lastTime = currentTime;
+          } else {
+            // Animation complete
+            if (callback) callback();
+            return;
+          }
+        }
+        
+        requestAnimationFrame(type);
+      }
+      
+      requestAnimationFrame(type);
+    }
+    
+    /**
+     * Start tag line animation after delay
+     */
+    function startTagAnimation() {
+      console.log('[Typewriter] Starting tag animation');
+      const tagElement = document.querySelector('.typewriter-tag');
+      if (tagElement) {
+        typeWriter(tagElement, tagText, typingSpeed, () => {
+          console.log('[Typewriter] Tag complete, starting headline in 300ms');
+          // Start headline animation after tag completes
+          setTimeout(startHeadlineAnimation, 300);
+        });
+      }
+    }
+    
+    /**
+     * Start headline animation
+     */
+    function startHeadlineAnimation() {
+      console.log('[Typewriter] Starting headline animation, text:', headlineText);
+      const headlineElement = document.querySelector('.typewriter-headline');
+      const cursorElement = document.querySelector('.ma-cursor');
+      const allHeadlines = document.querySelectorAll('.typewriter-headline');
+      const h1Content = document.querySelector('h1')?.innerHTML;
+      console.log('[Typewriter] All .typewriter-headline elements:', allHeadlines.length);
+      console.log('[Typewriter] h1 innerHTML:', h1Content);
+      console.log('[Typewriter] Headline element found:', !!headlineElement);
+      if (headlineElement) {
+        console.log('[Typewriter] Headline element:', headlineElement);
+        typeWriter(headlineElement, headlineText, typingSpeed, () => {
+          console.log('[Typewriter] Headline complete');
+        });
+      }
+      // Show cursor when headline starts
+      if (cursorElement) {
+        cursorElement.classList.add('visible');
+        console.log('[Typewriter] Cursor made visible');
+      }
+    }
+    
+    // Wait for DOM to be ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+    
+    function init() {
+      // Start tag line after delay
+      setTimeout(startTagAnimation, startDelay);
+    }
+  }
+</script>

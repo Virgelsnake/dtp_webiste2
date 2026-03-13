@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
+import HeroTypewriter from '../components/HeroTypewriter.astro';
 ---
 
 <Layout title="DTP — AI that works, simplified.">
@@ -12,8 +13,11 @@ import Header from '../components/Header.astro';
       <div class="ma-hero-grid-bg"></div>
       <div class="ma-hero-scan"></div>
       <div class="ma-container ma-hero-content">
-        <div class="ma-hero-tag">&gt; digital_technology_partner.init()</div>
-        <h1>AI that works.<span class="ma-cursor">|</span></h1>
+        <HeroTypewriter 
+          tagText="> digital_technology_partner.init()" 
+          headlineText="AI that works."
+          typingSpeed={36}
+        />
         <p class="ma-hero-sub">We cut through the hype, build AI that delivers, and prove value through real results — fast, focused, and tailored to you.</p>
         <div class="ma-hero-actions">
           <a href="https://outlook.office.com/bookwithme/user/f0762b9af6a94ed2add9818a4f3ca4e5@digitaltechnologypartner.ai/meetingtype/qc2lOXjEdkO6GkMS_jZJrQ2?anonymous" target="_blank" rel="noopener noreferrer" class="ma-btn ma-btn-mint">Book a Discovery Call</a>
@@ -278,6 +282,24 @@ import Header from '../components/Header.astro';
 
 <!-- Animation Scripts -->
 <script>
+  // Typewriter effect for hero h1
+  const text = "AI that works.";
+  const typewriterElement = document.querySelector('.typewriter-text');
+  let i = 0;
+
+  function typeWriter() {
+    if (typewriterElement && i < text.length) {
+      typewriterElement.textContent += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, 120);
+    }
+  }
+
+  // Start typing after a brief delay
+  setTimeout(typeWriter, 500);
+</script>
+
+<script>
   // Initialize all animations when DOM is ready
   document.addEventListener('DOMContentLoaded', async () => {
     try {
@@ -353,6 +375,23 @@ import Header from '../components/Header.astro';
 </script>
 
 <style>
+  /* Typewriter effect styles */
+  .typewriter-text {
+    display: inline;
+  }
+
+  .ma-cursor {
+    display: inline;
+    color: #22c55e;
+    font-weight: 400;
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
   /* S11: Results ticker animation enhancement */
   .ma-stat-val {
     display: block;
