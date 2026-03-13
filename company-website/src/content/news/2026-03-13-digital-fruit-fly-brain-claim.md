@@ -70,4 +70,14 @@ If that verification arrives, it won’t just be a science story. It will be one
 
 ---
 
+## Sources & further reading
+
+- Reported claim overview: https://the-decoder.com/startup-claims-first-full-brain-emulation-of-a-fruit-fly-in-a-simulated-body/
+- Additional reporting: https://www.turkiyetoday.com/business/scientists-place-fruit-fly-brain-in-virtual-body-in-new-digital-neuroscience-step-3215923
+- Background science (simulation): https://journals.biologists.com/jeb/article/228/13/jeb250783/368422/The-virtual-flight-of-the-fruit-fly
+- Connectome milestone coverage: https://www.sciencedaily.com/releases/2024/10/241002123138.htm
+- FlyWire / connectome exploration (Janelia/Princeton): https://neuprint.janelia.org
+
+---
+
 *AI-assisted draft. Human review and approval required before publish.*
